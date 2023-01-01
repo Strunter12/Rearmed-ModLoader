@@ -343,9 +343,9 @@
           <Include href="UI/Title.xml" itemIcon="1" loadImmediate="false" itemID="63a9d608-00001009" lastModified="1672167294"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1">
+          <DOMTimeline name="Scene 1" currentFrame="19">
                <layers>
-                    <DOMLayer name="FileHandle" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="FileHandle" color="#00FFFF" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <Actionscript>
@@ -441,7 +441,7 @@ CONFIG::AIR {
 }]]></script>
                                    </Actionscript>
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod" selected="true">
+                                        <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod">
                                              <matrix>
                                                   <Matrix tx="-35.15" ty="-7.95"/>
                                              </matrix>
@@ -453,7 +453,7 @@ CONFIG::AIR {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="Actions" color="#00FFFF" autoNamed="false">
+                    <DOMLayer name="Actions" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <Actionscript>
@@ -804,6 +804,8 @@ function saveData(): void {
                                         <script><![CDATA[/* SETTINGS */
 settingsContainer.checkVanilla.Connect(pressedVanilla);
 
+setSettings();
+
 function setSettings(): void {
 	if (settingsDict["Vanilla"])
 		settingsContainer.checkVanilla.forceCheck();
@@ -1137,6 +1139,14 @@ function pressedVanilla(): void {
      </persistentData>
      <PrinterSettings/>
      <publishHistory>
+          <PublishItem publishSize="106501" publishTime="1672603604"/>
+          <PublishItem publishSize="106501" publishTime="1672603452"/>
+          <PublishItem publishSize="116423" publishTime="1672603129"/>
+          <PublishItem publishSize="116423" publishTime="1672603124"/>
+          <PublishItem publishSize="116423" publishTime="1672603118"/>
+          <PublishItem publishSize="116423" publishTime="1672603112"/>
+          <PublishItem publishSize="116423" publishTime="1672603106"/>
+          <PublishItem publishSize="116416" publishTime="1672603074"/>
           <PublishItem publishSize="116483" publishTime="1672603031"/>
           <PublishItem publishSize="116483" publishTime="1672603024"/>
           <PublishItem publishSize="116483" publishTime="1672602996"/>
@@ -1149,14 +1159,6 @@ function pressedVanilla(): void {
           <PublishItem publishSize="116354" publishTime="1672602778"/>
           <PublishItem publishSize="116354" publishTime="1672602758"/>
           <PublishItem publishSize="116354" publishTime="1672602695"/>
-          <PublishItem publishSize="116354" publishTime="1672602648"/>
-          <PublishItem publishSize="116345" publishTime="1672602505"/>
-          <PublishItem publishSize="116345" publishTime="1672602464"/>
-          <PublishItem publishSize="116408" publishTime="1672602328"/>
-          <PublishItem publishSize="116398" publishTime="1672602241"/>
-          <PublishItem publishSize="116379" publishTime="1672602158"/>
-          <PublishItem publishSize="116442" publishTime="1672602095"/>
-          <PublishItem publishSize="116460" publishTime="1672602060"/>
      </publishHistory>
      <swcCache>
           <Swc hashKey="lBSX9Y5jU7802yucctAf9/" href="lcqn9ng719.swc">
