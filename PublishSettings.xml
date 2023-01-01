@@ -79,7 +79,7 @@
     <ActionScriptVersion>3</ActionScriptVersion>
     <PackageExportFrame>1</PackageExportFrame>
     <PackagePaths></PackagePaths>
-    <AS3PackagePaths>.;C:\Users\pc\Documents\GitHub\AWWModLoader\src\</AS3PackagePaths>
+    <AS3PackagePaths>C:\Users\pc\Documents\GitHub\Rearmed-ModLoader\Rearmed-ModLoader\src\</AS3PackagePaths>
     <AS3ConfigConst>CONFIG::FLASH_AUTHORING=&quot;true&quot;;CONFIG::AIR=&quot;true&quot;;CONFIG::STEAM=&quot;true&quot;;</AS3ConfigConst>
     <DebuggingPermitted>0</DebuggingPermitted>
     <DebuggingPassword></DebuggingPassword>
@@ -115,7 +115,7 @@
         <linkage>merge</linkage>
       </library-path-entry>
       <library-path-entry>
-        <swc-path>C:\Users\pc\Documents\GitHub\AWWModLoader\AWWMODLOADER\AwwModLoader-1\FRESteamWorks.ane</swc-path>
+        <swc-path>C:\Users\pc\Documents\GitHub\Rearmed-ModLoader\Rearmed-ModLoader\FRESteamWorks.ane</swc-path>
         <linkage>external</linkage>
       </library-path-entry>
     </LibraryPath>

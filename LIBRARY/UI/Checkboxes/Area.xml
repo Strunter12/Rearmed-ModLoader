@@ -1,0 +1,28 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Checkboxes/Area" itemID="63b17715-0000023a" lastModified="1672576033">
+  <timeline>
+    <DOMTimeline name="Area">
+      <layers>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="134" objectHeight="134" x="0" y="0" selected="true" lockFlag="true">
+                  <fill>
+                    <SolidColor color="#FFFFFF" alpha="0.168627450980392"/>
+                  </fill>
+                  <stroke>
+                    <SolidStroke scaleMode="normal" caps="none" weight="0.1" joints="miter">
+                      <fill>
+                        <SolidColor color="#FFFFFF" alpha="0"/>
+                      </fill>
+                    </SolidStroke>
+                  </stroke>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

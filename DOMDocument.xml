@@ -15,15 +15,17 @@
           <DOMFolderItem name="Environemnt/ENV-Prop-Back/ENV-Rock" itemID="63b08925-00000f59"/>
           <DOMFolderItem name="Environemnt/ENV-Prop-Back/ENV-Ruins" itemID="63b08925-00000f3a"/>
           <DOMFolderItem name="Environemnt/ENV-Prop-Front" itemID="63b08925-00000eeb"/>
-          <DOMFolderItem name="UI" itemID="63b075a1-0000016b"/>
+          <DOMFolderItem name="Fonts" itemID="63b15d24-000002ae"/>
+          <DOMFolderItem name="UI" itemID="63b075a1-0000016b" isExpanded="true"/>
           <DOMFolderItem name="UI/Buttons" itemID="63a9e4ab-000010e6"/>
-          <DOMFolderItem name="UI/Buttons/But2" itemID="63aac876-00000144"/>
+          <DOMFolderItem name="UI/Buttons/But2" itemID="63aac876-00000144" isExpanded="true"/>
           <DOMFolderItem name="UI/Buttons/ModBut" itemID="63a9e4fb-000010f7"/>
+          <DOMFolderItem name="UI/Checkboxes" itemID="63b17770-00000241" isExpanded="true"/>
      </folders>
      <fonts>
-          <DOMFontItem name="UI/MainButFont" itemID="63aaee9d-000001ea" font="Thinman" size="0" id="1" sourceLastImported="1672146589" embedRanges="9999"/>
-          <DOMFontItem name="UI/LogFontA" itemID="63ac92de-00000182" font="TerminatorTwo" size="0" id="2" sourceLastImported="1672254174" embedRanges="9999"/>
-          <DOMFontItem name="UI/LogFontB" itemID="63ac9340-00000185" font="TwCenMT-Condensed" size="0" id="3" sourceLastImported="1672254272" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/MainButFont" itemID="63aaee9d-000001ea" font="Thinman" size="0" id="1" sourceLastImported="1672146589" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/LogFontA" itemID="63ac92de-00000182" font="TerminatorTwo" size="0" id="2" sourceLastImported="1672254174" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/LogFontB" itemID="63ac9340-00000185" font="TwCenMT-Condensed" size="0" id="3" sourceLastImported="1672254272" embedRanges="9999"/>
      </fonts>
      <media>
           <DOMCompiledClipItem name="Component Assets/_private/ComponentShim" itemID="50f45de3-000003c1" linkageExportForAS="true" linkageClassName="fl.core.ComponentShim" sourceLastImported="1358192099" displayAsComponent="false" customIconID="0" actionscriptClass="fl.core.ComponentShim" swfScmHRef="9904vgmrqe.swf" swfScmSourceFilename="C:\Users\jkamerer\AppData\Local\Adobe\Flash CS7\en_US\Configuration\TMP00ECED5F50F45DDD..swf" persistLivePreview11="true" livePreview11ScmHRef="9905agmrqe.swf" livePreview11ScmSourceFilename="C:\Users\jkamerer\AppData\Local\Adobe\Flash CS7\en_US\Configuration\TMP00ECED5F50F45DDD..swf" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true" swcPath="Component Assets/_private/ComponentShim.xml" rootSymbolLinkageID="fl.core.ComponentShim" playerVersion="9" actionscriptVersion="3" hashKey="lBSX9Y5jU7802yucctAf9/">
@@ -119,9 +121,8 @@
           </DOMCompiledClipItem>
      </media>
      <symbols>
-          <Include href="Base/BaseMod.xml" loadImmediate="false" itemID="63b075d3-00000173" lastModified="1672519440"/>
+          <Include href="Base/BaseMod.xml" loadImmediate="false" itemID="63b075d3-00000173" lastModified="1672566405"/>
           <Include href="Button.xml" itemID="44a4944a-00000029" lastModified="1358192121"/>
-          <Include href="CheckBox.xml" itemID="44b19f0d-00000018" lastModified="1672254960"/>
           <Include href="Component Assets/_private/Component_avatar.xml" loadImmediate="false" itemID="44f89322-00000020" lastModified="1168286780"/>
           <Include href="Component Assets/ButtonSkins/Button_disabledSkin.xml" itemID="44a3379e-00000015" lastModified="1168286804"/>
           <Include href="Component Assets/ButtonSkins/Button_downSkin.xml" itemID="44a337b6-00000016" lastModified="1168286817"/>
@@ -317,15 +318,20 @@
           <Include href="Environemnt/ENV-Prop-Front/ENV-RockFront-Slide-00.xml" loadImmediate="false" itemID="56a55e73-00000d8a" lastModified="1453678195"/>
           <Include href="Environemnt/ENV-Prop-Front/ENV-RockFront-Slide-01.xml" loadImmediate="false" itemID="56a55e77-00000d8b" lastModified="1453678199"/>
           <Include href="Environemnt/ENV-Prop-Front/ENV-RockFront-Slide-02.xml" loadImmediate="false" itemID="56a55e7a-00000d8c" lastModified="1488204815"/>
-          <Include href="UI/Buttons/But2/ButLabel.xml" loadImmediate="false" itemID="63aadc79-000001b3" lastModified="1672154737"/>
-          <Include href="UI/Buttons/But2/MainButton.xml" loadImmediate="false" itemID="63aac8fb-00000157" lastModified="1672512310"/>
+          <Include href="ModTab.xml" loadImmediate="false" itemID="63b184d2-0000032a" lastModified="1672578888"/>
+          <Include href="Settings.xml" loadImmediate="false" itemID="63b17d9b-00000298" lastModified="1672577247"/>
+          <Include href="UI/Buttons/But2/ButLabel.xml" loadImmediate="false" itemID="63aadc79-000001b3" lastModified="1672574199"/>
+          <Include href="UI/Buttons/But2/MainButton.xml" loadImmediate="false" itemID="63aac8fb-00000157" lastModified="1672575804"/>
           <Include href="UI/Buttons/ModBut/ModButton.xml" itemIcon="0" itemID="63a9e647-00001117" lastModified="1672078919"/>
+          <Include href="UI/Checkboxes/Area.xml" loadImmediate="false" itemID="63b17715-0000023a" lastModified="1672576033"/>
+          <Include href="UI/Checkboxes/MCheckBox.xml" loadImmediate="false" itemID="63b16930-00000212" lastModified="1672578683"/>
           <Include href="UI/DecoBorderDown.xml" loadImmediate="false" itemID="63a9f368-00000149" lastModified="1672082280"/>
           <Include href="UI/FancyButton.xml" itemIcon="0" itemID="63a9e5cc-0000110b" lastModified="1672132793"/>
           <Include href="UI/Label.xml" itemID="44b18473-00000011" lastModified="1358192121"/>
           <Include href="UI/ModsButton.xml" itemIcon="0" itemID="63a9d727-00001010" lastModified="1672075461"/>
           <Include href="UI/MouseArea.xml" loadImmediate="false" itemID="63aacdfe-00000175" lastModified="1672140790"/>
           <Include href="UI/ScreenEffect1.xml" loadImmediate="false" itemID="63ab3777-000001b3" lastModified="1672165239"/>
+          <Include href="UI/SeperatorLine.xml" loadImmediate="false" itemID="63b15d10-000002a8" lastModified="1672568080"/>
           <Include href="UI/Text.xml" loadImmediate="false" itemID="63a9f118-0000013c" lastModified="1672081722"/>
           <Include href="UI/TextLog.xml" loadImmediate="false" itemID="63ac485a-00000eda" lastModified="1672254350"/>
           <Include href="UI/Title.xml" itemIcon="1" loadImmediate="false" itemID="63a9d608-00001009" lastModified="1672167294"/>
@@ -335,11 +341,55 @@
                <layers>
                     <DOMLayer name="Others" color="#00FFFF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="17" keyMode="9728">
+                              <DOMFrame index="0" duration="20" keyMode="9728">
+                                   <Actionscript>
+                                        <script><![CDATA[CONFIG::AIR {
+	import flash.filesystem.File;
+	import flash.filesystem.FileStream;
+	
+	this.stage.nativeWindow.addEventListener(Event.CLOSING, closeStream);
+	
+	var isLogFileOpen: Boolean = false;
+	// Text file for logs
+	var file: File;
+	var fileRef: FileReference;
+	var stream: FileStream = new FileStream();
+
+	file = File.applicationStorageDirectory.resolvePath("Log.txt");
+	trace("Log file at " + file.nativePath);
+	
+	// Try opening file
+	try {
+		stream.open(file, FileMode.WRITE);
+		trace("Opened log file stream");
+		isLogFileOpen = true;
+	} catch (error: Error) {
+		trace("Could not open log file");
+	}
+
+	// Save trace text to log file
+	function traceLog(txt): void {
+		if (isLogFileOpen) {
+			var text = txt as String;
+			trace(txt);
+			stream.writeUTFBytes(text + "\n");
+		}
+	}
+
+	// Closes file stream
+	function closeStream(evt: Event): void {
+		if (isLogFileOpen) {
+			trace("Closing file stream");
+			stream.close();
+			isLogFileOpen = false;
+		}
+	}
+}]]></script>
+                                   </Actionscript>
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod">
                                              <matrix>
-                                                  <Matrix tx="-95.95" ty="370.05"/>
+                                                  <Matrix tx="-35.15" ty="-7.95"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point/>
@@ -349,7 +399,7 @@
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="Actions" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="Actions" color="#00FFFF" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <Actionscript>
@@ -365,11 +415,9 @@ import flash.display.NativeWindow;
 import flash.desktop.NativeApplication;
 }
 
-trace("Started mod loader");
-
-function log(text: String): void {
-	gameLog.addText(text);
-}
+traceLog("Started mod loader");
+const SETTINGS:int = 20;
+const MODS:int = 19;
 
 // Pre-Launch
 var swfRequest:URLRequest = new URLRequest("/Armed with Wings Rearmed/Armed with Wings Rearmed.swf");
@@ -381,11 +429,11 @@ butSettings.connect(Settings);
 butMods.connect(ShowMods);
 
 function Settings(): void {
-	trace("Open Settings");
+	gotoAndStop(SETTINGS);
 }
 
 function ShowMods(): void {
-	trace("Show Mods");
+	gotoAndStop(MODS);
 }
 
  // WINDOW OPTIONS
@@ -402,7 +450,7 @@ var newScreen:NativeWindow;
 
 // Launch game
 function LaunchGame(): void {
-	log("*** Launching game ***");
+	traceLog("*** Launching game ***");
 	// Create a Window
 	newScreen = new NativeWindow(windowOptions);
 	newScreen.title = "Armed with Wings Modded";	
@@ -428,13 +476,13 @@ function AppClosed(evt:Event): void {
 	target = null;
 	loader.unloadAndStop();
 	loader = new Loader();
-	log("*** Game Closed ***");
+	traceLog("*** Game Closed ***");
 	butLaunch.enable();
 	Mouse.show();
 }
 
 function InitTarget(evt:Event): void {
-	log("Done loading swf");
+	traceLog("Done loading swf");
 	// Target contains access to the RUNNING game code
 	target = evt.currentTarget.loader.content as MovieClip;
 	
@@ -442,7 +490,7 @@ function InitTarget(evt:Event): void {
 	BaseMod.initMod(target);
 	BaseMod.loadMods();
 	
-	trace(target.gameVersion);
+	traceLog(target.gameVersion);
 	
 	//this.gotoAndPlay(2);
 }
@@ -457,7 +505,7 @@ this.stop();]]></script>
 target.addEventListener(Event.EXIT_FRAME, CheckInit)
 // Checks if the game is done loading initial data
 function CheckInit(evt:Event):void {
-	trace("Checking Init");
+	traceLog("Checking Init");
 	// If the scene changed to launch notes then the game has been initialized
 	if (target == null)
 	{
@@ -467,8 +515,8 @@ function CheckInit(evt:Event):void {
 	//log("Current scene = " + target.currentScene.name)
 	if (target.currentScene.name == "Launch Notes")
 	{
-		trace("stopping init checks");
-		log("Game finished initialising");
+		traceLog("stopping init checks");
+		traceLog("Game finished initialising");
 		target.removeEventListener(Event.EXIT_FRAME, CheckInit)
 		// Perform after game initialization code
 		this.gotoAndStop(17);
@@ -486,7 +534,7 @@ this.gotoAndPlay(2);]]></script>
                                    </Actionscript>
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="16" keyMode="9728">
+                              <DOMFrame index="16" duration="2" keyMode="9728">
                                    <Actionscript>
                                         <script><![CDATA[import flash.events.Event;
 import flash.ui.Mouse;
@@ -508,8 +556,6 @@ newScreen.stage.nativeWindow.addEventListener(Event.CLOSE, AppClosed);
 // Get keyboard input
 newScreen.stage.addEventListener(KeyboardEvent.KEY_DOWN, KeyHandler);
 
-var fullscreen = checkboxFullscreen.selected;
-
 function KeyHandler(evt: KeyboardEvent): void {
 	if (evt.keyCode == 116) {
 		if (target.fullscreen) {
@@ -524,12 +570,11 @@ function KeyHandler(evt: KeyboardEvent): void {
 
 // Initial inits after launching game
 function AfterLaunch(): void {
-	trace("After Launch");
+	traceLog("After Launch");
 	BaseMod.runAfterInitMods()
 	target.displayFullscreen();
 	target.saveData();
-	trace("---- ****Game successfully launched");
-	target.fullscreen = checkboxFullscreen.selected;
+	traceLog("---- ****Game successfully launched");
 	butLaunch.disable();
 	//target.displayFullscreen();
 }
@@ -548,7 +593,7 @@ function Focused(evt: Event): void {
 }
 
 function gameDisplayWindow(): void {
-	trace("Fullscreen OFF");
+	traceLog("Fullscreen OFF");
 	newScreen.stage.displayState = StageDisplayState.NORMAL;
 	newScreen.stage.scaleMode = StageScaleMode.NO_SCALE;
 
@@ -562,23 +607,20 @@ function gameDisplayWindow(): void {
 	//newScreen.height = target.gameHeight * target.scaleY;
 	//newScreen.x = 0;
 	//newScreen.y = 0;
-
-	trace(newScreen.width);
 	target.x = -480;
 	//target.y = -270;
 	/*
-	trace(target.transform.perspectiveProjection.projectionCenter)
+	traceLog(target.transform.perspectiveProjection.projectionCenter)
 	var pp:PerspectiveProjection = new PerspectiveProjection();
 	pp.projectionCenter = new Point((newScreen.width) * 0.5, (newScreen.height) * 0.5);
 	target.transform.perspectiveProjection = pp;
-	trace(target.transform.perspectiveProjection.projectionCenter)
+	traceLog(target.transform.perspectiveProjection.projectionCenter)
 	*/
 	target.fullscreen = false;
-	fullscreen = false;
 }
 
 function gameDisplayFullscreen(): void {
-	trace("Fullscreen ON");
+	traceLog("Fullscreen ON");
 
 	target.scaleFactor = 1;
 	target.data_scaleFator = 1;
@@ -595,12 +637,11 @@ function gameDisplayFullscreen(): void {
 	pp.projectionCenter = new Point((target.gameWidth * target.data_scaleFactor) * .5, (target.gameHeight * target.data_scaleFactor) * .5);
 	target.transform.perspectiveProjection = pp;
 	target.fullscreen = true;
-	fullscreen = true;
 }
 
 // Saves the game data
 function saveData(): void {
-	trace("Saving Data");
+	traceLog("Saving Data");
 
 	target.firstRun = false;
 
@@ -685,11 +726,63 @@ function saveData(): void {
                                    </Actionscript>
                                    <elements/>
                               </DOMFrame>
+                              <DOMFrame index="18" keyMode="9728">
+                                   <Actionscript>
+                                        <script><![CDATA[/* MODS */
+
+]]></script>
+                                   </Actionscript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="19" keyMode="9728">
+                                   <Actionscript>
+                                        <script><![CDATA[/* SETTINGS */
+
+]]></script>
+                                   </Actionscript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Buttons2" color="#009999" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="19" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Settings">
+                                             <matrix>
+                                                  <Matrix tx="-252.45" ty="179.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="73.2" y="66.2"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMSymbolInstance libraryItemName="ModTab">
+                                             <matrix>
+                                                  <Matrix tx="309.1" ty="171.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="289.95" y="52.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="19" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Settings" centerPoint3DX="398.1" centerPoint3DY="242.2">
+                                             <matrix>
+                                                  <Matrix tx="309.1" ty="176"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="73.2" y="66.2"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="Buttons" color="#FF800A" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="17" keyMode="9728">
+                              <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements>
                                         <DOMShape>
                                              <strokes>
@@ -708,7 +801,7 @@ function saveData(): void {
                                         </DOMShape>
                                         <DOMComponentInstance libraryItemName="UI/Buttons/But2/MainButton" name="butSettings" uniqueID="1">
                                              <matrix>
-                                                  <Matrix tx="11.65" ty="323.85"/>
+                                                  <Matrix tx="11.65" ty="312.85"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point x="32" y="20.45"/>
@@ -735,7 +828,7 @@ function saveData(): void {
                                         </DOMComponentInstance>
                                         <DOMComponentInstance libraryItemName="UI/Buttons/But2/MainButton" name="butLaunch" uniqueID="2">
                                              <matrix>
-                                                  <Matrix a="1.90579223632812" d="1.90579223632812" tx="9.8" ty="177.35"/>
+                                                  <Matrix a="1.90579223632812" d="1.90579223632812" tx="9.8" ty="166.35"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point x="32.05" y="20.45"/>
@@ -759,7 +852,7 @@ function saveData(): void {
                                         </DOMComponentInstance>
                                         <DOMComponentInstance libraryItemName="UI/Buttons/But2/MainButton" name="butMods" uniqueID="3">
                                              <matrix>
-                                                  <Matrix tx="11.65" ty="273.35"/>
+                                                  <Matrix tx="11.65" ty="262.35"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point x="32" y="20.45"/>
@@ -784,56 +877,20 @@ function saveData(): void {
    </property>
 ]]></parametersAsXML>
                                         </DOMComponentInstance>
-                                        <DOMComponentInstance libraryItemName="CheckBox" name="checkboxFullscreen" uniqueID="2">
-                                             <matrix>
-                                                  <Matrix a="1.69999694824219" d="2.09091186523438" tx="15.65" ty="422.65"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="50.05" y="11.1"/>
-                                             </transformationPoint>
-                                             <color>
-                                                  <Color brightness="1"/>
-                                             </color>
-                                             <parametersAsXML><![CDATA[   <property id="enabled">
-      <Inspectable name="enabled" unlocalizedName="enabled" variable="enabled" category="" verbose="1" defaultValue="true" type="Boolean"/>
-   </property>
-   <property id="label">
-      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="FULLSCREEN" type="String"/>
-   </property>
-   <property id="labelPlacement">
-      <Inspectable name="labelPlacement" unlocalizedName="labelPlacement" variable="labelPlacement" category="" verbose="0" defaultValue="right" enumeration="left,right,top,bottom" type="List"/>
-   </property>
-   <property id="selected">
-      <Inspectable name="selected" unlocalizedName="selected" variable="selected" category="" verbose="0" defaultValue="true" type="Boolean"/>
-   </property>
-   <property id="visible">
-      <Inspectable name="visible" unlocalizedName="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
-   </property>
-]]></parametersAsXML>
-                                        </DOMComponentInstance>
                                    </elements>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="TXT" color="#00FFFF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="17" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="UI/TextLog" name="gameLog">
-                                             <matrix>
-                                                  <Matrix a="0.897720336914062" d="1.00437927246094" tx="377.4" ty="160.7"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="321.5" y="236.3"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                   </elements>
+                              <DOMFrame index="0" duration="20" keyMode="9728">
+                                   <elements/>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="FG" color="#FF4FFF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="17" keyMode="9728">
+                              <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="UI/Title">
                                              <matrix>
@@ -846,13 +903,24 @@ function saveData(): void {
                                                   <Color brightness="-0.09"/>
                                              </color>
                                         </DOMSymbolInstance>
+                                        <DOMSymbolInstance libraryItemName="UI/SeperatorLine">
+                                             <matrix>
+                                                  <Matrix tx="289.1" ty="170.25"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point y="193.25"/>
+                                             </transformationPoint>
+                                             <filters>
+                                                  <GlowFilter blurX="4" blurY="20" color="#FFFFFF" quality="3" strength="2.03"/>
+                                             </filters>
+                                        </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="BG2" color="#00FFFF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="17" keyMode="9728">
+                              <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="UI/DecoBorderDown">
                                              <matrix>
@@ -889,7 +957,7 @@ function saveData(): void {
                     </DOMLayer>
                     <DOMLayer name="BG" color="#9933CC" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="17" keyMode="9728">
+                              <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements>
                                         <DOMShape>
                                              <fills>
@@ -941,46 +1009,46 @@ function saveData(): void {
      <persistentData>
           <PD n="com.air.artemis.airdest" v="D:/Development/AWWSTEAMAPPTEST/AwwModLoader-1.app"/>
           <PD n="ane.tmp.unzipped.folder" v="C:\Users\pc\AppData\Local\Temp\Tmp_ANE_File_Unzipped_Packages"/>
-          <PD n="com.air.oldTargetPlatform" v="Desktop"/>
-          <PD n="com.air.artemis.included.count" v="3"/>
           <PD n="DebugMovieChecked" v="ADLDesktop"/>
+          <PD n="com.air.artemis.included.count" v="3"/>
+          <PD n="com.air.oldTargetPlatform" v="Desktop"/>
           <PD n="ane.id.FRESteamWorks.ane" v="com.amanitadesign.steam.FRESteamWorks"/>
           <PD n="TestMovieChecked" v="ADLDesktop"/>
           <PD n="com.air.sdk.path" v="D:\Adobe\AdobeAir"/>
           <PD n="com.air.artemis.pubair" v="false"/>
-          <PD n="com.air.artemis.included.item0" v="steam_api.dll"/>
           <PD n="com.air.artemis.pubipa" v="false"/>
+          <PD n="com.air.artemis.included.item0" v="steam_api.dll"/>
           <PD n="com.air.artemis.included.item1" v="D:/Development/Armed with Wings Rearmed"/>
           <PD n="com.air.artemis.included.item2" v="AWW_Mods"/>
+          <PD n="com.air.artemis.included.item3" v="LOG"/>
           <PD n="flash.swf.basename" v="AwwModLoader-1"/>
-          <PD n="com.air.artemis.included.item3" v="D:/SteamLibrary/steamapps/common/Armed with Wings Rearmed"/>
           <PD n="com.air.artemis.pubcaptive" v="true"/>
-          <PD n="flash.fla.filepath" v="C:/Users/pc/Documents/GitHub/AWWModLoader/AWWMODLOADER/AwwModLoader-1/AwwModLoader-1.xfl"/>
           <PD n="swf.folder.path" v="D:/Development/AWWSTEAMAPPTEST/"/>
+          <PD n="flash.fla.filepath" v="C:/Users/pc/Documents/GitHub/Rearmed-ModLoader/Rearmed-ModLoader/AwwModLoader-1.xfl"/>
           <PD n="com.air.artemis.pubexe" v="false"/>
      </persistentData>
      <PrinterSettings/>
      <publishHistory>
-          <PublishItem publishSize="107077" publishTime="1672520701"/>
-          <PublishItem publishSize="107077" publishTime="1672520620"/>
-          <PublishItem publishSize="107077" publishTime="1672520612"/>
-          <PublishItem publishSize="107077" publishTime="1672519848"/>
-          <PublishItem publishSize="100517" publishTime="1672519803"/>
-          <PublishItem publishSize="100517" publishTime="1672519791"/>
-          <PublishItem publishSize="107077" publishTime="1672519642"/>
-          <PublishItem publishSize="107076" publishTime="1672519524"/>
-          <PublishItem publishSize="107076" publishTime="1672519334"/>
-          <PublishItem publishSize="107076" publishTime="1672519150"/>
-          <PublishItem publishSize="107076" publishTime="1672519000"/>
-          <PublishItem publishSize="107076" publishTime="1672518825"/>
-          <PublishItem publishSize="107076" publishTime="1672518442"/>
-          <PublishItem publishSize="107076" publishTime="1672518379"/>
-          <PublishItem publishSize="107076" publishTime="1672518311"/>
-          <PublishItem publishSize="107076" publishTime="1672518014"/>
-          <PublishItem publishSize="107076" publishTime="1672517958"/>
-          <PublishItem publishSize="107088" publishTime="1672517912"/>
-          <PublishItem publishSize="107068" publishTime="1672517828"/>
-          <PublishItem publishSize="107080" publishTime="1672517752"/>
+          <PublishItem publishSize="106557" publishTime="1672578125"/>
+          <PublishItem publishSize="106558" publishTime="1672577826"/>
+          <PublishItem publishSize="106578" publishTime="1672577768"/>
+          <PublishItem publishSize="106532" publishTime="1672577425"/>
+          <PublishItem publishSize="57471" publishTime="1672577392"/>
+          <PublishItem publishSize="57471" publishTime="1672577371"/>
+          <PublishItem publishSize="106482" publishTime="1672577024"/>
+          <PublishItem publishSize="106482" publishTime="1672576961"/>
+          <PublishItem publishSize="67824" publishTime="1672576643"/>
+          <PublishItem publishSize="106029" publishTime="1672576102"/>
+          <PublishItem publishSize="106018" publishTime="1672576066"/>
+          <PublishItem publishSize="106018" publishTime="1672576053"/>
+          <PublishItem publishSize="106018" publishTime="1672576040"/>
+          <PublishItem publishSize="106014" publishTime="1672575979"/>
+          <PublishItem publishSize="106008" publishTime="1672575944"/>
+          <PublishItem publishSize="106008" publishTime="1672575904"/>
+          <PublishItem publishSize="106008" publishTime="1672575883"/>
+          <PublishItem publishSize="57427" publishTime="1672575854"/>
+          <PublishItem publishSize="68024" publishTime="1672568314"/>
+          <PublishItem publishSize="68024" publishTime="1672568291"/>
      </publishHistory>
      <swcCache>
           <Swc hashKey="lBSX9Y5jU7802yucctAf9/" href="lcqn9ng719.swc">

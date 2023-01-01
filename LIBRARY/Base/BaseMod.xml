@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672519440">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672566405">
   <timeline>
     <DOMTimeline name="BaseMod">
       <layers>
@@ -23,7 +23,7 @@ CONFIG::AIR {
 var game: MovieClip; // MUST BE IN MOD
 var modName: String = "Base Mod"; // MUST BE IN MOD
 var modDescription: String = "Base mod for loading other mods";
-
+var _root:MovieClip = MovieClip(root);
 
 
 // NON OBLIGATORY:
@@ -33,7 +33,7 @@ var modContents:Array = new Array();
 
 // Recieves the game Main Timeline (MUST BE IN ANY MOD)
 function initMod(target: MovieClip): void {
-	trace("Initializing " + modName);
+	_root.traceLog("Initializing " + modName);
 	game = target;
 }
 
@@ -41,13 +41,13 @@ CONFIG::AIR {
 	// TODO: FINISH READING MODS
 	// Get mod files (.SWF)
 	function getMods(): void {
-		trace("Getting mods");
+		_root.traceLog("Getting mods");
 		var modFolder:File = File.applicationDirectory.resolvePath("AWW_Mods");
 		var files:Array = modFolder.getDirectoryListing();
 		for (var i:uint = 0; i < files.length; i++) {
 			if (files[i].name.substring(files[i].name.length - 4, files[i].name.length) == ".swf")
 			{
-				trace("Detected mod: " + files[i].name);
+				_root.traceLog("Detected mod: " + files[i].name);
 				modFiles.push(files[i]);
 			}
 		}
@@ -59,7 +59,7 @@ var modsLoadedCount = 0;
 
 // Loads mods (Calls itself until all mods are loaded)
 function loadMods(modIdx:uint = 0): void {
-	trace("Loading mods");
+	_root.traceLog("Loading mods");
 	modLoader = new Loader();
 	var swfRequest:URLRequest = new URLRequest(modFiles[modIdx].nativePath);
 	modLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, modLoaded, false, 0, true);
@@ -69,7 +69,7 @@ function loadMods(modIdx:uint = 0): void {
 
 // Called when a mod is done loading
 function modLoaded(evt:Event): void {
-	trace(modFiles[modsLoadedCount].name + " has loaded");
+	_root.traceLog(modFiles[modsLoadedCount].name + " has loaded");
 	var modTarget:MovieClip = modLoader.content as MovieClip;
 	
 	modContents.push(modTarget);
@@ -87,7 +87,7 @@ function modLoaded(evt:Event): void {
 }
 
 function runAfterInitMods(): void {
-	trace("Calling after init functions in mods");
+	_root.traceLog("Calling after init functions in mods");
 	for (var i:uint = 0; i < modContents.length; i++) {
 		modContents[i].afterInits();
 	}

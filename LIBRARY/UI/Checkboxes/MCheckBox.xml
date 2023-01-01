@@ -1,0 +1,489 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Checkboxes/MCheckBox" itemID="63b16930-00000212" lastModified="1672578683" displayAsComponent="false" customIconID="0" actionscriptClass="MainCheckBox" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="MCheckBox">
+      <layers>
+        <DOMLayer name="Actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[/* CHECK BOX */
+
+area.addEventListener(MouseEvent.MOUSE_OVER, hover);
+area.addEventListener(MouseEvent.MOUSE_OUT, mouseExit);
+area.addEventListener(MouseEvent.MOUSE_DOWN, pressedDown);
+area.addEventListener(MouseEvent.CLICK, clicked);
+
+labelCheck.autoSize = TextFieldAutoSize.LEFT;
+labelCheck.text = this.label;
+
+const UNCHECKED: int = 1;
+const UNCHECKED_HIGHLIGHT: int = 2;
+const UNCHECKED_PRESSED: int = 3;
+const CHECKED: int = 4;
+const CHECKED_HIGHLIGHT: int = 5;
+const CHECKED_PRESSED: int = 6;
+
+var mouseOver: Boolean = false;
+var function: Function;
+
+area.alpha = 0;
+
+// Check if button is enabled
+if (this.enabled) {
+	if (this.checked)
+		this.gotoAndStop(CHECKED);
+	else
+		this.gotoAndStop(UNCHECKED);
+} else {
+	this.disable();
+	if (this.checked)
+		this.gotoAndStop(CHECKED_PRESSED);
+	else
+		this.gotoAndStop(UNCHECKED_PRESSED);
+}
+
+// Called when mouse hovers over the button
+function hover(evt: Event): void {
+	mouseOver = true;
+	if (this.checked)
+		this.gotoAndStop(CHECKED_HIGHLIGHT);
+	else
+		this.gotoAndStop(UNCHECKED_HIGHLIGHT);
+}
+
+// Called when mouse exits the button
+function mouseExit(evt: Event): void {
+	mouseOver = false;
+	if (this.checked)
+		this.gotoAndStop(CHECKED);
+	else
+		this.gotoAndStop(UNCHECKED);
+}
+
+// Called when button is pressed down
+function pressedDown(evt: Event): void {
+	if (this.checked)
+		this.gotoAndStop(CHECKED_PRESSED);
+	else
+		this.gotoAndStop(UNCHECKED_PRESSED);
+}
+
+// Called when button is clicked (on release)
+function clicked(evt: Event): void {
+	this.checked = !this.checked;
+	if (this.checked)
+		if (mouseOver)
+			this.gotoAndStop(CHECKED_HIGHLIGHT);
+		else
+			this.gotoAndStop(CHECKED);
+		else
+	if (mouseOver)
+		this.gotoAndStop(UNCHECKED_HIGHLIGHT);
+	else
+		this.gotoAndStop(UNCHECKED);
+}
+
+// Connects clicking to given function
+function Connect(funct: Function): void {
+	function = funct;
+}
+
+function disable(): void {
+	this.gotoAndStop(4);
+	area.removeEventListener(MouseEvent.MOUSE_OVER, hover);
+	area.removeEventListener(MouseEvent.MOUSE_OUT, mouseExit);
+	area.removeEventListener(MouseEvent.MOUSE_DOWN, pressedDown);
+	area.removeEventListener(MouseEvent.CLICK, clicked);
+}
+
+function enable(): void {
+	this.gotoAndStop(3);
+	area.addEventListener(MouseEvent.MOUSE_OVER, hover);
+	area.addEventListener(MouseEvent.MOUSE_OUT, mouseExit);
+	area.addEventListener(MouseEvent.MOUSE_DOWN, pressedDown);
+	area.addEventListener(MouseEvent.CLICK, clicked);
+}]]></script>
+              </Actionscript>
+              <elements>
+                <DOMDynamicText name="labelCheck" selected="true" top="-5.5" width="100" height="29.9" isSelectable="false" lineType="multiline no wrap">
+                  <matrix>
+                    <Matrix a="2.73654174804688" d="2.73654174804688" tx="143.45" ty="43"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Label</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Area" color="#FF4FFF" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Checkboxes/Area" name="area" selected="true">
+                  <matrix>
+                    <Matrix tx="-2" ty="-2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="67" y="67"/>
+                  </transformationPoint>
+                  <color>
+                    <Color/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Button" color="#00FFFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="2" edges="!120 120|2480 120!2480 120|2480 2480!2480 2480|120 2480!120 2480|120 120"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!60 60|2540 60!2540 60|2540 2540!2540 2540|60 2540!60 2540|60 60"/>
+                    <Edge fillStyle1="1" edges="!0 0|2600 0!2600 0|2600 2600!2600 2600|0 2600!0 2600|0 0"/>
+                    <Edge cubics="!60 60(;60,60 2540,60 2540,60q60 60 2540 60);"/>
+                    <Edge cubics="!2540 60(;2540,60 2540,444 2540,444q2540 60 2540 444);"/>
+                    <Edge cubics="!2540 444(;2540,444 2540,2540 2540,2540q2540 444 2540 2540);"/>
+                    <Edge cubics="!2540 2540(;2540,2540 60,2540 60,2540q2540 2540 60 2540);"/>
+                    <Edge cubics="!60 2540(;60,2540 60,444 60,444q60 2540 60 444);"/>
+                    <Edge cubics="!60 444(;60,444 60,60 60,60q60 444 60 60);"/>
+                    <Edge cubics="!0 0(;0,0 2600,0 2600,0q0 0 2600 0);"/>
+                    <Edge cubics="!0 2600(;0,2600 0,444 0,444q0 2600 0 444);"/>
+                    <Edge cubics="!0 444(;0,444 0,0 0,0q0 444 0 0);"/>
+                    <Edge cubics="!2600 0(;2600,0 2600,444 2600,444q2600 0 2600 444);"/>
+                    <Edge cubics="!2600 444(;2600,444 2600,2600 2600,2600q2600 444 2600 2600);"/>
+                    <Edge cubics="!2600 2600(;2600,2600 0,2600 0,2600q2600 2600 0 2600);"/>
+                    <Edge cubics="!120 120(;120,120 2480,120 2480,120q120 120 2480 120);"/>
+                    <Edge cubics="!2480 120(;2480,120 2480,444 2480,444q2480 120 2480 444);"/>
+                    <Edge cubics="!2480 444(;2480,444 2480,2480 2480,2480q2480 444 2480 2480);"/>
+                    <Edge cubics="!2480 2480(;2480,2480 120,2480 120,2480q2480 2480 120 2480);"/>
+                    <Edge cubics="!120 2480(;120,2480 120,444 120,444q120 2480 120 444);"/>
+                    <Edge cubics="!120 444(;120,444 120,120 120,120q120 444 120 120);"/>
+                    <Edge cubics="!160 160(;160,160 2440,160 2440,160q160 160 2440 160);"/>
+                    <Edge cubics="!2440 160(;2440,160 2440,2440 2440,2440q2440 160 2440 2440);"/>
+                    <Edge cubics="!2440 2440(;2440,2440 160,2440 160,2440q2440 2440 160 2440);"/>
+                    <Edge cubics="!160 2440(;160,2440 160,160 160,160q160 2440 160 160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="2" edges="!120 120|2480 120!2480 120|2480 2480!2480 2480|120 2480!120 2480|120 120"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!60 60|2540 60!2540 60|2540 2540!2540 2540|60 2540!60 2540|60 60"/>
+                    <Edge fillStyle1="1" edges="!0 0|2600 0!2600 0|2600 2600!2600 2600|0 2600!0 2600|0 0"/>
+                    <Edge cubics="!60 60(;60,60 2540,60 2540,60q60 60 2540 60);"/>
+                    <Edge cubics="!2540 2540(;2540,2540 60,2540 60,2540q2540 2540 60 2540);"/>
+                    <Edge cubics="!0 0(;0,0 2600,0 2600,0q0 0 2600 0);"/>
+                    <Edge cubics="!2600 2600(;2600,2600 0,2600 0,2600q2600 2600 0 2600);"/>
+                    <Edge cubics="!120 120(;120,120 2480,120 2480,120q120 120 2480 120);"/>
+                    <Edge cubics="!2480 2480(;2480,2480 120,2480 120,2480q2480 2480 120 2480);"/>
+                    <Edge cubics="!2600 0(;2600,0 2600,2600 2600,2600q2600 0 2600 2600);"/>
+                    <Edge cubics="!2540 60(;2540,60 2540,2540 2540,2540q2540 60 2540 2540);"/>
+                    <Edge cubics="!2480 120(;2480,120 2480,2480 2480,2480q2480 120 2480 2480);"/>
+                    <Edge cubics="!0 2600(;0,2600 0,0 0,0q0 2600 0 0);"/>
+                    <Edge cubics="!60 2540(;60,2540 60,60 60,60q60 2540 60 60);"/>
+                    <Edge cubics="!120 2480(;120,2480 120,120 120,120q120 2480 120 120);"/>
+                  </edges>
+                </DOMShape>
+                <DOMRectangleObject objectWidth="124" objectHeight="124" x="3" y="3" lockFlag="true">
+                  <fill>
+                    <SolidColor color="#FFFFFF" alpha="0.266666666666667"/>
+                  </fill>
+                  <stroke>
+                    <SolidStroke scaleMode="normal" caps="none" weight="0.1" joints="miter">
+                      <fill>
+                        <SolidColor color="#FFFFFF"/>
+                      </fill>
+                    </SolidStroke>
+                  </stroke>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#666666"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!120 120|2480 120!2480 120|2480 2480!2480 2480|120 2480!120 2480|120 120"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!60 60|2540 60!2540 60|2540 2540!2540 2540|60 2540!60 2540|60 60"/>
+                    <Edge fillStyle1="2" edges="!0 0|2600 0!2600 0|2600 2600!2600 2600|0 2600!0 2600|0 0"/>
+                    <Edge cubics="!60 60(;60,60 2540,60 2540,60q60 60 2540 60);"/>
+                    <Edge cubics="!2540 2540(;2540,2540 60,2540 60,2540q2540 2540 60 2540);"/>
+                    <Edge cubics="!0 0(;0,0 2600,0 2600,0q0 0 2600 0);"/>
+                    <Edge cubics="!2600 2600(;2600,2600 0,2600 0,2600q2600 2600 0 2600);"/>
+                    <Edge cubics="!120 120(;120,120 2480,120 2480,120q120 120 2480 120);"/>
+                    <Edge cubics="!2480 2480(;2480,2480 120,2480 120,2480q2480 2480 120 2480);"/>
+                    <Edge cubics="!2600 0(;2600,0 2600,2600 2600,2600q2600 0 2600 2600);"/>
+                    <Edge cubics="!2540 60(;2540,60 2540,2540 2540,2540q2540 60 2540 2540);"/>
+                    <Edge cubics="!2480 120(;2480,120 2480,2480 2480,2480q2480 120 2480 2480);"/>
+                    <Edge cubics="!0 2600(;0,2600 0,0 0,0q0 2600 0 0);"/>
+                    <Edge cubics="!60 2540(;60,2540 60,60 60,60q60 2540 60 60);"/>
+                    <Edge cubics="!120 2480(;120,2480 120,120 120,120q120 2480 120 120);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="2" edges="!120 120|2480 120!2480 120|2480 2480!2480 2480|120 2480!120 2480|120 120"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!60 60|2540 60!2540 60|2540 2540!2540 2540|60 2540!60 2540|60 60"/>
+                    <Edge fillStyle1="1" edges="!0 0|2600 0!2600 0|2600 2600!2600 2600|0 2600!0 2600|0 0!200 200|2400 200!2400 200|2400 2400!2400 2400|200 2400!200 2400|200 200"/>
+                    <Edge cubics="!60 60(;60,60 2540,60 2540,60q60 60 2540 60);"/>
+                    <Edge cubics="!2540 60(;2540,60 2540,2540 2540,2540q2540 60 2540 2540);"/>
+                    <Edge cubics="!2540 2540(;2540,2540 60,2540 60,2540q2540 2540 60 2540);"/>
+                    <Edge cubics="!60 2540(;60,2540 60,60 60,60q60 2540 60 60);"/>
+                    <Edge cubics="!0 0(;0,0 2600,0 2600,0q0 0 2600 0);"/>
+                    <Edge cubics="!0 2600(;0,2600 0,0 0,0q0 2600 0 0);"/>
+                    <Edge cubics="!2600 0(;2600,0 2600,2600 2600,2600q2600 0 2600 2600);"/>
+                    <Edge cubics="!2600 2600(;2600,2600 0,2600 0,2600q2600 2600 0 2600);"/>
+                    <Edge cubics="!120 120(;120,120 2480,120 2480,120q120 120 2480 120);"/>
+                    <Edge cubics="!2480 120(;2480,120 2480,2480 2480,2480q2480 120 2480 2480);"/>
+                    <Edge cubics="!2480 2480(;2480,2480 120,2480 120,2480q2480 2480 120 2480);"/>
+                    <Edge cubics="!120 2480(;120,2480 120,120 120,120q120 2480 120 120);"/>
+                    <Edge cubics="!200 200(;200,200 2400,200 2400,200q200 200 2400 200);"/>
+                    <Edge cubics="!2400 200(;2400,200 2400,2400 2400,2400q2400 200 2400 2400);"/>
+                    <Edge cubics="!2400 2400(;2400,2400 200,2400 200,2400q2400 2400 200 2400);"/>
+                    <Edge cubics="!200 2400(;200,2400 200,200 200,200q200 2400 200 200);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!120 120|2480 120!2480 120|2480 2480!2480 2480|120 2480!120 2480|120 120"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!60 60|2540 60!2540 60|2540 2540!2540 2540|60 2540!60 2540|60 60"/>
+                    <Edge fillStyle1="2" edges="!0 0|2600 0!2600 0|2600 2600!2600 2600|0 2600!0 2600|0 0!200 200|2400 200!2400 200|2400 2400!2400 2400|200 2400!200 2400|200 200"/>
+                    <Edge cubics="!60 60(;60,60 2540,60 2540,60q60 60 2540 60);"/>
+                    <Edge cubics="!2540 60(;2540,60 2540,2540 2540,2540q2540 60 2540 2540);"/>
+                    <Edge cubics="!2540 2540(;2540,2540 60,2540 60,2540q2540 2540 60 2540);"/>
+                    <Edge cubics="!60 2540(;60,2540 60,60 60,60q60 2540 60 60);"/>
+                    <Edge cubics="!0 0(;0,0 2600,0 2600,0q0 0 2600 0);"/>
+                    <Edge cubics="!0 2600(;0,2600 0,0 0,0q0 2600 0 0);"/>
+                    <Edge cubics="!2600 0(;2600,0 2600,2600 2600,2600q2600 0 2600 2600);"/>
+                    <Edge cubics="!2600 2600(;2600,2600 0,2600 0,2600q2600 2600 0 2600);"/>
+                    <Edge cubics="!120 120(;120,120 2480,120 2480,120q120 120 2480 120);"/>
+                    <Edge cubics="!2480 120(;2480,120 2480,2480 2480,2480q2480 120 2480 2480);"/>
+                    <Edge cubics="!2480 2480(;2480,2480 120,2480 120,2480q2480 2480 120 2480);"/>
+                    <Edge cubics="!120 2480(;120,2480 120,120 120,120q120 2480 120 120);"/>
+                    <Edge cubics="!200 200(;200,200 2400,200 2400,200q200 200 2400 200);"/>
+                    <Edge cubics="!2400 200(;2400,200 2400,2400 2400,2400q2400 200 2400 2400);"/>
+                    <Edge cubics="!2400 2400(;2400,2400 200,2400 200,2400q2400 2400 200 2400);"/>
+                    <Edge cubics="!200 2400(;200,2400 200,200 200,200q200 2400 200 200);"/>
+                  </edges>
+                </DOMShape>
+                <DOMRectangleObject objectWidth="124" objectHeight="124" x="3" y="3" lockFlag="true">
+                  <fill>
+                    <SolidColor color="#FFFFFF" alpha="0.607843137254902"/>
+                  </fill>
+                  <stroke>
+                    <SolidStroke scaleMode="normal" caps="none" weight="0.1" joints="miter">
+                      <fill>
+                        <SolidColor color="#FFFFFF"/>
+                      </fill>
+                    </SolidStroke>
+                  </stroke>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#666666"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!200 200|2400 200!2400 200|2400 2400!2400 2400|200 2400!200 2400|200 200"/>
+                    <Edge fillStyle0="1" edges="!120 120|2480 120!2480 120|2480 2480!2480 2480|120 2480!120 2480|120 120"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!60 60|2540 60!2540 60|2540 2540!2540 2540|60 2540!60 2540|60 60"/>
+                    <Edge fillStyle1="2" edges="!0 0|2600 0!2600 0|2600 2600!2600 2600|0 2600!0 2600|0 0"/>
+                    <Edge cubics="!60 60(;60,60 2540,60 2540,60q60 60 2540 60);"/>
+                    <Edge cubics="!2540 60(;2540,60 2540,2540 2540,2540q2540 60 2540 2540);"/>
+                    <Edge cubics="!2540 2540(;2540,2540 60,2540 60,2540q2540 2540 60 2540);"/>
+                    <Edge cubics="!60 2540(;60,2540 60,60 60,60q60 2540 60 60);"/>
+                    <Edge cubics="!0 0(;0,0 2600,0 2600,0q0 0 2600 0);"/>
+                    <Edge cubics="!0 2600(;0,2600 0,0 0,0q0 2600 0 0);"/>
+                    <Edge cubics="!2600 0(;2600,0 2600,2600 2600,2600q2600 0 2600 2600);"/>
+                    <Edge cubics="!2600 2600(;2600,2600 0,2600 0,2600q2600 2600 0 2600);"/>
+                    <Edge cubics="!120 120(;120,120 2480,120 2480,120q120 120 2480 120);"/>
+                    <Edge cubics="!2480 120(;2480,120 2480,2480 2480,2480q2480 120 2480 2480);"/>
+                    <Edge cubics="!2480 2480(;2480,2480 120,2480 120,2480q2480 2480 120 2480);"/>
+                    <Edge cubics="!120 2480(;120,2480 120,120 120,120q120 2480 120 120);"/>
+                    <Edge cubics="!200 200(;200,200 2400,200 2400,200q200 200 2400 200);"/>
+                    <Edge cubics="!2400 200(;2400,200 2400,2400 2400,2400q2400 200 2400 2400);"/>
+                    <Edge cubics="!2400 2400(;2400,2400 200,2400 200,2400q2400 2400 200 2400);"/>
+                    <Edge cubics="!200 2400(;200,2400 200,200 200,200q200 2400 200 200);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="checked">
+      <Inspectable name="checked" unlocalizedName="checked" variable="checked" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="enabled">
+      <Inspectable name="enabled" unlocalizedName="enabled" variable="enabled" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="label">
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="Label" type="String"/>
+   </property>
+]]></parametersAsXML>
+  <classProperties><![CDATA[<componentData>
+<classDefs>
+	<classDef id="Object"/>
+	<classDef id="Class"/>
+	<classDef id="Function"/>
+	<classDef id="builtin.as$4.MethodClosure"/>
+	<classDef id="Namespace"/>
+	<classDef id="Boolean"/>
+	<classDef id="Number"/>
+	<classDef id="int"/>
+	<classDef id="uint"/>
+	<classDef id="String"/>
+	<classDef id="Array"/>
+	<classDef id="__AS3__.vec.Vector"/>
+	<classDef id="__AS3__.vec.Vector$object"/>
+	<classDef id="__AS3__.vec.Vector$int"/>
+	<classDef id="__AS3__.vec.Vector$uint"/>
+	<classDef id="__AS3__.vec.Vector$double"/>
+	<classDef id="Object"/>
+	<classDef id="Class"/>
+	<classDef id="Function"/>
+	<classDef id="Namespace"/>
+	<classDef id="Boolean"/>
+	<classDef id="Number"/>
+	<classDef id="int"/>
+	<classDef id="uint"/>
+	<classDef id="String"/>
+	<classDef id="Array"/>
+	<classDef id="__AS3__.vec.Vector"/>
+	<classDef id="__AS3__.vec.Vector$object"/>
+	<classDef id="__AS3__.vec.Vector$int"/>
+	<classDef id="__AS3__.vec.Vector$uint"/>
+	<classDef id="__AS3__.vec.Vector$double"/>
+	<classDef id="builtin.as$4.MethodClosure"/>
+	<classDef id="Date"/>
+	<classDef id="Date"/>
+	<classDef id="XML"/>
+	<classDef id="XMLList"/>
+	<classDef id="QName"/>
+	<classDef id="XML"/>
+	<classDef id="XMLList"/>
+	<classDef id="QName"/>
+	<classDef id="Error"/>
+	<classDef id="DefinitionError"/>
+	<classDef id="EvalError"/>
+	<classDef id="RangeError"/>
+	<classDef id="ReferenceError"/>
+	<classDef id="SecurityError"/>
+	<classDef id="SyntaxError"/>
+	<classDef id="TypeError"/>
+	<classDef id="URIError"/>
+	<classDef id="VerifyError"/>
+	<classDef id="UninitializedError"/>
+	<classDef id="ArgumentError"/>
+	<classDef id="flash.errors.IOError"/>
+	<classDef id="flash.errors.EOFError"/>
+	<classDef id="flash.errors.MemoryError"/>
+	<classDef id="flash.errors.IllegalOperationError"/>
+	<classDef id="Error"/>
+	<classDef id="DefinitionError"/>
+	<classDef id="EvalError"/>
+	<classDef id="RangeError"/>
+	<classDef id="ReferenceError"/>
+	<classDef id="SecurityError"/>
+	<classDef id="SyntaxError"/>
+	<classDef id="TypeError"/>
+	<classDef id="URIError"/>
+	<classDef id="VerifyError"/>
+	<classDef id="UninitializedError"/>
+	<classDef id="ArgumentError"/>
+	<classDef id="flash.errors.IOError"/>
+	<classDef id="flash.errors.MemoryError"/>
+	<classDef id="flash.errors.IllegalOperationError"/>
+	<classDef id="flash.errors.EOFError"/>
+	<classDef id="MainCheckBox"/>
+</classDefs>
+<class id="MainCheckBox" >
+	<__go_to_ctor_definition_help file="C:\Users\pc\Documents\GitHub\Rearmed-ModLoader\Rearmed-ModLoader\src\MainCheckBox.as" pos="194" />
+	<native cls="ObjectClass" classgc="exact" methods="auto" construct="override" />
+	<method id="label" returnType="String" isProperty="true" permissions="readonly">
+		<Inspectable defaultValue="Label" />
+	</method>
+	<method id="checked" returnType="Boolean" isProperty="true" permissions="readonly">
+		<Inspectable defaultValue="false" />
+	</method>
+	<method id="enabled" returnType="Boolean" isProperty="true" permissions="readonly">
+		<Inspectable defaultValue="true" />
+	</method>
+	<method id="MainCheckBox" isConstructor="true" isProperty="false">
+	</method>
+	<method id="Object" isConstructor="true" isProperty="false">
+	</method>
+</class>
+</componentData>
+]]></classProperties>
+</DOMComponentItem>

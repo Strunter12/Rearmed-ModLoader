@@ -1,4 +1,4 @@
-<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/But2/MainButton" itemID="63aac8fb-00000157" lastModified="1672512310" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" actionscriptClass="MainButton" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/But2/MainButton" itemID="63aac8fb-00000157" lastModified="1672575804" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" actionscriptClass="MainButton" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
   <timeline>
     <DOMTimeline name="MainButton">
       <layers>
@@ -162,7 +162,6 @@ var mouseOver:Boolean = false
 var connectedFunction: Function;
 
 labelBut.autoSize = TextFieldAutoSize.CENTER;
-
 labelBut.text = this.label;
 
 this.gotoAndStop(2);

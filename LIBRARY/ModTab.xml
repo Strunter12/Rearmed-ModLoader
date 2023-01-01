@@ -1,0 +1,94 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="ModTab" itemID="63b184d2-0000032a" lastModified="1672578888" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="ModTab">
+      <layers>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var modEnabled:Boolean: true;
+
+// Changes mod enabled bool when checkbox is clicked
+function switchEnable(): void {
+	if (checkEnable.checked)
+		modEnabled = true;
+	else
+		modEnabled = false;
+}
+
+function setModName(txt: String) {
+	txtModName.text = txt;
+}
+
+function setModDescription(txt: String) {
+	txtModDescription.text = txt;
+}]]></script>
+              </Actionscript>
+              <elements>
+                <DOMRectangleObject objectWidth="408.65" objectHeight="70.7" x="372.85" y="201.7" lockFlag="true">
+                  <matrix>
+                    <Matrix a="1.41928100585938" d="1.49371337890625" tx="-529.2" ty="-301.3"/>
+                  </matrix>
+                  <fill>
+                    <SolidColor color="#FFFFFF" alpha="0.0980392156862745"/>
+                  </fill>
+                  <stroke>
+                    <SolidStroke scaleMode="normal">
+                      <fill>
+                        <SolidColor color="#FFFFFF" alpha="0.498039215686275"/>
+                      </fill>
+                    </SolidStroke>
+                  </stroke>
+                </DOMRectangleObject>
+                <DOMDynamicText name="txtModName" top="-34.05" left="-19.6" width="146.6" height="101.6" isSelectable="false" lineType="multiline no wrap">
+                  <matrix>
+                    <Matrix tx="21.6" ty="36.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Mod Name</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.0980392156862745" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="txtModDescription" selected="true" top="-34.05" left="-19.6" width="311.4" height="101.6" isSelectable="false" lineType="multiline no wrap">
+                  <matrix>
+                    <Matrix tx="172.2" ty="36.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Mod Description</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" alpha="0.0941176470588235" indent="3" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMComponentInstance libraryItemName="UI/Checkboxes/MCheckBox" name="checkEnable" uniqueID="1">
+                  <matrix>
+                    <Matrix a="0.588821411132812" d="0.58880615234375" tx="485.6" ty="13.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="210.35" y="65.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="checked">
+      <Inspectable name="checked" unlocalizedName="checked" variable="checked" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="enabled">
+      <Inspectable name="enabled" unlocalizedName="enabled" variable="enabled" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="label">
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue=" " type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
