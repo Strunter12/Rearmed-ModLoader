@@ -1,0 +1,410 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Buttons/But2/MainButton" itemID="63aac8fb-00000157" lastModified="1672156387" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" actionscriptClass="MainButton" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="MainButton">
+      <layers>
+        <DOMLayer name="MouseArea" color="#9933CC" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="MouseArea" name="area">
+                  <matrix>
+                    <Matrix a="1.24163818359375" d="1.34393310546875" tx="-5.15" ty="-0.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="29.5" y="15.85"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.05859375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="MouseArea" name="area">
+                  <matrix>
+                    <Matrix a="1.24163818359375" d="1.34393310546875" tx="-5.15" ty="-0.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="29.5" y="15.85"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.05859375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="MouseArea" name="area">
+                  <matrix>
+                    <Matrix a="1.24163818359375" d="1.34393310546875" tx="-5.15" ty="-0.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="29.5" y="15.85"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.05859375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Text" color="#00FFFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="labelBut" width="62.7" height="37.55" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Label</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineSpacing="0" lineHeight="37.55" size="25" bitmapSize="500" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="labelBut" width="61.75" height="37.55" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Label</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineSpacing="0" lineHeight="37.55" size="25" bitmapSize="500" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="labelBut" width="62.7" height="37.55" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Label</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineSpacing="0" lineHeight="37.55" size="25" bitmapSize="500" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Buttons/But2/ButLabel" name="animLabel">
+                  <matrix>
+                    <Matrix a="0.999801635742188" d="1.00050354003906"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="33.3" y="20.6"/>
+                  </transformationPoint>
+                  <filters>
+                    <BevelFilter blurX="18" blurY="0" quality="3" angle="0" distance="3" shadowColor="#999999" type="outer"/>
+                    <GradientGlowFilter blurX="4" blurY="4" distance="4" type="outer">
+                      <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                      <GradientEntry ratio="1"/>
+                    </GradientGlowFilter>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Buttons/But2/ButLabel" name="animLabel" centerPoint3DX="33.35" centerPoint3DY="20.75">
+                  <matrix>
+                    <Matrix a="0.999786376953125" d="1.00050354003906"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="33.3" y="20.6"/>
+                  </transformationPoint>
+                  <filters>
+                    <BevelFilter blurX="0" blurY="0" quality="3" angle="0" distance="0" shadowColor="#999999" type="outer"/>
+                    <GradientGlowFilter angle="90" blurX="0" blurY="2" quality="3" distance="2" strength="1.02" type="outer">
+                      <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                      <GradientEntry ratio="1"/>
+                    </GradientGlowFilter>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF" quality="3"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.StaticText;
+import flash.display.MovieClip;
+import flash.events.Event;
+
+area.addEventListener(MouseEvent.MOUSE_OVER, Hover);
+area.addEventListener(MouseEvent.MOUSE_OUT, MouseExit);
+area.addEventListener(MouseEvent.MOUSE_DOWN, PressedDown);
+area.addEventListener(MouseEvent.CLICK, Clicked);
+
+var mouseOver:Boolean = false
+var connectedFunction: Function;
+
+labelBut.autoSize = TextFieldAutoSize.CENTER;
+
+labelBut.text = this.label;
+
+this.gotoAndStop(2);
+
+// Called when mouse hovers over the button
+function Hover(evt:Event): void {
+	this.gotoAndPlay(5);
+	mouseOver = true;
+	Mouse.cursor = MouseCursor.BUTTON;
+}
+
+// Called when mouse exits the button
+function MouseExit(evt:Event): void {
+	mouseOver = false;
+	Mouse.cursor = MouseCursor.AUTO;
+	this.gotoAndStop(3);
+}
+
+// Called when button is pressed down
+function PressedDown(evt:Event): void {
+	this.gotoAndStop(4);
+}
+
+// Called when button is clicked (on release)
+function Clicked(evt:Event): void {
+	connectedFunction();
+	if (mouseOver)
+		this.gotoAndPlay(5);
+	else
+		this.gotoAndStop(3);
+}
+
+function disable(): void {
+	this.gotoAndStop(4);
+	area.removeEventListener(MouseEvent.MOUSE_OVER, Hover);
+	area.removeEventListener(MouseEvent.MOUSE_OUT, MouseExit);
+	area.removeEventListener(MouseEvent.MOUSE_DOWN, PressedDown);
+	area.removeEventListener(MouseEvent.CLICK, Clicked);
+}
+
+function enable(): void {
+	this.gotoAndStop(3);
+	area.addEventListener(MouseEvent.MOUSE_OVER, Hover);
+	area.addEventListener(MouseEvent.MOUSE_OUT, MouseExit);
+	area.addEventListener(MouseEvent.MOUSE_DOWN, PressedDown);
+	area.addEventListener(MouseEvent.CLICK, Clicked);
+}
+
+// Connect a function the button's click
+function Connect(funct: Function): void {
+	this.connectedFunction = funct;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (this.centre)
+{
+	area.x -= ((labelBut.width - area.width) / 2);
+}
+if (this.right)
+{
+	area.x += ((labelBut.width - area.width) / 2);
+}
+area.width = labelBut.width;
+area.height = labelBut.height;
+// Go to initial frame for button texture
+this.gotoAndStop(3);
+trace(labelBut.width);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (this.centre_expand)
+	labelBut.autoSize = TextFieldAutoSize.CENTER;
+if (this.left_expand)
+	labelBut.autoSize = TextFieldAutoSize.LEFT;
+if (this.right_expand)
+	labelBut.autoSize = TextFieldAutoSize.RIGHT;
+if (this.none_expand)
+	labelBut.autoSize = TextFieldAutoSize.NONE;
+labelBut.text = this.label
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (this.centre_expand)
+	labelBut.autoSize = TextFieldAutoSize.CENTER;
+if (this.left_expand)
+	labelBut.autoSize = TextFieldAutoSize.LEFT;
+if (this.right_expand)
+	labelBut.autoSize = TextFieldAutoSize.RIGHT;
+if (this.none_expand)
+	labelBut.autoSize = TextFieldAutoSize.NONE;
+labelBut.text = this.label]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (this.centre_expand)
+	animLabel.setExpand(TextFieldAutoSize.CENTER);
+if (this.left_expand)
+	animLabel.setExpand(TextFieldAutoSize.LEFT);
+if (this.right_expand)
+	animLabel.setExpand(TextFieldAutoSize.RIGHT);
+if (this.none_expand)
+	animLabel.setExpand(TextFieldAutoSize.NONE);
+animLabel.setText(this.label);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[this.stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="centre_expand">
+      <Inspectable name="centre_expand" unlocalizedName="centre_expand" variable="centre_expand" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="label">
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="Label" type="String"/>
+   </property>
+   <property id="left_expand">
+      <Inspectable name="left_expand" unlocalizedName="left_expand" variable="left_expand" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="none_expand">
+      <Inspectable name="none_expand" unlocalizedName="none_expand" variable="none_expand" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="right_expand">
+      <Inspectable name="right_expand" unlocalizedName="right_expand" variable="right_expand" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+  <classProperties><![CDATA[<componentData>
+<classDefs>
+	<classDef id="Object"/>
+	<classDef id="Class"/>
+	<classDef id="Function"/>
+	<classDef id="builtin.as$4.MethodClosure"/>
+	<classDef id="Namespace"/>
+	<classDef id="Boolean"/>
+	<classDef id="Number"/>
+	<classDef id="int"/>
+	<classDef id="uint"/>
+	<classDef id="String"/>
+	<classDef id="Array"/>
+	<classDef id="__AS3__.vec.Vector"/>
+	<classDef id="__AS3__.vec.Vector$object"/>
+	<classDef id="__AS3__.vec.Vector$int"/>
+	<classDef id="__AS3__.vec.Vector$uint"/>
+	<classDef id="__AS3__.vec.Vector$double"/>
+	<classDef id="Object"/>
+	<classDef id="Class"/>
+	<classDef id="Function"/>
+	<classDef id="Namespace"/>
+	<classDef id="Boolean"/>
+	<classDef id="Number"/>
+	<classDef id="int"/>
+	<classDef id="uint"/>
+	<classDef id="String"/>
+	<classDef id="Array"/>
+	<classDef id="__AS3__.vec.Vector"/>
+	<classDef id="__AS3__.vec.Vector$object"/>
+	<classDef id="__AS3__.vec.Vector$int"/>
+	<classDef id="__AS3__.vec.Vector$uint"/>
+	<classDef id="__AS3__.vec.Vector$double"/>
+	<classDef id="builtin.as$4.MethodClosure"/>
+	<classDef id="Date"/>
+	<classDef id="Date"/>
+	<classDef id="XML"/>
+	<classDef id="XMLList"/>
+	<classDef id="QName"/>
+	<classDef id="XML"/>
+	<classDef id="XMLList"/>
+	<classDef id="QName"/>
+	<classDef id="Error"/>
+	<classDef id="DefinitionError"/>
+	<classDef id="EvalError"/>
+	<classDef id="RangeError"/>
+	<classDef id="ReferenceError"/>
+	<classDef id="SecurityError"/>
+	<classDef id="SyntaxError"/>
+	<classDef id="TypeError"/>
+	<classDef id="URIError"/>
+	<classDef id="VerifyError"/>
+	<classDef id="UninitializedError"/>
+	<classDef id="ArgumentError"/>
+	<classDef id="flash.errors.IOError"/>
+	<classDef id="flash.errors.EOFError"/>
+	<classDef id="flash.errors.MemoryError"/>
+	<classDef id="flash.errors.IllegalOperationError"/>
+	<classDef id="Error"/>
+	<classDef id="DefinitionError"/>
+	<classDef id="EvalError"/>
+	<classDef id="RangeError"/>
+	<classDef id="ReferenceError"/>
+	<classDef id="SecurityError"/>
+	<classDef id="SyntaxError"/>
+	<classDef id="TypeError"/>
+	<classDef id="URIError"/>
+	<classDef id="VerifyError"/>
+	<classDef id="UninitializedError"/>
+	<classDef id="ArgumentError"/>
+	<classDef id="flash.errors.IOError"/>
+	<classDef id="flash.errors.MemoryError"/>
+	<classDef id="flash.errors.IllegalOperationError"/>
+	<classDef id="flash.errors.EOFError"/>
+	<classDef id="MainButton"/>
+</classDefs>
+<class id="MainButton" >
+	<__go_to_ctor_definition_help file="C:\Users\pc\Documents\GitHub\AWWModLoader\src\MainButton.as" pos="345" />
+	<native cls="ObjectClass" classgc="exact" methods="auto" construct="override" />
+	<method id="label" returnType="String" isProperty="true" permissions="readonly">
+		<Inspectable defaultValue="Label" />
+	</method>
+	<method id="centre_expand" returnType="Boolean" isProperty="true" permissions="readonly">
+		<Inspectable defaultValue="false" />
+	</method>
+	<method id="left_expand" returnType="Boolean" isProperty="true" permissions="readonly">
+		<Inspectable defaultValue="false" />
+	</method>
+	<method id="right_expand" returnType="Boolean" isProperty="true" permissions="readonly">
+		<Inspectable defaultValue="false" />
+	</method>
+	<method id="none_expand" returnType="Boolean" isProperty="true" permissions="readonly">
+		<Inspectable defaultValue="false" />
+	</method>
+	<method id="MainButton" isConstructor="true" isProperty="false">
+	</method>
+	<method id="Object" isConstructor="true" isProperty="false">
+	</method>
+</class>
+</componentData>
+]]></classProperties>
+</DOMComponentItem>

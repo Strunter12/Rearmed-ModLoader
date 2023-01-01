@@ -1,0 +1,36 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/TextLog" itemID="63ac485a-00000eda" lastModified="1672254350">
+  <timeline>
+    <DOMTimeline name="TextLog">
+      <layers>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[
+function addText(text:String): void {
+	gameLog.appendText("\n" + text);
+	gameLog.scrollV = gameLog.maxScrollV;
+}]]></script>
+              </Actionscript>
+              <elements>
+                <DOMDynamicText name="gameLog" top="-32.25" left="-108" width="572" height="367.6" lineType="multiline no wrap">
+                  <matrix>
+                    <Matrix tx="110" ty="34.25"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Log:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="29.9" size="28" bitmapSize="560" face="TwCenMT-Condensed" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

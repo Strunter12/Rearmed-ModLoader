@@ -1,0 +1,86 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/ModBut/ModButton" itemID="63a9e647-00001117" linkageExportForAS="true" linkageClassName="FancyButton" symbolType="button" lastModified="1672078919">
+  <timeline>
+    <DOMTimeline name="ModButton">
+      <layers>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="textLabel" selected="true" width="72" height="45" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="1.00030517578125" d="0.998519897460938" tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Mods</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineSpacing="0" lineHeight="45" size="30" bitmapSize="600" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="textLabel" width="71.95" height="45" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="1.00030517578125" d="0.998519897460938" tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>MODS</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineSpacing="0" lineHeight="45" size="30" bitmapSize="600" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="8" blurY="8" color="#00FFFF" quality="3"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+              <frameFilters>
+                <GlowFilter blurX="8" blurY="8" color="#00FFFF" quality="3"/>
+              </frameFilters>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="textLabel" width="71.95" height="45" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="1.00030517578125" d="0.998519897460938" tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>MODS</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineSpacing="0" lineHeight="45" size="30" bitmapSize="600" face="Thinman" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="textLabel" width="71.95" height="45" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="1.00030517578125" d="0.998519897460938" tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>MODS</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineSpacing="0" lineHeight="45" size="30" bitmapSize="600" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

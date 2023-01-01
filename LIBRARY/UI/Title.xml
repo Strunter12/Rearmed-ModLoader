@@ -1,0 +1,48 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Title" itemID="63a9d608-00001009" symbolType="graphic" lastModified="1672167294" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Title" currentFrame="102">
+      <layers>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="59" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Text">
+                  <transformationPoint>
+                    <Point x="143.9" y="39.75"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="70" blurY="20" color="#FFFFFF" knockout="true" quality="3" strength="1.48"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="60" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Text" centerPoint3DX="143.9" centerPoint3DY="39.75">
+                  <transformationPoint>
+                    <Point x="143.9" y="39.75"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="105" blurY="20" color="#FFFFFF" knockout="true" quality="3" strength="1.82"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="119" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Text">
+                  <transformationPoint>
+                    <Point x="143.9" y="39.75"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="70" blurY="20" color="#FFFFFF" knockout="true" quality="3" strength="1.48"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
