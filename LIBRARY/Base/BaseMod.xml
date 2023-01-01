@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672566405">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672602643">
   <timeline>
     <DOMTimeline name="BaseMod">
       <layers>
@@ -7,8 +7,8 @@
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
                 <script><![CDATA[/* BASE MOD FOR LOADING OTHER MODS WHILE IN THE GAME
-* Can work as template for other mods
-*/
+ * Can work as template for other mods
+ */
 import flash.display.MovieClip;
 import flash.display.Loader;
 import flash.events.Event;
@@ -23,13 +23,14 @@ CONFIG::AIR {
 var game: MovieClip; // MUST BE IN MOD
 var modName: String = "Base Mod"; // MUST BE IN MOD
 var modDescription: String = "Base mod for loading other mods";
-var _root:MovieClip = MovieClip(root);
-
+var _root: MovieClip = MovieClip(root);
 
 // NON OBLIGATORY:
-var modFiles:Array = new Array();
-var modLoader:Loader;
-var modContents:Array = new Array();
+var modLoader: Loader;
+var modContents: Array = new Array();
+
+// Holds dictionaries with mod info (name, description, enabled)
+var modDatas: Array = new Array();
 
 // Recieves the game Main Timeline (MUST BE IN ANY MOD)
 function initMod(target: MovieClip): void {
@@ -42,53 +43,176 @@ CONFIG::AIR {
 	// Get mod files (.SWF)
 	function getMods(): void {
 		_root.traceLog("Getting mods");
-		var modFolder:File = File.applicationDirectory.resolvePath("AWW_Mods");
-		var files:Array = modFolder.getDirectoryListing();
-		for (var i:uint = 0; i < files.length; i++) {
-			if (files[i].name.substring(files[i].name.length - 4, files[i].name.length) == ".swf")
-			{
+		var modFolder: File = File.applicationDirectory.resolvePath("AWW_Mods");
+		var files: Array = modFolder.getDirectoryListing();
+		for (var i: uint = 0; i < files.length; i++) {
+			_root.traceLog("Checking " + files[i].name);
+			if (files[i].name.substring(files[i].name.length - 4, files[i].name.length) == ".swf") {
 				_root.traceLog("Detected mod: " + files[i].name);
-				modFiles.push(files[i]);
+				this.setModInfo(modFolder, files[i].name.substring(0, files[i].name.length - 4), files[i])
+			} else {
+				try {
+					var nestedFolder: File = File.applicationDirectory.resolvePath("AWW_Mods/" + files[i].name);
+					var nestedFiles: Array = nestedFolder.getDirectoryListing();
+					for (var j: uint = 0; j < nestedFiles.length; j++) {
+						if (nestedFiles[j].name.substring(nestedFiles[j].name.length - 4, nestedFiles[j].name.length) == ".swf") {
+							_root.traceLog("Detected mod: " + nestedFiles[j].name);
+
+							// Read Info.txt for mod
+							this.setModInfo(nestedFolder, nestedFolder.name, nestedFiles[j]);
+						}
+					}
+				} catch (error: Error) {
+					_root.traceLog(error);
+					_root.traceLog("File/Folder in AWWMods could not be processed");
+				}
 			}
 		}
+		// Add mods to container after finishing getting them
+		_root.addModsToContainer(modDatas, this);
 	}
 	getMods();
 }
 
 var modsLoadedCount = 0;
 
+// Reads mod information from txt file
+function setModInfo(folder: File, modName: String, modFile: File): void {
+	var modData: Dictionary = new Dictionary();
+	var openedStoredTxt = false;
+	try {
+		var infoFile: File = folder.resolvePath(modName + "INFO.txt");
+		var fileStream: FileStream = new FileStream();
+		try {
+			infoFile = File.applicationStorageDirectory.resolvePath(modName + "INFO.txt");
+			fileStream.open(infoFile, FileMode.READ);
+			openedStoredTxt = true;
+		} catch (error: Error) {
+			infoFile = folder.resolvePath(modName + "INFO.txt");
+			fileStream.open(infoFile, FileMode.READ);
+		}
+
+		var fileContent: String = fileStream.readUTFBytes(fileStream.bytesAvailable);
+		var modInfo: Array = fileContent.split("\n");
+		fileStream.close();
+
+		modData["File"] = modFile;
+		modData["Name"] = modInfo[0];
+		modData["Description"] = modInfo[1];
+
+		if (openedStoredTxt) {
+			modData["TXT"] = infoFile;
+			if (modInfo[2] == "true")
+				modData["Enabled"] = true;
+			else
+				modData["Enabled"] = false;
+		}
+		// Create info for mod in application storage directory
+		else {
+			modData["Enabled"] = true;
+			try {
+				infoFile = File.applicationStorageDirectory.resolvePath(modName + "INFO.txt");
+				fileStream.open(infoFile, FileMode.WRITE);
+				fileStream.writeUTFBytes(modData["Name"] + "\n");
+				fileStream.writeUTFBytes(modData["Description"] + "\n");
+				fileStream.writeUTFBytes("true");
+				modData["TXT"] = infoFile;
+				fileStream.close();
+			} catch (error: Error) {
+				_root.traceLog("Could not create info file for " + modData["Name"]);
+				_root.traceLog(error);
+			}
+		}
+		modDatas.push(modData);
+
+	}
+	// Could not get mod info. Add default info
+	catch (error: Error) {
+		_root.traceLog(error);
+		_root.traceLog("Pushing default data");
+		modData["File"] = modFile;
+		modData["TXT"] = null;
+		modData["Name"] = modName;
+		modData["Description"] = "No description found. Disabled on default";
+		modData["Enabled"] = false;
+
+		modDatas.push(modData);
+	}
+}
+
 // Loads mods (Calls itself until all mods are loaded)
-function loadMods(modIdx:uint = 0): void {
-	_root.traceLog("Loading mods");
-	modLoader = new Loader();
-	var swfRequest:URLRequest = new URLRequest(modFiles[modIdx].nativePath);
-	modLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, modLoaded, false, 0, true);
-	
-	modLoader.load(swfRequest);
+function loadMods(modIdx: uint = 0): void {
+	if (_root.settingsDict["Vanilla"] == true) {
+		_root.traceLog("Vanilla mode is on");
+		modsLoadedCount = 0;
+		return;
+	}
+	if (modDatas[modIdx]["Enabled"]) {
+		_root.traceLog("Loading mod " + modDatas[modIdx]["Name"]);
+		modLoader = new Loader();
+		var swfRequest: URLRequest = new URLRequest(modDatas[modIdx]["File"].nativePath);
+		modLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, modLoaded, false, 0, true);
+
+		modLoader.load(swfRequest);
+	} else {
+		_root.traceLog("Skipping mod " + modDatas[modIdx]["Name"]);
+		modsLoadedCount++;
+		if (modsLoadedCount == modDatas.length) {
+			MovieClip(root).gotoAndPlay(2);
+			modsLoadedCount = 0;
+			return;
+		}
+		loadMods(modsLoadedCount);
+	}
 }
 
 // Called when a mod is done loading
-function modLoaded(evt:Event): void {
-	_root.traceLog(modFiles[modsLoadedCount].name + " has loaded");
-	var modTarget:MovieClip = modLoader.content as MovieClip;
-	
+function modLoaded(evt: Event): void {
+	_root.traceLog(modDatas[modsLoadedCount]["Name"] + " has loaded");
+	var modTarget: MovieClip = modLoader.content as MovieClip;
+
 	modContents.push(modTarget);
 	modContents[modsLoadedCount].initMod(game);
 	this.addChild(modContents[modsLoadedCount]);
 	modsLoadedCount++;
-	
+
 	// Stop loading mods after loading last mod
-	if (modsLoadedCount == modFiles.length) {
+	if (modsLoadedCount == modDatas.length) {
 		MovieClip(root).gotoAndPlay(2);
+		modsLoadedCount = 0;
 		return;
 	}
-	
-	loadMods(modsLoadedCount);
 }
 
+CONFIG::AIR {
+	// Saves info for mod enable (true/false)
+	function saveTxtSwitch(modIdx: int, enable: Boolean): void {
+		trace("Switching to" + enable);
+		var modDict = modDatas[modIdx];
+		try {
+			if (modDict["TXT"] != null) {
+				var txtFile: File = new File();
+				var fileStream: FileStream = new FileStream();
+				fileStream.open(modDict["TXT"], FileMode.WRITE);
+
+				fileStream.writeUTFBytes(modDict["Name"] + "\n");
+				fileStream.writeUTFBytes(modDict["Description"] + "\n");
+				if (enable)
+					fileStream.writeUTFBytes("true");
+				else
+					fileStream.writeUTFBytes("false");
+
+				fileStream.close();
+			}
+		} catch (error: Error) {
+			_root.traceLog("Could write to txt file to switch enable");
+			_root.traceLog(error);
+		}
+	}
+}
 function runAfterInitMods(): void {
 	_root.traceLog("Calling after init functions in mods");
-	for (var i:uint = 0; i < modContents.length; i++) {
+	for (var i: uint = 0; i < modContents.length; i++) {
 		modContents[i].afterInits();
 	}
 }]]></script>

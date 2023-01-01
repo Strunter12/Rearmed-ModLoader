@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="ModTab" itemID="63b184d2-0000032a" lastModified="1672578888" lastUniqueIdentifier="1">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Containers/Mod Container/ModTab" itemID="63b184d2-0000032a" linkageExportForAS="true" linkageClassName="ModTab" lastModified="1672600908" lastUniqueIdentifier="1">
   <timeline>
     <DOMTimeline name="ModTab">
       <layers>
@@ -6,14 +6,34 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
-                <script><![CDATA[var modEnabled:Boolean: true;
+                <script><![CDATA[import flash.utils.Dictionary;
+
+var modIdx: int;
+var baseMod: MovieClip;
+
+checkEnable.labelCheck.visible = false;
+checkEnable.Connect(switchEnable);
+
+function initModTab(idx:int, _baseMod) {
+	baseMod = _baseMod;
+	this.modIdx = idx;
+}
 
 // Changes mod enabled bool when checkbox is clicked
 function switchEnable(): void {
-	if (checkEnable.checked)
-		modEnabled = true;
+	if (checkEnable.is_checked)
+		baseMod.modDatas[modIdx]["Enabled"] = false;
 	else
-		modEnabled = false;
+		baseMod.modDatas[modIdx]["Enabled"] = true;
+	baseMod.saveTxtSwitch(modIdx, baseMod.modDatas[modIdx]["Enabled"]);
+}
+
+function forceSwitch(bool: Boolean): void {
+	if (bool) {
+		checkEnable.forceCheck();
+	} else {
+		checkEnable.forceUncheck();
+	}
 }
 
 function setModName(txt: String) {
@@ -25,6 +45,20 @@ function setModDescription(txt: String) {
 }]]></script>
               </Actionscript>
               <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FFFFFF" alpha="0.498039215686275"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!3009 64|3009 2061"/>
+                  </edges>
+                </DOMShape>
                 <DOMRectangleObject objectWidth="408.65" objectHeight="70.7" x="372.85" y="201.7" lockFlag="true">
                   <matrix>
                     <Matrix a="1.41928100585938" d="1.49371337890625" tx="-529.2" ty="-301.3"/>
@@ -40,7 +74,7 @@ function setModDescription(txt: String) {
                     </SolidStroke>
                   </stroke>
                 </DOMRectangleObject>
-                <DOMDynamicText name="txtModName" top="-34.05" left="-19.6" width="146.6" height="101.6" isSelectable="false" lineType="multiline no wrap">
+                <DOMDynamicText name="txtModName" top="-34.05" left="-19.6" width="146.6" height="101.6" isSelectable="false" lineType="multiline">
                   <matrix>
                     <Matrix tx="21.6" ty="36.05"/>
                   </matrix>
@@ -48,12 +82,12 @@ function setModDescription(txt: String) {
                     <DOMTextRun>
                       <characters>Mod Name</characters>
                       <textAttrs>
-                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.0980392156862745" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
+                        <DOMTextAttrs alignment="center" aliasText="false" indent="-0.1" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
                       </textAttrs>
                     </DOMTextRun>
                   </textRuns>
                 </DOMDynamicText>
-                <DOMDynamicText name="txtModDescription" selected="true" top="-34.05" left="-19.6" width="311.4" height="101.6" isSelectable="false" lineType="multiline no wrap">
+                <DOMDynamicText name="txtModDescription" top="-34.05" left="-19.6" width="311.4" height="101.6" isSelectable="false" lineType="multiline">
                   <matrix>
                     <Matrix tx="172.2" ty="36.05"/>
                   </matrix>
@@ -61,17 +95,17 @@ function setModDescription(txt: String) {
                     <DOMTextRun>
                       <characters>Mod Description</characters>
                       <textAttrs>
-                        <DOMTextAttrs aliasText="false" alpha="0.0941176470588235" indent="3" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
+                        <DOMTextAttrs aliasText="false" indent="3" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#999999"/>
                       </textAttrs>
                     </DOMTextRun>
                   </textRuns>
                 </DOMDynamicText>
                 <DOMComponentInstance libraryItemName="UI/Checkboxes/MCheckBox" name="checkEnable" uniqueID="1">
                   <matrix>
-                    <Matrix a="0.588821411132812" d="0.58880615234375" tx="485.6" ty="13.7"/>
+                    <Matrix a="0.35321044921875" d="0.352981567382812" tx="502.45" ty="22.8"/>
                   </matrix>
                   <transformationPoint>
-                    <Point x="210.35" y="65.05"/>
+                    <Point x="210.35" y="65"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="checked">
       <Inspectable name="checked" unlocalizedName="checked" variable="checked" category="" verbose="0" defaultValue="true" type="Boolean"/>
@@ -84,6 +118,19 @@ function setModDescription(txt: String) {
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
+                <DOMDynamicText width="100" height="29.9" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="474.7" ty="73.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Enable</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.0980392156862745" indent="3" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
               </elements>
             </DOMFrame>
           </frames>

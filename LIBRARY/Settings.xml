@@ -6,7 +6,7 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMComponentInstance libraryItemName="UI/Checkboxes/MCheckBox" name="checkFullScreen" selected="true" uniqueID="1">
+                <DOMComponentInstance libraryItemName="UI/Checkboxes/MCheckBox" name="checkFullScreen" uniqueID="1">
                   <matrix>
                     <Matrix a="0.419158935546875" d="0.419158935546875" tx="0.85" ty="0.85"/>
                   </matrix>

@@ -1,0 +1,32 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Tween 2" itemID="63b1b13e-00000f9c" symbolType="graphic" lastModified="1672589630">
+  <timeline>
+    <DOMTimeline name="Tween 2">
+      <layers>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Settings" selected="true" centerPoint3DX="-559" centerPoint3DY="4.75">
+                  <matrix>
+                    <Matrix tx="-648" ty="-61.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="73.2" y="66.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Containers/Mod Container/ModTabContainer" name="modTabContainer" selected="true" centerPoint3DX="280.75" centerPoint3DY="-18.15">
+                  <matrix>
+                    <Matrix tx="-86.45" ty="-70.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="366.95" y="52.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

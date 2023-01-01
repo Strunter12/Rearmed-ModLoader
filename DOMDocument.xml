@@ -1,4 +1,4 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="900" height="640" frameRate="40" currentTimeline="1" xflVersion="2.971" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 20.0 build 25487" majorVersion="20" buildNumber="25487" viewAngle3D="80.8511702896415" vanishingPoint3DX="450" vanishingPoint3DY="320" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="DD0DDBBF-5BEF-45B2-9F24-A3048D2A676F" fileGUID="6C5AEC6318B27742BE304E6F9FB5F037">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="900" height="640" frameRate="40" currentTimeline="1" xflVersion="2.971" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 20.0 build 25487" majorVersion="20" buildNumber="25487" viewAngle3D="80.8511702896415" vanishingPoint3DX="450" vanishingPoint3DY="320" nextSceneIdentifier="3" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="DD0DDBBF-5BEF-45B2-9F24-A3048D2A676F" fileGUID="6C5AEC6318B27742BE304E6F9FB5F037">
      <folders>
           <DOMFolderItem name="Base" itemID="63b075c1-00000171" isExpanded="true"/>
           <DOMFolderItem name="Component Assets" itemID="44e488a0-000016d6"/>
@@ -20,7 +20,9 @@
           <DOMFolderItem name="UI/Buttons" itemID="63a9e4ab-000010e6"/>
           <DOMFolderItem name="UI/Buttons/But2" itemID="63aac876-00000144" isExpanded="true"/>
           <DOMFolderItem name="UI/Buttons/ModBut" itemID="63a9e4fb-000010f7"/>
-          <DOMFolderItem name="UI/Checkboxes" itemID="63b17770-00000241" isExpanded="true"/>
+          <DOMFolderItem name="UI/Checkboxes" itemID="63b17770-00000241"/>
+          <DOMFolderItem name="UI/Containers" itemID="63b18c88-00000218" isExpanded="true"/>
+          <DOMFolderItem name="UI/Containers/Mod Container" itemID="63b18c8d-0000021c" isExpanded="true"/>
      </folders>
      <fonts>
           <DOMFontItem name="Fonts/MainButFont" itemID="63aaee9d-000001ea" font="Thinman" size="0" id="1" sourceLastImported="1672146589" embedRanges="9999"/>
@@ -121,7 +123,7 @@
           </DOMCompiledClipItem>
      </media>
      <symbols>
-          <Include href="Base/BaseMod.xml" loadImmediate="false" itemID="63b075d3-00000173" lastModified="1672566405"/>
+          <Include href="Base/BaseMod.xml" loadImmediate="false" itemID="63b075d3-00000173" lastModified="1672602643"/>
           <Include href="Button.xml" itemID="44a4944a-00000029" lastModified="1358192121"/>
           <Include href="Component Assets/_private/Component_avatar.xml" loadImmediate="false" itemID="44f89322-00000020" lastModified="1168286780"/>
           <Include href="Component Assets/ButtonSkins/Button_disabledSkin.xml" itemID="44a3379e-00000015" lastModified="1168286804"/>
@@ -318,13 +320,17 @@
           <Include href="Environemnt/ENV-Prop-Front/ENV-RockFront-Slide-00.xml" loadImmediate="false" itemID="56a55e73-00000d8a" lastModified="1453678195"/>
           <Include href="Environemnt/ENV-Prop-Front/ENV-RockFront-Slide-01.xml" loadImmediate="false" itemID="56a55e77-00000d8b" lastModified="1453678199"/>
           <Include href="Environemnt/ENV-Prop-Front/ENV-RockFront-Slide-02.xml" loadImmediate="false" itemID="56a55e7a-00000d8c" lastModified="1488204815"/>
-          <Include href="ModTab.xml" loadImmediate="false" itemID="63b184d2-0000032a" lastModified="1672578888"/>
+          <Include href="GlowLine.xml" loadImmediate="false" itemID="63b1b3fe-00000fda" lastModified="1672590334"/>
           <Include href="Settings.xml" loadImmediate="false" itemID="63b17d9b-00000298" lastModified="1672577247"/>
+          <Include href="Tween 1.xml" itemIcon="1" loadImmediate="false" itemID="63b1b13e-00000f8f" lastModified="1672589630"/>
+          <Include href="Tween 2.xml" itemIcon="1" loadImmediate="false" itemID="63b1b13e-00000f9c" lastModified="1672589630"/>
           <Include href="UI/Buttons/But2/ButLabel.xml" loadImmediate="false" itemID="63aadc79-000001b3" lastModified="1672574199"/>
-          <Include href="UI/Buttons/But2/MainButton.xml" loadImmediate="false" itemID="63aac8fb-00000157" lastModified="1672575804"/>
+          <Include href="UI/Buttons/But2/MainButton.xml" loadImmediate="false" itemID="63aac8fb-00000157" lastModified="1672591594"/>
           <Include href="UI/Buttons/ModBut/ModButton.xml" itemIcon="0" itemID="63a9e647-00001117" lastModified="1672078919"/>
           <Include href="UI/Checkboxes/Area.xml" loadImmediate="false" itemID="63b17715-0000023a" lastModified="1672576033"/>
-          <Include href="UI/Checkboxes/MCheckBox.xml" loadImmediate="false" itemID="63b16930-00000212" lastModified="1672578683"/>
+          <Include href="UI/Checkboxes/MCheckBox.xml" loadImmediate="false" itemID="63b16930-00000212" lastModified="1672602122"/>
+          <Include href="UI/Containers/Mod Container/ModTab.xml" itemID="63b184d2-0000032a" lastModified="1672600908"/>
+          <Include href="UI/Containers/Mod Container/ModTabContainer.xml" loadImmediate="false" itemID="63b187bd-00000340" lastModified="1672593829"/>
           <Include href="UI/DecoBorderDown.xml" loadImmediate="false" itemID="63a9f368-00000149" lastModified="1672082280"/>
           <Include href="UI/FancyButton.xml" itemIcon="0" itemID="63a9e5cc-0000110b" lastModified="1672132793"/>
           <Include href="UI/Label.xml" itemID="44b18473-00000011" lastModified="1358192121"/>
@@ -339,28 +345,32 @@
      <timelines>
           <DOMTimeline name="Scene 1">
                <layers>
-                    <DOMLayer name="Others" color="#00FFFF" autoNamed="false">
+                    <DOMLayer name="FileHandle" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <Actionscript>
-                                        <script><![CDATA[CONFIG::AIR {
+                                        <script><![CDATA[var settingsDict: Dictionary;
+
+CONFIG::AIR {
 	import flash.filesystem.File;
 	import flash.filesystem.FileStream;
-	
+
 	this.stage.nativeWindow.addEventListener(Event.CLOSING, closeStream);
-	
+
 	var isLogFileOpen: Boolean = false;
 	// Text file for logs
-	var file: File;
-	var fileRef: FileReference;
+	var logFile: File;
+	var optionsFile: File;
 	var stream: FileStream = new FileStream();
+	var optionsStream: FileStream = new FileStream();
 
-	file = File.applicationStorageDirectory.resolvePath("Log.txt");
-	trace("Log file at " + file.nativePath);
-	
+	logFile = File.applicationStorageDirectory.resolvePath("Log.txt");
+	optionsFile = File.applicationStorageDirectory.resolvePath("config.txt");
+	trace("Log file at " + logFile.nativePath);
+
 	// Try opening file
 	try {
-		stream.open(file, FileMode.WRITE);
+		stream.open(logFile, FileMode.WRITE);
 		trace("Opened log file stream");
 		isLogFileOpen = true;
 	} catch (error: Error) {
@@ -384,10 +394,54 @@
 			isLogFileOpen = false;
 		}
 	}
+
+	function saveSettings(dict: Dictionary): void {
+		try {
+			optionsStream.open(optionsFile, FileMode.WRITE);
+			if (dict["Vanilla"])
+				optionsStream.writeUTFBytes("VANILLA_ON");
+			else
+				optionsStream.writeUTFBytes("VANILLA_OFF");
+			traceLog("Finished writing to config file");
+		} catch (error: Error) {
+			traceLog(error);
+		}
+	}
+
+	function loadSettings(): Dictionary {
+		var dict: Dictionary = new Dictionary();
+		try {
+			optionsStream.open(optionsFile, FileMode.READ)
+			var fileContent: String = optionsStream.readUTFBytes(optionsStream.bytesAvailable);
+			var contents: Array = fileContent.split("\n");
+
+			for (var i: uint = 0; i < contents.length; i++) {
+				var line: String = contents[i];
+				trace(line == "VANILLA_ON");
+				if (line == "VANILLA_ON")
+					dict["Vanilla"] = true;
+				else
+					dict["Vanilla"] = false;
+			}
+			trace(dict["Vanilla"] + " <------ VANILL MODE");
+			traceLog("Finished reading config file " + dict["Vanilla"]);
+			optionsStream.close();
+			
+			return dict;
+		} catch (error: Error) {
+			// Create config file with default data
+			traceLog("Creating config file");
+		}
+		dict["Vanilla"] = false;
+		saveSettings(dict);
+		return dict;
+	}
+	
+	settingsDict = loadSettings();
 }]]></script>
                                    </Actionscript>
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod">
+                                        <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod" selected="true">
                                              <matrix>
                                                   <Matrix tx="-35.15" ty="-7.95"/>
                                              </matrix>
@@ -429,10 +483,14 @@ butSettings.connect(Settings);
 butMods.connect(ShowMods);
 
 function Settings(): void {
+	butSettings.showGlowLine();
+	butMods.hideGlowLine();
 	gotoAndStop(SETTINGS);
 }
 
 function ShowMods(): void {
+	butSettings.hideGlowLine();
+	butMods.showGlowLine();
 	gotoAndStop(MODS);
 }
 
@@ -493,6 +551,11 @@ function InitTarget(evt:Event): void {
 	traceLog(target.gameVersion);
 	
 	//this.gotoAndPlay(2);
+}
+
+function addModsToContainer(modDatas: Array, baseMod: MovieClip): void {
+	for (var i:uint = 0; i < modDatas.length; i++)
+		modTabContainer.addMod(modDatas[i], i, baseMod);
 }
 
 this.stop();]]></script>
@@ -582,13 +645,15 @@ function AfterLaunch(): void {
 // Show cursor when out of focus
 function notFocused(evt: Event): void {
 	//target.displayWindow()
-	//target.displayWindow();
+	target.displayWindow();
 	newScreen.minimize();
 	Mouse.show();
 }
 
 //  Called when focus returns to window
 function Focused(evt: Event): void {
+	newScreen.maximize();
+	target.displayFullscreen();
 	Mouse.hide();
 }
 
@@ -737,14 +802,65 @@ function saveData(): void {
                               <DOMFrame index="19" keyMode="9728">
                                    <Actionscript>
                                         <script><![CDATA[/* SETTINGS */
+settingsContainer.checkVanilla.Connect(pressedVanilla);
 
-]]></script>
+function setSettings(): void {
+	if (settingsDict["Vanilla"])
+		settingsContainer.checkVanilla.forceCheck();
+	else
+		settingsContainer.checkVanilla.forceUncheck();
+}
+
+function pressedVanilla(): void {
+	settingsDict["Vanilla"] = !settingsDict["Vanilla"];
+	saveSettings(settingsDict);
+}]]></script>
                                    </Actionscript>
                                    <elements/>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="Buttons2" color="#009999" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="Mods" color="#00FFFF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="18" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="UI/Containers/Mod Container/ModTabContainer" name="modTabContainer">
+                                             <matrix>
+                                                  <Matrix tx="931.8" ty="179.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="366.95" y="52.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="18" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="UI/Containers/Mod Container/ModTabContainer" name="modTabContainer" centerPoint3DX="676.3" centerPoint3DY="224">
+                                             <matrix>
+                                                  <Matrix tx="309.1" ty="171.2"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="366.95" y="52.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="19" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="UI/Containers/Mod Container/ModTabContainer" name="modTabContainer" centerPoint3DX="1299" centerPoint3DY="232.55">
+                                             <matrix>
+                                                  <Matrix tx="931.8" ty="179.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="366.95" y="52.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Settings" color="#009999" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="19" keyMode="9728">
                                    <elements>
@@ -756,19 +872,11 @@ function saveData(): void {
                                                   <Point x="73.2" y="66.2"/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
-                                        <DOMSymbolInstance libraryItemName="ModTab">
-                                             <matrix>
-                                                  <Matrix tx="309.1" ty="171.85"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="289.95" y="52.8"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
                               <DOMFrame index="19" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="Settings" centerPoint3DX="398.1" centerPoint3DY="242.2">
+                                        <DOMSymbolInstance libraryItemName="Settings" name="settingsContainer" centerPoint3DX="398.1" centerPoint3DY="242.2">
                                              <matrix>
                                                   <Matrix tx="309.1" ty="176"/>
                                              </matrix>
@@ -1012,8 +1120,8 @@ function saveData(): void {
           <PD n="DebugMovieChecked" v="ADLDesktop"/>
           <PD n="com.air.artemis.included.count" v="3"/>
           <PD n="com.air.oldTargetPlatform" v="Desktop"/>
-          <PD n="ane.id.FRESteamWorks.ane" v="com.amanitadesign.steam.FRESteamWorks"/>
           <PD n="TestMovieChecked" v="ADLDesktop"/>
+          <PD n="ane.id.FRESteamWorks.ane" v="com.amanitadesign.steam.FRESteamWorks"/>
           <PD n="com.air.sdk.path" v="D:\Adobe\AdobeAir"/>
           <PD n="com.air.artemis.pubair" v="false"/>
           <PD n="com.air.artemis.pubipa" v="false"/>
@@ -1029,26 +1137,26 @@ function saveData(): void {
      </persistentData>
      <PrinterSettings/>
      <publishHistory>
-          <PublishItem publishSize="106557" publishTime="1672578125"/>
-          <PublishItem publishSize="106558" publishTime="1672577826"/>
-          <PublishItem publishSize="106578" publishTime="1672577768"/>
-          <PublishItem publishSize="106532" publishTime="1672577425"/>
-          <PublishItem publishSize="57471" publishTime="1672577392"/>
-          <PublishItem publishSize="57471" publishTime="1672577371"/>
-          <PublishItem publishSize="106482" publishTime="1672577024"/>
-          <PublishItem publishSize="106482" publishTime="1672576961"/>
-          <PublishItem publishSize="67824" publishTime="1672576643"/>
-          <PublishItem publishSize="106029" publishTime="1672576102"/>
-          <PublishItem publishSize="106018" publishTime="1672576066"/>
-          <PublishItem publishSize="106018" publishTime="1672576053"/>
-          <PublishItem publishSize="106018" publishTime="1672576040"/>
-          <PublishItem publishSize="106014" publishTime="1672575979"/>
-          <PublishItem publishSize="106008" publishTime="1672575944"/>
-          <PublishItem publishSize="106008" publishTime="1672575904"/>
-          <PublishItem publishSize="106008" publishTime="1672575883"/>
-          <PublishItem publishSize="57427" publishTime="1672575854"/>
-          <PublishItem publishSize="68024" publishTime="1672568314"/>
-          <PublishItem publishSize="68024" publishTime="1672568291"/>
+          <PublishItem publishSize="116483" publishTime="1672603031"/>
+          <PublishItem publishSize="116483" publishTime="1672603024"/>
+          <PublishItem publishSize="116483" publishTime="1672602996"/>
+          <PublishItem publishSize="116437" publishTime="1672602956"/>
+          <PublishItem publishSize="116427" publishTime="1672602931"/>
+          <PublishItem publishSize="116399" publishTime="1672602894"/>
+          <PublishItem publishSize="116399" publishTime="1672602881"/>
+          <PublishItem publishSize="116374" publishTime="1672602851"/>
+          <PublishItem publishSize="116362" publishTime="1672602829"/>
+          <PublishItem publishSize="116354" publishTime="1672602778"/>
+          <PublishItem publishSize="116354" publishTime="1672602758"/>
+          <PublishItem publishSize="116354" publishTime="1672602695"/>
+          <PublishItem publishSize="116354" publishTime="1672602648"/>
+          <PublishItem publishSize="116345" publishTime="1672602505"/>
+          <PublishItem publishSize="116345" publishTime="1672602464"/>
+          <PublishItem publishSize="116408" publishTime="1672602328"/>
+          <PublishItem publishSize="116398" publishTime="1672602241"/>
+          <PublishItem publishSize="116379" publishTime="1672602158"/>
+          <PublishItem publishSize="116442" publishTime="1672602095"/>
+          <PublishItem publishSize="116460" publishTime="1672602060"/>
      </publishHistory>
      <swcCache>
           <Swc hashKey="lBSX9Y5jU7802yucctAf9/" href="lcqn9ng719.swc">

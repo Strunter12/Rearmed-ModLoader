@@ -1,8 +1,8 @@
-<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/But2/MainButton" itemID="63aac8fb-00000157" lastModified="1672575804" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" actionscriptClass="MainButton" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/But2/MainButton" itemID="63aac8fb-00000157" lastModified="1672591594" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" actionscriptClass="MainButton" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
   <timeline>
     <DOMTimeline name="MainButton">
       <layers>
-        <DOMLayer name="MouseArea" color="#9933CC" autoNamed="false" visible="false">
+        <DOMLayer name="MouseArea" color="#9933CC" autoNamed="false">
           <frames>
             <DOMFrame index="0" duration="2" keyMode="9728">
               <elements>
@@ -164,6 +164,9 @@ var connectedFunction: Function;
 labelBut.autoSize = TextFieldAutoSize.CENTER;
 labelBut.text = this.label;
 
+glowLine.width = labelBut.width;
+glowLine.visible = false;
+
 this.gotoAndStop(2);
 
 // Called when mouse hovers over the button
@@ -192,6 +195,14 @@ function clicked(evt:Event): void {
 		this.gotoAndPlay(5);
 	else
 		this.gotoAndStop(3);
+}
+
+function showGlowLine() {
+	glowLine.visible = true;
+}
+
+function hideGlowLine() {
+	glowLine.visible = false;
 }
 
 function disable(): void {
@@ -283,6 +294,34 @@ animLabel.setText(this.label);]]></script>
                 <script><![CDATA[this.stop();]]></script>
               </Actionscript>
               <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="BotLine" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="GlowLine" name="glowLine">
+                  <matrix>
+                    <Matrix ty="41.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="37.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="42" blurY="4" color="#FFFFFF" quality="3" strength="2"/>
+                    <GradientGlowFilter angle="90" blurX="4" blurY="20" quality="3" distance="-9" strength="1.91" type="outer">
+                      <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                      <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                      <GradientEntry ratio="0.992156862745098"/>
+                    </GradientGlowFilter>
+                    <GradientGlowFilter blurX="4" blurY="4" distance="4" type="outer">
+                      <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                      <GradientEntry ratio="1"/>
+                    </GradientGlowFilter>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
             </DOMFrame>
           </frames>
         </DOMLayer>
