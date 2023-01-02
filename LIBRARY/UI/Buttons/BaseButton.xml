@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/BaseButton" itemID="63b283dd-00000fa4" lastModified="1672655273" lastUniqueIdentifier="1">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/BaseButton" itemID="63b283dd-00000fa4" lastModified="1672657942" lastUniqueIdentifier="1">
   <timeline>
     <DOMTimeline name="BaseButton">
       <layers>
@@ -18,7 +18,7 @@ area.addEventListener(MouseEvent.CLICK, clicked);
 var mouseOver: Boolean = false
 var connectedFunct: Function;
 var pressedFunct: Function;
-var butEnabled: Boolean = true;
+var butDisabled: Boolean = false;
 
 const NORMAL: int = 2;
 const HIGHLIGHT: int = 3;
@@ -56,7 +56,7 @@ function clicked(evt: Event): void {
 
 	}
 	// Checks if button is enabled AFTER function as the function might try to disable button
-	if (!butEnabled)
+	if (butDisabled)
 		return;
 	if (mouseOver)
 		this.gotoAndStop(HIGHLIGHT);
@@ -65,7 +65,7 @@ function clicked(evt: Event): void {
 }
 
 function disable(): void {
-	butEnabled = false;
+	butDisabled = true;
 	area.removeEventListener(MouseEvent.MOUSE_OVER, hover);
 	area.removeEventListener(MouseEvent.MOUSE_OUT, mouseExit);
 	area.removeEventListener(MouseEvent.MOUSE_DOWN, pressedDown);
@@ -74,7 +74,7 @@ function disable(): void {
 }
 
 function enable(): void {
-	butEnabled = true;
+	butDisabled = false;
 	area.addEventListener(MouseEvent.MOUSE_OVER, hover);
 	area.addEventListener(MouseEvent.MOUSE_OUT, mouseExit);
 	area.addEventListener(MouseEvent.MOUSE_DOWN, pressedDown);

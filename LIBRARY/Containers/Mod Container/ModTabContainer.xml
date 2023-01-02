@@ -113,12 +113,12 @@ function previousPage(): void {
 stop();]]></script>
               </Actionscript>
               <elements>
-                <DOMSymbolInstance libraryItemName="Containers/Mod Container/ModTab" name="tabTemplate">
+                <DOMSymbolInstance libraryItemName="Containers/Mod Container/ModTab" name="tabTemplate" selected="true">
                   <transformationPoint>
                     <Point x="366.95" y="52.8"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="UI/Buttons/ArrowBut/ArrowButton" name="butPrev">
+                <DOMSymbolInstance libraryItemName="UI/Buttons/ArrowBut/ArrowButton" name="butPrev" selected="true">
                   <matrix>
                     <Matrix a="-0.840805053710938" d="0.840682983398438" tx="486.95" ty="392.45"/>
                   </matrix>
@@ -126,7 +126,7 @@ stop();]]></script>
                     <Point x="39.7" y="35.05"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="UI/Buttons/ArrowBut/ArrowButton" name="butNext">
+                <DOMSymbolInstance libraryItemName="UI/Buttons/ArrowBut/ArrowButton" name="butNext" selected="true">
                   <matrix>
                     <Matrix a="0.840789794921875" d="0.8406982421875" tx="506.95" ty="392.45"/>
                   </matrix>

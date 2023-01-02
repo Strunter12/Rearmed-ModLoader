@@ -1,4 +1,4 @@
-<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Checkboxes/MCheckBox" itemID="63b16930-00000212" lastModified="1672654152" displayAsComponent="false" customIconID="0" actionscriptClass="MainCheckBox" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Checkboxes/MCheckBox" itemID="63b16930-00000212" lastModified="1672657666" displayAsComponent="false" customIconID="0" actionscriptClass="MainCheckBox" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
   <timeline>
     <DOMTimeline name="MCheckBox">
       <layers>
@@ -44,6 +44,11 @@ labelCheck.autoSize = TextFieldAutoSize.LEFT;
 labelCheck.text = this.label;
 
 area.alpha = 0;
+
+if (!this.enabled)
+	this.disable();
+else
+	this.enable();
 
 function forceCheck(): void {
 	area.addEventListener(MouseEvent.MOUSE_OVER, hover);
@@ -154,7 +159,7 @@ function enable(): void {
 }]]></script>
               </Actionscript>
               <elements>
-                <DOMDynamicText name="labelCheck" top="-5.5" width="100" height="29.9" isSelectable="false" lineType="multiline no wrap">
+                <DOMDynamicText name="labelCheck" selected="true" top="-5.5" width="100" height="29.9" isSelectable="false" lineType="multiline no wrap">
                   <matrix>
                     <Matrix a="2.73654174804688" d="2.73654174804688" tx="143.45" ty="43"/>
                   </matrix>
@@ -167,7 +172,7 @@ function enable(): void {
                     </DOMTextRun>
                   </textRuns>
                 </DOMDynamicText>
-                <DOMSymbolInstance libraryItemName="UI/Checkboxes/varHolder" name="varHolder">
+                <DOMSymbolInstance libraryItemName="UI/Checkboxes/varHolder" name="varHolder" selected="true">
                   <matrix>
                     <Matrix tx="-202.95" ty="25.05"/>
                   </matrix>
