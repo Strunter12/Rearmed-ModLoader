@@ -1,5 +1,5 @@
 ﻿package  {
-	import mx.core.UIComponent;
+	//import mx.core.UIComponent;
 	
 	public class MainButton {
 		protected var _label:String = "Label";

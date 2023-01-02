@@ -1,12 +1,12 @@
-<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/But2/MainButton" itemID="63aac8fb-00000157" lastModified="1672591594" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" actionscriptClass="MainButton" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Buttons/MainBut/MainButton" itemID="63aac8fb-00000157" lastModified="1672654226" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" actionscriptClass="MainButton" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
   <timeline>
     <DOMTimeline name="MainButton">
       <layers>
-        <DOMLayer name="MouseArea" color="#9933CC" autoNamed="false">
+        <DOMLayer name="MouseArea" color="#9933CC" autoNamed="false" visible="false">
           <frames>
             <DOMFrame index="0" duration="2" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="UI/MouseArea" name="area">
+                <DOMSymbolInstance libraryItemName="UI/MouseArea" name="area" selected="true">
                   <matrix>
                     <Matrix a="1.24163818359375" d="1.34393310546875" tx="-5.15" ty="-0.7"/>
                   </matrix>
@@ -106,7 +106,7 @@
             </DOMFrame>
             <DOMFrame index="4" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMSymbolInstance libraryItemName="UI/Buttons/But2/ButLabel" name="animLabel">
+                <DOMSymbolInstance libraryItemName="UI/Buttons/MainBut/ButLabel" name="animLabel">
                   <matrix>
                     <Matrix a="0.999801635742188" d="1.00050354003906"/>
                   </matrix>
@@ -125,7 +125,7 @@
             </DOMFrame>
             <DOMFrame index="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMSymbolInstance libraryItemName="UI/Buttons/But2/ButLabel" name="animLabel" centerPoint3DX="33.35" centerPoint3DY="20.75">
+                <DOMSymbolInstance libraryItemName="UI/Buttons/MainBut/ButLabel" name="animLabel" centerPoint3DX="33.35" centerPoint3DY="20.75">
                   <matrix>
                     <Matrix a="0.999786376953125" d="1.00050354003906"/>
                   </matrix>
@@ -158,8 +158,9 @@ area.addEventListener(MouseEvent.MOUSE_OUT, mouseExit);
 area.addEventListener(MouseEvent.MOUSE_DOWN, pressedDown);
 area.addEventListener(MouseEvent.CLICK, clicked);
 
-var mouseOver:Boolean = false
+var mouseOver: Boolean = false
 var connectedFunction: Function;
+var butEnabled: Boolean = true;
 
 labelBut.autoSize = TextFieldAutoSize.CENTER;
 labelBut.text = this.label;
@@ -170,27 +171,35 @@ glowLine.visible = false;
 this.gotoAndStop(2);
 
 // Called when mouse hovers over the button
-function hover(evt:Event): void {
+function hover(evt: Event): void {
 	this.gotoAndPlay(5);
 	mouseOver = true;
 	Mouse.cursor = MouseCursor.BUTTON;
 }
 
 // Called when mouse exits the button
-function mouseExit(evt:Event): void {
+function mouseExit(evt: Event): void {
 	mouseOver = false;
 	Mouse.cursor = MouseCursor.AUTO;
 	this.gotoAndStop(3);
 }
 
 // Called when button is pressed down
-function pressedDown(evt:Event): void {
+function pressedDown(evt: Event): void {
 	this.gotoAndStop(4);
 }
 
 // Called when button is clicked (on release)
-function clicked(evt:Event): void {
-	connectedFunction();
+function clicked(evt: Event): void {
+	try {
+		connectedFunction();
+	} catch (error:Error) {
+
+	}
+	// Checks if button is enabled AFTER function as the function might try to disable button
+	if (!butEnabled)
+		return;
+	
 	if (mouseOver)
 		this.gotoAndPlay(5);
 	else
@@ -206,6 +215,7 @@ function hideGlowLine() {
 }
 
 function disable(): void {
+	butEnabled = false;
 	this.gotoAndStop(4);
 	area.removeEventListener(MouseEvent.MOUSE_OVER, hover);
 	area.removeEventListener(MouseEvent.MOUSE_OUT, mouseExit);
@@ -214,6 +224,7 @@ function disable(): void {
 }
 
 function enable(): void {
+	butEnabled = true;
 	this.gotoAndStop(3);
 	area.addEventListener(MouseEvent.MOUSE_OVER, hover);
 	area.addEventListener(MouseEvent.MOUSE_OUT, mouseExit);
@@ -241,8 +252,7 @@ if (this.right)
 area.width = labelBut.width;
 area.height = labelBut.height;
 // Go to initial frame for button texture
-this.gotoAndStop(3);
-trace(labelBut.width);]]></script>
+this.gotoAndStop(3);]]></script>
               </Actionscript>
               <elements/>
             </DOMFrame>
@@ -256,8 +266,7 @@ if (this.right_expand)
 	labelBut.autoSize = TextFieldAutoSize.RIGHT;
 if (this.none_expand)
 	labelBut.autoSize = TextFieldAutoSize.NONE;
-labelBut.text = this.label
-]]></script>
+labelBut.text = this.label]]></script>
               </Actionscript>
               <elements/>
             </DOMFrame>

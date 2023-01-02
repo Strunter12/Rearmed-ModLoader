@@ -8,6 +8,8 @@
           <DOMFolderItem name="Component Assets/ScrollBarSkins" itemID="44ea2edf-000000a6"/>
           <DOMFolderItem name="Component Assets/Shared" itemID="44f892ff-0000001e"/>
           <DOMFolderItem name="Component Assets/TextAreaSkins" itemID="44ec8463-00000078"/>
+          <DOMFolderItem name="Containers" itemID="63b18c88-00000218" isExpanded="true"/>
+          <DOMFolderItem name="Containers/Mod Container" itemID="63b18c8d-0000021c" isExpanded="true"/>
           <DOMFolderItem name="Environemnt" itemID="63b08925-00000eea"/>
           <DOMFolderItem name="Environemnt/ENV-CaveBG" itemID="63b08925-00000f4a"/>
           <DOMFolderItem name="Environemnt/ENV-Prop-Back" itemID="63b08925-00000f26"/>
@@ -15,19 +17,18 @@
           <DOMFolderItem name="Environemnt/ENV-Prop-Back/ENV-Rock" itemID="63b08925-00000f59"/>
           <DOMFolderItem name="Environemnt/ENV-Prop-Back/ENV-Ruins" itemID="63b08925-00000f3a"/>
           <DOMFolderItem name="Environemnt/ENV-Prop-Front" itemID="63b08925-00000eeb"/>
-          <DOMFolderItem name="Fonts" itemID="63b15d24-000002ae"/>
+          <DOMFolderItem name="Fonts" itemID="63b15d24-000002ae" isExpanded="true"/>
           <DOMFolderItem name="UI" itemID="63b075a1-0000016b" isExpanded="true"/>
-          <DOMFolderItem name="UI/Buttons" itemID="63a9e4ab-000010e6"/>
-          <DOMFolderItem name="UI/Buttons/But2" itemID="63aac876-00000144" isExpanded="true"/>
+          <DOMFolderItem name="UI/Buttons" itemID="63a9e4ab-000010e6" isExpanded="true"/>
+          <DOMFolderItem name="UI/Buttons/ArrowBut" itemID="63b28808-00000fb5" isExpanded="true"/>
+          <DOMFolderItem name="UI/Buttons/MainBut" itemID="63b287e8-00000fad" isExpanded="true"/>
           <DOMFolderItem name="UI/Buttons/ModBut" itemID="63a9e4fb-000010f7"/>
-          <DOMFolderItem name="UI/Checkboxes" itemID="63b17770-00000241"/>
-          <DOMFolderItem name="UI/Containers" itemID="63b18c88-00000218" isExpanded="true"/>
-          <DOMFolderItem name="UI/Containers/Mod Container" itemID="63b18c8d-0000021c" isExpanded="true"/>
+          <DOMFolderItem name="UI/Checkboxes" itemID="63b17770-00000241" isExpanded="true"/>
      </folders>
      <fonts>
-          <DOMFontItem name="Fonts/MainButFont" itemID="63aaee9d-000001ea" font="Thinman" size="0" id="1" sourceLastImported="1672146589" embedRanges="9999"/>
-          <DOMFontItem name="Fonts/LogFontA" itemID="63ac92de-00000182" font="TerminatorTwo" size="0" id="2" sourceLastImported="1672254174" embedRanges="9999"/>
           <DOMFontItem name="Fonts/LogFontB" itemID="63ac9340-00000185" font="TwCenMT-Condensed" size="0" id="3" sourceLastImported="1672254272" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/LogFontA" itemID="63ac92de-00000182" font="TerminatorTwo" size="0" id="2" sourceLastImported="1672254174" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/MainButFont" itemID="63aaee9d-000001ea" font="Thinman" size="0" id="1" sourceLastImported="1672146589" embedRanges="9999"/>
      </fonts>
      <media>
           <DOMCompiledClipItem name="Component Assets/_private/ComponentShim" itemID="50f45de3-000003c1" linkageExportForAS="true" linkageClassName="fl.core.ComponentShim" sourceLastImported="1358192099" displayAsComponent="false" customIconID="0" actionscriptClass="fl.core.ComponentShim" swfScmHRef="9904vgmrqe.swf" swfScmSourceFilename="C:\Users\jkamerer\AppData\Local\Adobe\Flash CS7\en_US\Configuration\TMP00ECED5F50F45DDD..swf" persistLivePreview11="true" livePreview11ScmHRef="9905agmrqe.swf" livePreview11ScmSourceFilename="C:\Users\jkamerer\AppData\Local\Adobe\Flash CS7\en_US\Configuration\TMP00ECED5F50F45DDD..swf" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true" swcPath="Component Assets/_private/ComponentShim.xml" rootSymbolLinkageID="fl.core.ComponentShim" playerVersion="9" actionscriptVersion="3" hashKey="lBSX9Y5jU7802yucctAf9/">
@@ -123,7 +124,7 @@
           </DOMCompiledClipItem>
      </media>
      <symbols>
-          <Include href="Base/BaseMod.xml" loadImmediate="false" itemID="63b075d3-00000173" lastModified="1672602643"/>
+          <Include href="Base/BaseMod.xml" loadImmediate="false" itemID="63b075d3-00000173" lastModified="1672654359"/>
           <Include href="Button.xml" itemID="44a4944a-00000029" lastModified="1358192121"/>
           <Include href="Component Assets/_private/Component_avatar.xml" loadImmediate="false" itemID="44f89322-00000020" lastModified="1168286780"/>
           <Include href="Component Assets/ButtonSkins/Button_disabledSkin.xml" itemID="44a3379e-00000015" lastModified="1168286804"/>
@@ -163,6 +164,8 @@
           <Include href="Component Assets/Shared/focusRectSkin.xml" itemID="44d8b6f8-00000055" lastModified="1168290361"/>
           <Include href="Component Assets/TextAreaSkins/TextArea_disabledSkin.xml" itemID="44d8caf3-000000d9" lastModified="1168290416"/>
           <Include href="Component Assets/TextAreaSkins/TextArea_upSkin.xml" itemID="44d8cafd-000000da" lastModified="1672235310"/>
+          <Include href="Containers/Mod Container/ModTab.xml" itemID="63b184d2-0000032a" lastModified="1672654117"/>
+          <Include href="Containers/Mod Container/ModTabContainer.xml" loadImmediate="false" itemID="63b187bd-00000340" lastModified="1672656573"/>
           <Include href="Environemnt/ENV-CaveBG/ENV-CaveBG-000.xml" loadImmediate="false" itemID="55d4b1c2-00001eb9" lastModified="1491249158"/>
           <Include href="Environemnt/ENV-CaveBG/ENV-CaveBG-001.xml" itemIcon="1" loadImmediate="false" itemID="55d4b1c4-00001eba" lastModified="1496188011"/>
           <Include href="Environemnt/ENV-CaveBG/ENV-CaveBG-002.xml" itemIcon="1" loadImmediate="false" itemID="55d4b1c6-00001ebb" lastModified="1496188186"/>
@@ -321,16 +324,17 @@
           <Include href="Environemnt/ENV-Prop-Front/ENV-RockFront-Slide-01.xml" loadImmediate="false" itemID="56a55e77-00000d8b" lastModified="1453678199"/>
           <Include href="Environemnt/ENV-Prop-Front/ENV-RockFront-Slide-02.xml" loadImmediate="false" itemID="56a55e7a-00000d8c" lastModified="1488204815"/>
           <Include href="GlowLine.xml" loadImmediate="false" itemID="63b1b3fe-00000fda" lastModified="1672590334"/>
-          <Include href="Settings.xml" loadImmediate="false" itemID="63b17d9b-00000298" lastModified="1672577247"/>
+          <Include href="Settings.xml" loadImmediate="false" itemID="63b17d9b-00000298" lastModified="1672646446"/>
           <Include href="Tween 1.xml" itemIcon="1" loadImmediate="false" itemID="63b1b13e-00000f8f" lastModified="1672589630"/>
           <Include href="Tween 2.xml" itemIcon="1" loadImmediate="false" itemID="63b1b13e-00000f9c" lastModified="1672589630"/>
-          <Include href="UI/Buttons/But2/ButLabel.xml" loadImmediate="false" itemID="63aadc79-000001b3" lastModified="1672574199"/>
-          <Include href="UI/Buttons/But2/MainButton.xml" loadImmediate="false" itemID="63aac8fb-00000157" lastModified="1672591594"/>
+          <Include href="UI/Buttons/ArrowBut/ArrowButton.xml" loadImmediate="false" itemID="63b2880d-00000fb7" lastModified="1672656564"/>
+          <Include href="UI/Buttons/BaseButton.xml" loadImmediate="false" itemID="63b283dd-00000fa4" lastModified="1672655273"/>
+          <Include href="UI/Buttons/MainBut/ButLabel.xml" loadImmediate="false" itemID="63aadc79-000001b3" lastModified="1672574199"/>
+          <Include href="UI/Buttons/MainBut/MainButton.xml" loadImmediate="false" itemID="63aac8fb-00000157" lastModified="1672654226"/>
           <Include href="UI/Buttons/ModBut/ModButton.xml" itemIcon="0" itemID="63a9e647-00001117" lastModified="1672078919"/>
-          <Include href="UI/Checkboxes/Area.xml" loadImmediate="false" itemID="63b17715-0000023a" lastModified="1672576033"/>
-          <Include href="UI/Checkboxes/MCheckBox.xml" loadImmediate="false" itemID="63b16930-00000212" lastModified="1672602122"/>
-          <Include href="UI/Containers/Mod Container/ModTab.xml" itemID="63b184d2-0000032a" lastModified="1672600908"/>
-          <Include href="UI/Containers/Mod Container/ModTabContainer.xml" loadImmediate="false" itemID="63b187bd-00000340" lastModified="1672593829"/>
+          <Include href="UI/Checkboxes/Area.xml" loadImmediate="false" itemID="63b17715-0000023a" lastModified="1672644379"/>
+          <Include href="UI/Checkboxes/MCheckBox.xml" loadImmediate="false" itemID="63b16930-00000212" lastModified="1672654152"/>
+          <Include href="UI/Checkboxes/varHolder.xml" loadImmediate="false" itemID="63b2ab38-00001022" lastModified="1672653698"/>
           <Include href="UI/DecoBorderDown.xml" loadImmediate="false" itemID="63a9f368-00000149" lastModified="1672082280"/>
           <Include href="UI/FancyButton.xml" itemIcon="0" itemID="63a9e5cc-0000110b" lastModified="1672132793"/>
           <Include href="UI/Label.xml" itemID="44b18473-00000011" lastModified="1358192121"/>
@@ -343,7 +347,7 @@
           <Include href="UI/Title.xml" itemIcon="1" loadImmediate="false" itemID="63a9d608-00001009" lastModified="1672167294"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1" currentFrame="19">
+          <DOMTimeline name="Scene 1">
                <layers>
                     <DOMLayer name="FileHandle" color="#00FFFF" autoNamed="false">
                          <frames>
@@ -465,37 +469,50 @@ import flash.events.TimerEvent;
 import flash.display.Screen;
 
 CONFIG::AIR {
-import flash.display.NativeWindow;
-import flash.desktop.NativeApplication;
+	import flash.display.NativeWindow;
+	import flash.desktop.NativeApplication;
 }
 
 traceLog("Started mod loader");
-const SETTINGS:int = 20;
-const MODS:int = 19;
+const NOTES: int = 18;
+const MODS: int = 19;
+const SETTINGS: int = 20;
 
 // Pre-Launch
-var swfRequest:URLRequest = new URLRequest("/Armed with Wings Rearmed/Armed with Wings Rearmed.swf");
-var target:MovieClip;
-var loader:Loader = new Loader();
+var swfRequest: URLRequest = new URLRequest("/Armed with Wings Rearmed/Armed with Wings Rearmed.swf");
+var target: MovieClip;
+var loader: Loader = new Loader();
 
 butLaunch.connect(LaunchGame);
 butSettings.connect(Settings);
 butMods.connect(ShowMods);
 
 function Settings(): void {
+	// Return to NOTES when pressing settings button again
+	if (currentFrame == SETTINGS) {
+		gotoAndStop(NOTES);
+		butSettings.hideGlowLine();
+		return;
+	}
 	butSettings.showGlowLine();
 	butMods.hideGlowLine();
 	gotoAndStop(SETTINGS);
 }
 
 function ShowMods(): void {
+	// Return to NOTES when pressing mdos button again
+	if (currentFrame == MODS) {
+		gotoAndStop(NOTES);
+		butMods.hideGlowLine();
+		return;
+	}
 	butSettings.hideGlowLine();
 	butMods.showGlowLine();
 	gotoAndStop(MODS);
 }
 
- // WINDOW OPTIONS
-var windowOptions:NativeWindowInitOptions = new NativeWindowInitOptions();
+// WINDOW OPTIONS
+var windowOptions: NativeWindowInitOptions = new NativeWindowInitOptions();
 //windowOptions.owner = stage.nativeWindow; //setting the owner to the main window means that if this main window is closed, it will also close this new window
 windowOptions.renderMode = NativeWindowRenderMode.AUTO;
 windowOptions.resizable = true;
@@ -504,33 +521,33 @@ windowOptions.maximizable = true;
 windowOptions.systemChrome = NativeWindowSystemChrome.NONE;
 
 // Window variables
-var newScreen:NativeWindow;
+var newScreen: NativeWindow;
 
 // Launch game
 function LaunchGame(): void {
 	traceLog("*** Launching game ***");
 	// Create a Window
 	newScreen = new NativeWindow(windowOptions);
-	newScreen.title = "Armed with Wings Modded";	
-	
+	newScreen.title = "Armed with Wings Modded";
+
 	loader.contentLoaderInfo.addEventListener(Event.COMPLETE, InitTarget, false, 0, true);
-	
+
 	newScreen.maximize();
 	newScreen.stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
 	newScreen.activate();
 	newScreen.stage.addChild(loader);
 	loader.x = 0;
 	loader.y = 0;
-	newScreen.stage.nativeWindow.addEventListener(Event.CLOSE, AppClosed);	
+	newScreen.stage.nativeWindow.addEventListener(Event.CLOSE, AppClosed);
 	butLaunch.disable();
 	// Fix mouse after clicking launch
 	Mouse.cursor = MouseCursor.AUTO
-	
+
 	loader.load(swfRequest);
 }
 
 // Clean up after closing the game
-function AppClosed(evt:Event): void {
+function AppClosed(evt: Event): void {
 	target = null;
 	loader.unloadAndStop();
 	loader = new Loader();
@@ -539,22 +556,22 @@ function AppClosed(evt:Event): void {
 	Mouse.show();
 }
 
-function InitTarget(evt:Event): void {
+function InitTarget(evt: Event): void {
 	traceLog("Done loading swf");
 	// Target contains access to the RUNNING game code
 	target = evt.currentTarget.loader.content as MovieClip;
-	
+
 	// Tell base mod to start loading mods
 	BaseMod.initMod(target);
 	BaseMod.loadMods();
-	
+
 	traceLog(target.gameVersion);
-	
-	//this.gotoAndPlay(2);
+
+	this.gotoAndPlay(2);
 }
 
 function addModsToContainer(modDatas: Array, baseMod: MovieClip): void {
-	for (var i:uint = 0; i < modDatas.length; i++)
+	for (var i: uint = 0; i < modDatas.length; i++)
 		modTabContainer.addMod(modDatas[i], i, baseMod);
 }
 
@@ -826,7 +843,7 @@ function pressedVanilla(): void {
                          <frames>
                               <DOMFrame index="0" duration="18" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="UI/Containers/Mod Container/ModTabContainer" name="modTabContainer">
+                                        <DOMSymbolInstance libraryItemName="Containers/Mod Container/ModTabContainer" name="modTabContainer">
                                              <matrix>
                                                   <Matrix tx="931.8" ty="179.75"/>
                                              </matrix>
@@ -834,11 +851,37 @@ function pressedVanilla(): void {
                                                   <Point x="366.95" y="52.8"/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
+                                        <DOMDynamicText name="txtVersionTitle" width="269.7" height="42" autoExpand="true" isSelectable="false" lineType="multiline no wrap">
+                                             <matrix>
+                                                  <Matrix tx="308.5" ty="173.65"/>
+                                             </matrix>
+                                             <textRuns>
+                                                  <DOMTextRun>
+                                                       <characters>aww modloader-v0.1.1</characters>
+                                                       <textAttrs>
+                                                            <DOMTextAttrs aliasText="false" lineHeight="42" size="28" bitmapSize="560" face="MainButFont*" fillColor="#FFFFFF"/>
+                                                       </textAttrs>
+                                                  </DOMTextRun>
+                                             </textRuns>
+                                        </DOMDynamicText>
+                                        <DOMDynamicText width="585.1" height="221.3" isSelectable="false" lineType="multiline">
+                                             <matrix>
+                                                  <Matrix tx="308.5" ty="228.7"/>
+                                             </matrix>
+                                             <textRuns>
+                                                  <DOMTextRun>
+                                                       <characters>This is a mod loader for armed with wings rearmed. All mods are &#xD;saved in the AWW_Mods folder. Current support for others to mod the game is bad and will be improved on in the future. A guide will be coming out soon for modding.&#xD;&#xD;- You can choose mods to enable/disable in the mods menu after &#xD;pressing the "MODS" button.</characters>
+                                                       <textAttrs>
+                                                            <DOMTextAttrs aliasText="false" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#CCCCCC"/>
+                                                       </textAttrs>
+                                                  </DOMTextRun>
+                                             </textRuns>
+                                        </DOMDynamicText>
                                    </elements>
                               </DOMFrame>
                               <DOMFrame index="18" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="UI/Containers/Mod Container/ModTabContainer" name="modTabContainer" centerPoint3DX="676.3" centerPoint3DY="224">
+                                        <DOMSymbolInstance libraryItemName="Containers/Mod Container/ModTabContainer" name="modTabContainer" centerPoint3DX="676.3" centerPoint3DY="224">
                                              <matrix>
                                                   <Matrix tx="309.1" ty="171.2"/>
                                              </matrix>
@@ -850,7 +893,7 @@ function pressedVanilla(): void {
                               </DOMFrame>
                               <DOMFrame index="19" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="UI/Containers/Mod Container/ModTabContainer" name="modTabContainer" centerPoint3DX="1299" centerPoint3DY="232.55">
+                                        <DOMSymbolInstance libraryItemName="Containers/Mod Container/ModTabContainer" name="modTabContainer" centerPoint3DX="1299" centerPoint3DY="232.55">
                                              <matrix>
                                                   <Matrix tx="931.8" ty="179.75"/>
                                              </matrix>
@@ -868,7 +911,7 @@ function pressedVanilla(): void {
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="Settings">
                                              <matrix>
-                                                  <Matrix tx="-252.45" ty="179.75"/>
+                                                  <Matrix tx="-903.1" ty="179.75"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point x="73.2" y="66.2"/>
@@ -909,7 +952,7 @@ function pressedVanilla(): void {
                                                   <Edge cubics="!11126 4894(;11126,4894 11126,5040 11126,5040q11126 4894 11126 5040);"/>
                                              </edges>
                                         </DOMShape>
-                                        <DOMComponentInstance libraryItemName="UI/Buttons/But2/MainButton" name="butSettings" uniqueID="1">
+                                        <DOMComponentInstance libraryItemName="UI/Buttons/MainBut/MainButton" name="butSettings" uniqueID="1">
                                              <matrix>
                                                   <Matrix tx="11.65" ty="312.85"/>
                                              </matrix>
@@ -936,7 +979,7 @@ function pressedVanilla(): void {
    </property>
 ]]></parametersAsXML>
                                         </DOMComponentInstance>
-                                        <DOMComponentInstance libraryItemName="UI/Buttons/But2/MainButton" name="butLaunch" uniqueID="2">
+                                        <DOMComponentInstance libraryItemName="UI/Buttons/MainBut/MainButton" name="butLaunch" uniqueID="2">
                                              <matrix>
                                                   <Matrix a="1.90579223632812" d="1.90579223632812" tx="9.8" ty="166.35"/>
                                              </matrix>
@@ -960,7 +1003,7 @@ function pressedVanilla(): void {
    </property>
 ]]></parametersAsXML>
                                         </DOMComponentInstance>
-                                        <DOMComponentInstance libraryItemName="UI/Buttons/But2/MainButton" name="butMods" uniqueID="3">
+                                        <DOMComponentInstance libraryItemName="UI/Buttons/MainBut/MainButton" name="butMods" uniqueID="3">
                                              <matrix>
                                                   <Matrix tx="11.65" ty="262.35"/>
                                              </matrix>
@@ -1085,8 +1128,8 @@ function pressedVanilla(): void {
                                                   </FillStyle>
                                              </fills>
                                              <edges>
-                                                  <Edge fillStyle1="1" edges="!15102 -478[15194 -477 15225 -476!15225 -476[#3B7B.E5 -475.875 15231 -475.5!15231 -475.5|15050 -477.5!15050 -477.5|15102 -478!15610 -477.5|15652 -478!15652 -478[#3D59.C1 -478 15736 -476.5!15736 -476.5|15610 -477.5!16618.5 -478.5|16657
- -479!16657 -479[#4169.F6 -479 16805.5 -477.5!16805.5 -477.5|16618.5 -478.5!16316.5 -477|16334 -477!16334 -477[#3FEB.58 -477 16387.5 -475.5!16387.5 -475.5|16316.5 -477"/>
+                                                  <Edge fillStyle1="1" edges="!15102 -478[15194 -477 15225 -476!15225 -476[#3B7B.E5 -475.875 15231 -475.5!15231 -475.5|15050 -477.5!15050 -477.5|15102 -478!15610 -477.5|15652 -478!15652 -478[#3D59.C1 -478 15736 -476.5!15736 -476.5|15610 -477.5!16316.5 -477|16334 -477
+!16334 -477[#3FEB.58 -477 16387.5 -475.5!16387.5 -475.5|16316.5 -477!16618.5 -478.5|16657 -479!16657 -479[#4169.F6 -479 16805.5 -477.5!16805.5 -477.5|16618.5 -478.5"/>
                                                   <Edge fillStyle1="2" edges="
 !-130 28545|-130 7913!-130 7913|18130 7913!18130 7913|18130 28545!18130 28545|-130 28545"/>
                                                   <Edge cubics="!16388 -475(;16388,-475 16317,-477 16317,-477q16388 -475 16317 -477);"/>
@@ -1119,46 +1162,46 @@ function pressedVanilla(): void {
      <persistentData>
           <PD n="com.air.artemis.airdest" v="D:/Development/AWWSTEAMAPPTEST/AwwModLoader-1.app"/>
           <PD n="ane.tmp.unzipped.folder" v="C:\Users\pc\AppData\Local\Temp\Tmp_ANE_File_Unzipped_Packages"/>
-          <PD n="DebugMovieChecked" v="ADLDesktop"/>
-          <PD n="com.air.artemis.included.count" v="3"/>
           <PD n="com.air.oldTargetPlatform" v="Desktop"/>
-          <PD n="TestMovieChecked" v="ADLDesktop"/>
+          <PD n="com.air.artemis.included.count" v="3"/>
+          <PD n="DebugMovieChecked" v="ADLDesktop"/>
           <PD n="ane.id.FRESteamWorks.ane" v="com.amanitadesign.steam.FRESteamWorks"/>
+          <PD n="TestMovieChecked" v="ADLDesktop"/>
           <PD n="com.air.sdk.path" v="D:\Adobe\AdobeAir"/>
           <PD n="com.air.artemis.pubair" v="false"/>
-          <PD n="com.air.artemis.pubipa" v="false"/>
           <PD n="com.air.artemis.included.item0" v="steam_api.dll"/>
+          <PD n="com.air.artemis.pubipa" v="false"/>
           <PD n="com.air.artemis.included.item1" v="D:/Development/Armed with Wings Rearmed"/>
           <PD n="com.air.artemis.included.item2" v="AWW_Mods"/>
-          <PD n="com.air.artemis.included.item3" v="LOG"/>
           <PD n="flash.swf.basename" v="AwwModLoader-1"/>
+          <PD n="com.air.artemis.included.item3" v="LOG"/>
           <PD n="com.air.artemis.pubcaptive" v="true"/>
-          <PD n="swf.folder.path" v="D:/Development/AWWSTEAMAPPTEST/"/>
           <PD n="flash.fla.filepath" v="C:/Users/pc/Documents/GitHub/Rearmed-ModLoader/Rearmed-ModLoader/AwwModLoader-1.xfl"/>
+          <PD n="swf.folder.path" v="D:/Development/AWWSTEAMAPPTEST/"/>
           <PD n="com.air.artemis.pubexe" v="false"/>
      </persistentData>
      <PrinterSettings/>
      <publishHistory>
-          <PublishItem publishSize="106501" publishTime="1672603604"/>
-          <PublishItem publishSize="106501" publishTime="1672603452"/>
-          <PublishItem publishSize="116423" publishTime="1672603129"/>
-          <PublishItem publishSize="116423" publishTime="1672603124"/>
-          <PublishItem publishSize="116423" publishTime="1672603118"/>
-          <PublishItem publishSize="116423" publishTime="1672603112"/>
-          <PublishItem publishSize="116423" publishTime="1672603106"/>
-          <PublishItem publishSize="116416" publishTime="1672603074"/>
-          <PublishItem publishSize="116483" publishTime="1672603031"/>
-          <PublishItem publishSize="116483" publishTime="1672603024"/>
-          <PublishItem publishSize="116483" publishTime="1672602996"/>
-          <PublishItem publishSize="116437" publishTime="1672602956"/>
-          <PublishItem publishSize="116427" publishTime="1672602931"/>
-          <PublishItem publishSize="116399" publishTime="1672602894"/>
-          <PublishItem publishSize="116399" publishTime="1672602881"/>
-          <PublishItem publishSize="116374" publishTime="1672602851"/>
-          <PublishItem publishSize="116362" publishTime="1672602829"/>
-          <PublishItem publishSize="116354" publishTime="1672602778"/>
-          <PublishItem publishSize="116354" publishTime="1672602758"/>
-          <PublishItem publishSize="116354" publishTime="1672602695"/>
+          <PublishItem publishSize="123078" publishTime="1672657309"/>
+          <PublishItem publishSize="123070" publishTime="1672657290"/>
+          <PublishItem publishSize="123057" publishTime="1672657268"/>
+          <PublishItem publishSize="124169" publishTime="1672657245"/>
+          <PublishItem publishSize="123044" publishTime="1672657195"/>
+          <PublishItem publishSize="121783" publishTime="1672656577"/>
+          <PublishItem publishSize="121783" publishTime="1672656537"/>
+          <PublishItem publishSize="123719" publishTime="1672656521"/>
+          <PublishItem publishSize="123773" publishTime="1672656500"/>
+          <PublishItem publishSize="123733" publishTime="1672656408"/>
+          <PublishItem publishSize="123759" publishTime="1672656367"/>
+          <PublishItem publishSize="123759" publishTime="1672656343"/>
+          <PublishItem publishSize="59663" publishTime="1672656280"/>
+          <PublishItem publishSize="59663" publishTime="1672656242"/>
+          <PublishItem publishSize="59663" publishTime="1672656200"/>
+          <PublishItem publishSize="59663" publishTime="1672656136"/>
+          <PublishItem publishSize="59663" publishTime="1672656103"/>
+          <PublishItem publishSize="121824" publishTime="1672655709"/>
+          <PublishItem publishSize="121819" publishTime="1672655589"/>
+          <PublishItem publishSize="121824" publishTime="1672655413"/>
      </publishHistory>
      <swcCache>
           <Swc hashKey="lBSX9Y5jU7802yucctAf9/" href="lcqn9ng719.swc">

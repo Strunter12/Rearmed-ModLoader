@@ -14,7 +14,7 @@
                     <Point x="73.2" y="66.2"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="UI/Containers/Mod Container/ModTabContainer" name="modTabContainer" selected="true">
+                <DOMSymbolInstance libraryItemName="Containers/Mod Container/ModTabContainer" name="modTabContainer" selected="true">
                   <matrix>
                     <Matrix tx="235.55" ty="-70.95"/>
                   </matrix>

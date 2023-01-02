@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672602643">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672654359">
   <timeline>
     <DOMTimeline name="BaseMod">
       <layers>
@@ -172,8 +172,8 @@ function modLoaded(evt: Event): void {
 	var modTarget: MovieClip = modLoader.content as MovieClip;
 
 	modContents.push(modTarget);
-	modContents[modsLoadedCount].initMod(game);
-	this.addChild(modContents[modsLoadedCount]);
+	modContents[modContents.length - 1].initMod(game);
+	this.addChild(modContents[modContents.length - 1]);
 	modsLoadedCount++;
 
 	// Stop loading mods after loading last mod
@@ -210,6 +210,7 @@ CONFIG::AIR {
 		}
 	}
 }
+
 function runAfterInitMods(): void {
 	_root.traceLog("Calling after init functions in mods");
 	for (var i: uint = 0; i < modContents.length; i++) {
