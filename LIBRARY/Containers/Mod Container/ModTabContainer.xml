@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Containers/Mod Container/ModTabContainer" itemID="63b187bd-00000340" lastModified="1672656573">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Containers/Mod Container/ModTabContainer" itemID="63b187bd-00000340" lastModified="1672658390">
   <timeline>
     <DOMTimeline name="ModTabContainer">
       <layers>
@@ -19,7 +19,11 @@ butPrev.Connect(previousPage);
 
 function initContainer(): void {
 	butNext.disable();
+	butNext.visible = false;
+	
 	butPrev.disable();
+	butPrev.visible = false;
+	
 	isInitialised = true;
 }
 
@@ -46,6 +50,8 @@ function addMod(mod: Dictionary, modIdx: int, baseMod: MovieClip): void {
 	if (modTabs.length == 3) {
 		// Enable next button
 		butNext.enable();
+		butNext.visible = true;
+		butPrev.visible = true;
 		modTabs = new Array();
 		tabPages.push(modTabs);
 		// Make tab of new page invisible (Only visible when page is selected)
