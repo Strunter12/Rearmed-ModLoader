@@ -26,9 +26,9 @@
           <DOMFolderItem name="UI/Checkboxes" itemID="63b17770-00000241" isExpanded="true"/>
      </folders>
      <fonts>
-          <DOMFontItem name="Fonts/LogFontB" itemID="63ac9340-00000185" font="TwCenMT-Condensed" size="0" id="3" sourceLastImported="1672254272" embedRanges="9999"/>
-          <DOMFontItem name="Fonts/LogFontA" itemID="63ac92de-00000182" font="TerminatorTwo" size="0" id="2" sourceLastImported="1672254174" embedRanges="9999"/>
           <DOMFontItem name="Fonts/MainButFont" itemID="63aaee9d-000001ea" font="Thinman" size="0" id="1" sourceLastImported="1672146589" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/LogFontA" itemID="63ac92de-00000182" font="TerminatorTwo" size="0" id="2" sourceLastImported="1672254174" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/LogFontB" itemID="63ac9340-00000185" font="TwCenMT-Condensed" size="0" id="3" sourceLastImported="1672254272" embedRanges="9999"/>
      </fonts>
      <media>
           <DOMCompiledClipItem name="Component Assets/_private/ComponentShim" itemID="50f45de3-000003c1" linkageExportForAS="true" linkageClassName="fl.core.ComponentShim" sourceLastImported="1358192099" displayAsComponent="false" customIconID="0" actionscriptClass="fl.core.ComponentShim" swfScmHRef="9904vgmrqe.swf" swfScmSourceFilename="C:\Users\jkamerer\AppData\Local\Adobe\Flash CS7\en_US\Configuration\TMP00ECED5F50F45DDD..swf" persistLivePreview11="true" livePreview11ScmHRef="9905agmrqe.swf" livePreview11ScmSourceFilename="C:\Users\jkamerer\AppData\Local\Adobe\Flash CS7\en_US\Configuration\TMP00ECED5F50F45DDD..swf" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true" swcPath="Component Assets/_private/ComponentShim.xml" rootSymbolLinkageID="fl.core.ComponentShim" playerVersion="9" actionscriptVersion="3" hashKey="lBSX9Y5jU7802yucctAf9/">
@@ -347,9 +347,9 @@
           <Include href="UI/Title.xml" itemIcon="1" loadImmediate="false" itemID="63a9d608-00001009" lastModified="1672167294"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1" currentFrame="17">
+          <DOMTimeline name="Scene 1">
                <layers>
-                    <DOMLayer name="FileHandle" color="#00FFFF" autoNamed="false">
+                    <DOMLayer name="FileHandle" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <Actionscript>
@@ -368,6 +368,12 @@ CONFIG::AIR {
 	var stream: FileStream = new FileStream();
 	var optionsStream: FileStream = new FileStream();
 
+	// Can not extract keys from dictionary so must make arrays instead
+	var keys: Array = new Array("Vanilla");
+	var defValues: Array = new Array(false);
+	// Patern to detect letters in a string
+	var lettersPattern: RegExp = /[a-zA-Z]/g;
+
 	logFile = File.applicationStorageDirectory.resolvePath("Log.txt");
 	optionsFile = File.applicationStorageDirectory.resolvePath("config.txt");
 	trace("Log file at " + logFile.nativePath);
@@ -380,7 +386,10 @@ CONFIG::AIR {
 	} catch (error: Error) {
 		trace("Could not open log file");
 	}
-
+	
+	// Load settings at launch
+	settingsDict = loadSettings();
+	
 	// Save trace text to log file
 	function traceLog(txt): void {
 		if (isLogFileOpen) {
@@ -398,20 +407,30 @@ CONFIG::AIR {
 			isLogFileOpen = false;
 		}
 	}
-
+	
+	// Saves config file with given dictionary. Format: "key=value" per line
 	function saveSettings(dict: Dictionary): void {
 		try {
 			optionsStream.open(optionsFile, FileMode.WRITE);
-			if (dict["Vanilla"])
-				optionsStream.writeUTFBytes("VANILLA_ON");
-			else
-				optionsStream.writeUTFBytes("VANILLA_OFF");
+			var writeLine: String;
+
+			// Save in format: "key=value" in config file
+			for (var i: uint = 0; i < keys.length; i++) {
+				writeLine = keys[i] + "=" + dict[keys[i]];
+				traceLog("Writing " + writeLine);
+				optionsStream.writeUTFBytes(writeLine);
+			}
+
 			traceLog("Finished writing to config file");
 		} catch (error: Error) {
 			traceLog(error);
 		}
 	}
-
+	
+	/* Opens and reads config file
+	 * Format: "key=value" per line
+	 * Key and value are used to set values in dictionary
+	 */
 	function loadSettings(): Dictionary {
 		var dict: Dictionary = new Dictionary();
 		try {
@@ -420,32 +439,52 @@ CONFIG::AIR {
 			var contents: Array = fileContent.split("\n");
 
 			for (var i: uint = 0; i < contents.length; i++) {
-				var line: String = contents[i];
-				trace(line == "VANILLA_ON");
-				if (line == "VANILLA_ON")
-					dict["Vanilla"] = true;
+				// Seperate line by '=' then add content to dict
+				var line: Array = contents[i].split("=");
+
+				// CHECK INVALID SAVE FILE
+				if (line.length != 2) {
+					traceLog("Invalid mod loader config file");
+					traceLog("Replacing config file");
+					saveSettings(getDefaultDict());
+					return dict;
+				}
+				// First check if value is a true/false
+				if (line[1] == "true")
+					dict[line[0]] = true;
+				else if (line[1] == "false")
+					dict[line[0]] = false;
+				// Second check if it is a number
+				else if (line[1].search(lettersPattern) == -1)
+					dict[line[0]] = parseInt(line[1], 10);
+				// If no condition was entered then the value is a String
 				else
-					dict["Vanilla"] = false;
+					dict[line[0]] = line[1];
 			}
-			trace(dict["Vanilla"] + " <------ VANILL MODE");
-			traceLog("Finished reading config file " + dict["Vanilla"]);
+			traceLog("Finished reading config file");
 			optionsStream.close();
-			
+
 			return dict;
 		} catch (error: Error) {
 			// Create config file with default data
 			traceLog("Creating config file");
 		}
-		dict["Vanilla"] = false;
-		saveSettings(dict);
+		saveSettings(getDefaultDict());
 		return dict;
 	}
-	
-	settingsDict = loadSettings();
+
+	// Return a default dictionary
+	function getDefaultDict(): Dictionary {
+		var dict: Dictionary = new Dictionary();
+		for (var i: uint = 0; i < keys.length; i++) {
+			dict[keys[i]] = defValues[i];
+		}
+		return dict;
+	}
 }]]></script>
                                    </Actionscript>
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod">
+                                        <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod" selected="true">
                                              <matrix>
                                                   <Matrix tx="-35.15" ty="-7.95"/>
                                              </matrix>
@@ -839,7 +878,7 @@ function pressedVanilla(): void {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="Mods" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="Mods" color="#00FFFF" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="18" keyMode="9728">
                                    <elements>
@@ -1128,8 +1167,8 @@ function pressedVanilla(): void {
                                                   </FillStyle>
                                              </fills>
                                              <edges>
-                                                  <Edge fillStyle1="1" edges="!15102 -478[15194 -477 15225 -476!15225 -476[#3B7B.E5 -475.875 15231 -475.5!15231 -475.5|15050 -477.5!15050 -477.5|15102 -478!15610 -477.5|15652 -478!15652 -478[#3D59.C1 -478 15736 -476.5!15736 -476.5|15610 -477.5!16316.5 -477|16334 -477
-!16334 -477[#3FEB.58 -477 16387.5 -475.5!16387.5 -475.5|16316.5 -477!16618.5 -478.5|16657 -479!16657 -479[#4169.F6 -479 16805.5 -477.5!16805.5 -477.5|16618.5 -478.5"/>
+                                                  <Edge fillStyle1="1" edges="!15102 -478[15194 -477 15225 -476!15225 -476[#3B7B.E5 -475.875 15231 -475.5!15231 -475.5|15050 -477.5!15050 -477.5|15102 -478!15610 -477.5|15652 -478!15652 -478[#3D59.C1 -478 15736 -476.5!15736 -476.5|15610 -477.5!16618.5 -478.5|16657
+ -479!16657 -479[#4169.F6 -479 16805.5 -477.5!16805.5 -477.5|16618.5 -478.5!16316.5 -477|16334 -477!16334 -477[#3FEB.58 -477 16387.5 -475.5!16387.5 -475.5|16316.5 -477"/>
                                                   <Edge fillStyle1="2" edges="
 !-130 28545|-130 7913!-130 7913|18130 7913!18130 7913|18130 28545!18130 28545|-130 28545"/>
                                                   <Edge cubics="!16388 -475(;16388,-475 16317,-477 16317,-477q16388 -475 16317 -477);"/>
@@ -1162,46 +1201,46 @@ function pressedVanilla(): void {
      <persistentData>
           <PD n="com.air.artemis.airdest" v="D:/Development/AWWSTEAMAPPTEST/AwwModLoader-1.app"/>
           <PD n="ane.tmp.unzipped.folder" v="C:\Users\pc\AppData\Local\Temp\Tmp_ANE_File_Unzipped_Packages"/>
-          <PD n="com.air.oldTargetPlatform" v="Desktop"/>
-          <PD n="com.air.artemis.included.count" v="3"/>
           <PD n="DebugMovieChecked" v="ADLDesktop"/>
-          <PD n="ane.id.FRESteamWorks.ane" v="com.amanitadesign.steam.FRESteamWorks"/>
+          <PD n="com.air.artemis.included.count" v="3"/>
+          <PD n="com.air.oldTargetPlatform" v="Desktop"/>
           <PD n="TestMovieChecked" v="ADLDesktop"/>
+          <PD n="ane.id.FRESteamWorks.ane" v="com.amanitadesign.steam.FRESteamWorks"/>
           <PD n="com.air.sdk.path" v="D:\Adobe\AdobeAir"/>
           <PD n="com.air.artemis.pubair" v="false"/>
-          <PD n="com.air.artemis.included.item0" v="steam_api.dll"/>
           <PD n="com.air.artemis.pubipa" v="false"/>
+          <PD n="com.air.artemis.included.item0" v="steam_api.dll"/>
           <PD n="com.air.artemis.included.item1" v="D:/Development/Armed with Wings Rearmed"/>
           <PD n="com.air.artemis.included.item2" v="AWW_Mods"/>
-          <PD n="flash.swf.basename" v="AwwModLoader-1"/>
           <PD n="com.air.artemis.included.item3" v="LOG"/>
+          <PD n="flash.swf.basename" v="AwwModLoader-1"/>
           <PD n="com.air.artemis.pubcaptive" v="true"/>
-          <PD n="flash.fla.filepath" v="C:/Users/pc/Documents/GitHub/Rearmed-ModLoader/Rearmed-ModLoader/AwwModLoader-1.xfl"/>
           <PD n="swf.folder.path" v="D:/Development/AWWSTEAMAPPTEST/"/>
+          <PD n="flash.fla.filepath" v="C:/Users/pc/Documents/GitHub/Rearmed-ModLoader/Rearmed-ModLoader/AwwModLoader-1.xfl"/>
           <PD n="com.air.artemis.pubexe" v="false"/>
      </persistentData>
      <PrinterSettings/>
      <publishHistory>
-          <PublishItem publishSize="123122" publishTime="1672658431"/>
-          <PublishItem publishSize="123122" publishTime="1672658414"/>
-          <PublishItem publishSize="123122" publishTime="1672658392"/>
-          <PublishItem publishSize="123122" publishTime="1672658361"/>
-          <PublishItem publishSize="123122" publishTime="1672658331"/>
-          <PublishItem publishSize="123082" publishTime="1672658234"/>
-          <PublishItem publishSize="123082" publishTime="1672658149"/>
-          <PublishItem publishSize="123082" publishTime="1672658093"/>
-          <PublishItem publishSize="123082" publishTime="1672658061"/>
-          <PublishItem publishSize="123082" publishTime="1672658014"/>
-          <PublishItem publishSize="123137" publishTime="1672657985"/>
-          <PublishItem publishSize="123082" publishTime="1672657945"/>
-          <PublishItem publishSize="123102" publishTime="1672657904"/>
-          <PublishItem publishSize="123082" publishTime="1672657868"/>
-          <PublishItem publishSize="123082" publishTime="1672657802"/>
-          <PublishItem publishSize="123082" publishTime="1672657670"/>
-          <PublishItem publishSize="123070" publishTime="1672657654"/>
-          <PublishItem publishSize="123052" publishTime="1672657494"/>
-          <PublishItem publishSize="123078" publishTime="1672657309"/>
-          <PublishItem publishSize="123070" publishTime="1672657290"/>
+          <PublishItem publishSize="123076" publishTime="1672836524"/>
+          <PublishItem publishSize="123076" publishTime="1672836510"/>
+          <PublishItem publishSize="122969" publishTime="1672836100"/>
+          <PublishItem publishSize="122969" publishTime="1672836093"/>
+          <PublishItem publishSize="122969" publishTime="1672836052"/>
+          <PublishItem publishSize="122943" publishTime="1672836022"/>
+          <PublishItem publishSize="122881" publishTime="1672835789"/>
+          <PublishItem publishSize="60139" publishTime="1672835778"/>
+          <PublishItem publishSize="122641" publishTime="1672835279"/>
+          <PublishItem publishSize="122642" publishTime="1672835270"/>
+          <PublishItem publishSize="122639" publishTime="1672835256"/>
+          <PublishItem publishSize="122699" publishTime="1672834855"/>
+          <PublishItem publishSize="122681" publishTime="1672834786"/>
+          <PublishItem publishSize="122649" publishTime="1672834736"/>
+          <PublishItem publishSize="122642" publishTime="1672834716"/>
+          <PublishItem publishSize="122633" publishTime="1672834704"/>
+          <PublishItem publishSize="122632" publishTime="1672834672"/>
+          <PublishItem publishSize="60139" publishTime="1672834560"/>
+          <PublishItem publishSize="111352" publishTime="1672658736"/>
+          <PublishItem publishSize="111352" publishTime="1672658727"/>
      </publishHistory>
      <swcCache>
           <Swc hashKey="lBSX9Y5jU7802yucctAf9/" href="lcqn9ng719.swc">
