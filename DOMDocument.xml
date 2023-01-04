@@ -26,9 +26,9 @@
           <DOMFolderItem name="UI/Checkboxes" itemID="63b17770-00000241" isExpanded="true"/>
      </folders>
      <fonts>
-          <DOMFontItem name="Fonts/MainButFont" itemID="63aaee9d-000001ea" font="Thinman" size="0" id="1" sourceLastImported="1672146589" embedRanges="9999"/>
-          <DOMFontItem name="Fonts/LogFontA" itemID="63ac92de-00000182" font="TerminatorTwo" size="0" id="2" sourceLastImported="1672254174" embedRanges="9999"/>
           <DOMFontItem name="Fonts/LogFontB" itemID="63ac9340-00000185" font="TwCenMT-Condensed" size="0" id="3" sourceLastImported="1672254272" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/LogFontA" itemID="63ac92de-00000182" font="TerminatorTwo" size="0" id="2" sourceLastImported="1672254174" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/MainButFont" itemID="63aaee9d-000001ea" font="Thinman" size="0" id="1" sourceLastImported="1672146589" embedRanges="9999"/>
      </fonts>
      <media>
           <DOMCompiledClipItem name="Component Assets/_private/ComponentShim" itemID="50f45de3-000003c1" linkageExportForAS="true" linkageClassName="fl.core.ComponentShim" sourceLastImported="1358192099" displayAsComponent="false" customIconID="0" actionscriptClass="fl.core.ComponentShim" swfScmHRef="9904vgmrqe.swf" swfScmSourceFilename="C:\Users\jkamerer\AppData\Local\Adobe\Flash CS7\en_US\Configuration\TMP00ECED5F50F45DDD..swf" persistLivePreview11="true" livePreview11ScmHRef="9905agmrqe.swf" livePreview11ScmSourceFilename="C:\Users\jkamerer\AppData\Local\Adobe\Flash CS7\en_US\Configuration\TMP00ECED5F50F45DDD..swf" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true" swcPath="Component Assets/_private/ComponentShim.xml" rootSymbolLinkageID="fl.core.ComponentShim" playerVersion="9" actionscriptVersion="3" hashKey="lBSX9Y5jU7802yucctAf9/">
@@ -124,7 +124,7 @@
           </DOMCompiledClipItem>
      </media>
      <symbols>
-          <Include href="Base/BaseMod.xml" loadImmediate="false" itemID="63b075d3-00000173" lastModified="1672654359"/>
+          <Include href="Base/BaseMod.xml" loadImmediate="false" itemID="63b075d3-00000173" lastModified="1672847881"/>
           <Include href="Button.xml" itemID="44a4944a-00000029" lastModified="1358192121"/>
           <Include href="Component Assets/_private/Component_avatar.xml" loadImmediate="false" itemID="44f89322-00000020" lastModified="1168286780"/>
           <Include href="Component Assets/ButtonSkins/Button_disabledSkin.xml" itemID="44a3379e-00000015" lastModified="1168286804"/>
@@ -164,7 +164,7 @@
           <Include href="Component Assets/Shared/focusRectSkin.xml" itemID="44d8b6f8-00000055" lastModified="1168290361"/>
           <Include href="Component Assets/TextAreaSkins/TextArea_disabledSkin.xml" itemID="44d8caf3-000000d9" lastModified="1168290416"/>
           <Include href="Component Assets/TextAreaSkins/TextArea_upSkin.xml" itemID="44d8cafd-000000da" lastModified="1672235310"/>
-          <Include href="Containers/Mod Container/ModTab.xml" itemID="63b184d2-0000032a" lastModified="1672654117"/>
+          <Include href="Containers/Mod Container/ModTab.xml" itemID="63b184d2-0000032a" lastModified="1672838918"/>
           <Include href="Containers/Mod Container/ModTabContainer.xml" loadImmediate="false" itemID="63b187bd-00000340" lastModified="1672658390"/>
           <Include href="Environemnt/ENV-CaveBG/ENV-CaveBG-000.xml" loadImmediate="false" itemID="55d4b1c2-00001eb9" lastModified="1491249158"/>
           <Include href="Environemnt/ENV-CaveBG/ENV-CaveBG-001.xml" itemIcon="1" loadImmediate="false" itemID="55d4b1c4-00001eba" lastModified="1496188011"/>
@@ -347,9 +347,9 @@
           <Include href="UI/Title.xml" itemIcon="1" loadImmediate="false" itemID="63a9d608-00001009" lastModified="1672167294"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1">
+          <DOMTimeline name="Scene 1" currentFrame="19">
                <layers>
-                    <DOMLayer name="FileHandle" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="FileHandle" color="#00FFFF" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <Actionscript>
@@ -378,7 +378,9 @@ CONFIG::AIR {
 	logFile = File.applicationStorageDirectory.resolvePath("Log.txt");
 	optionsFile = File.applicationStorageDirectory.resolvePath("config.txt");
 	trace("Log file at " + logFile.nativePath);
-
+	
+	var testDict: Dictionary = new Dictionary();
+	
 	// Try opening file
 	try {
 		// Open in async (Keep on background)
@@ -443,26 +445,26 @@ CONFIG::AIR {
 
 			for (var i: uint = 0; i < contents.length; i++) {
 				// Seperate line by '=' then add content to dict
-				var line: Array = contents[i].split("=");
+				var stringPair: Array = contents[i].split("=");
 
 				// CHECK INVALID SAVE FILE
-				if (line.length != 2) {
+				if (stringPair.length != 2) {
 					traceLog("Invalid mod loader config file");
 					traceLog("Replacing config file");
 					saveSettings(getDefaultDict());
 					return dict;
 				}
 				// First check if value is a true/false
-				if (line[1] == "true")
-					dict[line[0]] = true;
-				else if (line[1] == "false")
-					dict[line[0]] = false;
+				if (stringPair[1] == "true")
+					dict[stringPair[0]] = true;
+				else if (stringPair[1] == "false")
+					dict[stringPair[0]] = false;
 				// Second check if it is a number
-				else if (line[1].search(lettersPattern) == -1)
-					dict[line[0]] = parseInt(line[1], 10);
+				else if (stringPair[1].search(lettersPattern) == -1)
+					dict[stringPair[0]] = parseInt(stringPair[1], 10);
 				// If no condition was entered then the value is a String
 				else
-					dict[line[0]] = line[1];
+					dict[stringPair[0]] = stringPair[1];
 			}
 			traceLog("Finished reading config file");
 			optionsStream.close();
@@ -487,7 +489,7 @@ CONFIG::AIR {
 }]]></script>
                                    </Actionscript>
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod" selected="true">
+                                        <DOMSymbolInstance libraryItemName="Base/BaseMod" name="BaseMod">
                                              <matrix>
                                                   <Matrix tx="-35.15" ty="-7.95"/>
                                              </matrix>
@@ -499,7 +501,7 @@ CONFIG::AIR {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="Actions" color="#00FFFF" autoNamed="false">
+                    <DOMLayer name="Actions" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <Actionscript>
@@ -516,19 +518,23 @@ CONFIG::AIR {
 }
 
 traceLog("Started mod loader");
-const NOTES: int = 18;
-const MODS: int = 19;
-const SETTINGS: int = 20;
 
-// Pre-Launch
+// On Mod Loader Launch
 var swfRequest: URLRequest = new URLRequest("/Armed with Wings Rearmed/Armed with Wings Rearmed.swf");
 var target: MovieClip;
 var loader: Loader = new Loader();
 
+// Frame number for each menu
+const NOTES: int = 18;
+const MODS: int = 19;
+const SETTINGS: int = 20;
+
+// Connect button clicks to buttons
 butLaunch.connect(LaunchGame);
 butSettings.connect(Settings);
 butMods.connect(ShowMods);
 
+// Called when settings button is pressed
 function Settings(): void {
 	// Return to NOTES when pressing settings button again
 	if (currentFrame == SETTINGS) {
@@ -541,6 +547,7 @@ function Settings(): void {
 	gotoAndStop(SETTINGS);
 }
 
+// Called when mods button is pressed
 function ShowMods(): void {
 	// Return to NOTES when pressing mdos button again
 	if (currentFrame == MODS) {
@@ -553,7 +560,7 @@ function ShowMods(): void {
 	gotoAndStop(MODS);
 }
 
-// WINDOW OPTIONS
+// WINDOW OPTIONS (For game)
 var windowOptions: NativeWindowInitOptions = new NativeWindowInitOptions();
 //windowOptions.owner = stage.nativeWindow; //setting the owner to the main window means that if this main window is closed, it will also close this new window
 windowOptions.renderMode = NativeWindowRenderMode.AUTO;
@@ -594,10 +601,13 @@ function AppClosed(evt: Event): void {
 	loader.unloadAndStop();
 	loader = new Loader();
 	traceLog("*** Game Closed ***");
+
+	// Re-enable the launch button after game is closed
 	butLaunch.enable();
 	Mouse.show();
 }
 
+// Called after game swf is loaded. Initializes target to the loaded swf.
 function InitTarget(evt: Event): void {
 	traceLog("Done loading swf");
 	// Target contains access to the RUNNING game code
@@ -609,9 +619,10 @@ function InitTarget(evt: Event): void {
 
 	traceLog(target.gameVersion);
 
-	this.gotoAndPlay(2);
+	//this.gotoAndPlay(2);
 }
 
+// Adds mods to the mod container
 function addModsToContainer(modDatas: Array, baseMod: MovieClip): void {
 	for (var i: uint = 0; i < modDatas.length; i++)
 		modTabContainer.addMod(modDatas[i], i, baseMod);
@@ -625,18 +636,17 @@ this.stop();]]></script>
                                    <Actionscript>
                                         <script><![CDATA[import flash.display.MovieClip;
 target.addEventListener(Event.EXIT_FRAME, CheckInit)
-// Checks if the game is done loading initial data
-function CheckInit(evt:Event):void {
+// Checks if the game is done loading initial data (Repeats until game is initialised)
+function CheckInit(evt: Event): void {
 	traceLog("Checking Init");
-	// If the scene changed to launch notes then the game has been initialized
-	if (target == null)
-	{
+
+	// If target is lost (Closed/Crashed before initializing)
+	if (target == null) {
 		this.stop();
 		return;
 	}
-	//log("Current scene = " + target.currentScene.name)
-	if (target.currentScene.name == "Launch Notes")
-	{
+	// If the scene changed to launch notes then the game has been initialized
+	if (target.currentScene.name == "Launch Notes") {
 		traceLog("stopping init checks");
 		traceLog("Game finished initialising");
 		target.removeEventListener(Event.EXIT_FRAME, CheckInit)
@@ -852,7 +862,7 @@ function saveData(): void {
                               </DOMFrame>
                               <DOMFrame index="18" keyMode="9728">
                                    <Actionscript>
-                                        <script><![CDATA[/* MODS */
+                                        <script><![CDATA[/* MODS MENU*/
 
 ]]></script>
                                    </Actionscript>
@@ -860,7 +870,7 @@ function saveData(): void {
                               </DOMFrame>
                               <DOMFrame index="19" keyMode="9728">
                                    <Actionscript>
-                                        <script><![CDATA[/* SETTINGS */
+                                        <script><![CDATA[/* SETTINGS MENU*/
 settingsContainer.checkVanilla.Connect(pressedVanilla);
 
 setSettings();
@@ -1170,8 +1180,8 @@ function pressedVanilla(): void {
                                                   </FillStyle>
                                              </fills>
                                              <edges>
-                                                  <Edge fillStyle1="1" edges="!15102 -478[15194 -477 15225 -476!15225 -476[#3B7B.E5 -475.875 15231 -475.5!15231 -475.5|15050 -477.5!15050 -477.5|15102 -478!15610 -477.5|15652 -478!15652 -478[#3D59.C1 -478 15736 -476.5!15736 -476.5|15610 -477.5!16618.5 -478.5|16657
- -479!16657 -479[#4169.F6 -479 16805.5 -477.5!16805.5 -477.5|16618.5 -478.5!16316.5 -477|16334 -477!16334 -477[#3FEB.58 -477 16387.5 -475.5!16387.5 -475.5|16316.5 -477"/>
+                                                  <Edge fillStyle1="1" edges="!15102 -478[15194 -477 15225 -476!15225 -476[#3B7B.E5 -475.875 15231 -475.5!15231 -475.5|15050 -477.5!15050 -477.5|15102 -478!15610 -477.5|15652 -478!15652 -478[#3D59.C1 -478 15736 -476.5!15736 -476.5|15610 -477.5!16316.5 -477|16334 -477
+!16334 -477[#3FEB.58 -477 16387.5 -475.5!16387.5 -475.5|16316.5 -477!16618.5 -478.5|16657 -479!16657 -479[#4169.F6 -479 16805.5 -477.5!16805.5 -477.5|16618.5 -478.5"/>
                                                   <Edge fillStyle1="2" edges="
 !-130 28545|-130 7913!-130 7913|18130 7913!18130 7913|18130 28545!18130 28545|-130 28545"/>
                                                   <Edge cubics="!16388 -475(;16388,-475 16317,-477 16317,-477q16388 -475 16317 -477);"/>
@@ -1204,46 +1214,46 @@ function pressedVanilla(): void {
      <persistentData>
           <PD n="com.air.artemis.airdest" v="D:/Development/AWWSTEAMAPPTEST/AwwModLoader-1.app"/>
           <PD n="ane.tmp.unzipped.folder" v="C:\Users\pc\AppData\Local\Temp\Tmp_ANE_File_Unzipped_Packages"/>
-          <PD n="DebugMovieChecked" v="ADLDesktop"/>
-          <PD n="com.air.artemis.included.count" v="3"/>
           <PD n="com.air.oldTargetPlatform" v="Desktop"/>
-          <PD n="TestMovieChecked" v="ADLDesktop"/>
+          <PD n="com.air.artemis.included.count" v="3"/>
+          <PD n="DebugMovieChecked" v="ADLDesktop"/>
           <PD n="ane.id.FRESteamWorks.ane" v="com.amanitadesign.steam.FRESteamWorks"/>
+          <PD n="TestMovieChecked" v="ADLDesktop"/>
           <PD n="com.air.sdk.path" v="D:\Adobe\AdobeAir"/>
           <PD n="com.air.artemis.pubair" v="false"/>
-          <PD n="com.air.artemis.pubipa" v="false"/>
           <PD n="com.air.artemis.included.item0" v="steam_api.dll"/>
+          <PD n="com.air.artemis.pubipa" v="false"/>
           <PD n="com.air.artemis.included.item1" v="D:/Development/Armed with Wings Rearmed"/>
           <PD n="com.air.artemis.included.item2" v="AWW_Mods"/>
-          <PD n="com.air.artemis.included.item3" v="LOG"/>
           <PD n="flash.swf.basename" v="AwwModLoader-1"/>
+          <PD n="com.air.artemis.included.item3" v="LOG"/>
           <PD n="com.air.artemis.pubcaptive" v="true"/>
-          <PD n="swf.folder.path" v="D:/Development/AWWSTEAMAPPTEST/"/>
           <PD n="flash.fla.filepath" v="C:/Users/pc/Documents/GitHub/Rearmed-ModLoader/Rearmed-ModLoader/AwwModLoader-1.xfl"/>
+          <PD n="swf.folder.path" v="D:/Development/AWWSTEAMAPPTEST/"/>
           <PD n="com.air.artemis.pubexe" v="false"/>
      </persistentData>
      <PrinterSettings/>
      <publishHistory>
-          <PublishItem publishSize="123076" publishTime="1672836524"/>
-          <PublishItem publishSize="123076" publishTime="1672836510"/>
-          <PublishItem publishSize="122969" publishTime="1672836100"/>
-          <PublishItem publishSize="122969" publishTime="1672836093"/>
-          <PublishItem publishSize="122969" publishTime="1672836052"/>
-          <PublishItem publishSize="122943" publishTime="1672836022"/>
-          <PublishItem publishSize="122881" publishTime="1672835789"/>
-          <PublishItem publishSize="60139" publishTime="1672835778"/>
-          <PublishItem publishSize="122641" publishTime="1672835279"/>
-          <PublishItem publishSize="122642" publishTime="1672835270"/>
-          <PublishItem publishSize="122639" publishTime="1672835256"/>
-          <PublishItem publishSize="122699" publishTime="1672834855"/>
-          <PublishItem publishSize="122681" publishTime="1672834786"/>
-          <PublishItem publishSize="122649" publishTime="1672834736"/>
-          <PublishItem publishSize="122642" publishTime="1672834716"/>
-          <PublishItem publishSize="122633" publishTime="1672834704"/>
-          <PublishItem publishSize="122632" publishTime="1672834672"/>
-          <PublishItem publishSize="60139" publishTime="1672834560"/>
-          <PublishItem publishSize="111352" publishTime="1672658736"/>
-          <PublishItem publishSize="111352" publishTime="1672658727"/>
+          <PublishItem publishSize="124344" publishTime="1672847884"/>
+          <PublishItem publishSize="124352" publishTime="1672847820"/>
+          <PublishItem publishSize="124324" publishTime="1672847774"/>
+          <PublishItem publishSize="60141" publishTime="1672847769"/>
+          <PublishItem publishSize="124302" publishTime="1672847722"/>
+          <PublishItem publishSize="124390" publishTime="1672847580"/>
+          <PublishItem publishSize="124390" publishTime="1672847543"/>
+          <PublishItem publishSize="124390" publishTime="1672847508"/>
+          <PublishItem publishSize="124387" publishTime="1672847435"/>
+          <PublishItem publishSize="60141" publishTime="1672847425"/>
+          <PublishItem publishSize="124341" publishTime="1672847264"/>
+          <PublishItem publishSize="60141" publishTime="1672847258"/>
+          <PublishItem publishSize="124305" publishTime="1672847139"/>
+          <PublishItem publishSize="124230" publishTime="1672846619"/>
+          <PublishItem publishSize="124230" publishTime="1672846612"/>
+          <PublishItem publishSize="124230" publishTime="1672846605"/>
+          <PublishItem publishSize="124230" publishTime="1672846592"/>
+          <PublishItem publishSize="124230" publishTime="1672846557"/>
+          <PublishItem publishSize="124230" publishTime="1672846550"/>
+          <PublishItem publishSize="124230" publishTime="1672846540"/>
      </publishHistory>
      <swcCache>
           <Swc hashKey="lBSX9Y5jU7802yucctAf9/" href="lcqn9ng719.swc">

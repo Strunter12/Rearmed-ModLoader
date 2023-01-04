@@ -1,10 +1,206 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672654359">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672847881">
   <timeline>
     <DOMTimeline name="BaseMod">
       <layers>
-        <DOMLayer name="Actions1" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="ModFileHandler" color="#9933CC" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[// Handle mod files for the base mod
+
+// Pattern to detect letters in a string
+var lettersPattern: RegExp = /[a-zA-Z]/g;
+
+// Keys to be read from/written to file
+var keys: Array = new Array("Name", "Description", "Enabled", "Author");
+var defValues: Array = new Array("Mod name", "No description", "true", "NA");
+
+// Holds dictionaries with mod info (name, description, enabled)
+var modDatas: Array = new Array();
+
+CONFIG::AIR {
+	// Find and read mod data (.SWF) and their INFO txt files
+	function readMods(): void {
+		_root.traceLog("Getting mods to read");
+		var modFolder: File = File.applicationDirectory.resolvePath("AWW_Mods");
+		var files: Array = modFolder.getDirectoryListing();
+
+		// Loop through files/directories in "AWW_Mods" folder
+		for (var i: uint = 0; i < files.length; i++) {
+			_root.traceLog("Checking " + files[i].name);
+			// Check if format is .swf
+			if (files[i].name.substring(files[i].name.length - 4, files[i].name.length) == ".swf") {
+				_root.traceLog("Detected mod: " + files[i].name);
+				// Set the info for mod using INFO.txt file of the mod (If exists)
+				this.setModInfo(modFolder, files[i].name.substring(0, files[i].name.length - 4), files[i])
+			} else {
+				try {
+					// Get nested folder and it's files
+					var nestedFolder: File = File.applicationDirectory.resolvePath("AWW_Mods/" + files[i].name);
+					var nestedFiles: Array = nestedFolder.getDirectoryListing();
+					// Loop through files/directories in nested folder
+					for (var j: uint = 0; j < nestedFiles.length; j++) {
+						// Check if format is .swf
+						if (nestedFiles[j].name.substring(nestedFiles[j].name.length - 4, nestedFiles[j].name.length) == ".swf") {
+							_root.traceLog("Detected mod: " + nestedFiles[j].name);
+
+							// Set the info for mod using INFO.txt file of the mod (If exists)
+							this.setModInfo(nestedFolder, nestedFolder.name, nestedFiles[j]);
+						}
+					}
+				} catch (error: Error) {
+					// Invalid file
+					_root.traceLog(error);
+					_root.traceLog("File/Folder in AWWMods could not be processed");
+				}
+			}
+		}
+	}
+
+	// Reads mod information from txt file (Create one if none exists in %appdata%)
+	function setModInfo(folder: File, fileName: String, modFile: File): void {
+		// Dictionary to hold data read from INFO.txt file
+		var modData: Dictionary = new Dictionary();
+		var openedStoredTxt = false;
+		try {
+			// Attempt to get the INFO.txt file for mod
+			//var infoFile: File = folder.resolvePath(modName + "INFO.txt");
+			var infoFile: File;
+			var fileStream: FileStream = new FileStream();
+			try {
+				// Attempt to open the INFO.txt file stored in %appdata%
+				infoFile = File.applicationStorageDirectory.resolvePath(fileName + "INFO.txt");
+				fileStream.open(infoFile, FileMode.READ);
+				openedStoredTxt = true; // Success in opening file from %appdata%
+			} catch (error: Error) {
+				// Open INFO.txt file in the same directory as the mod
+				infoFile = folder.resolvePath(fileName + "INFO.txt");
+				fileStream.open(infoFile, FileMode.READ);
+			}
+
+			// Get file content string
+			var fileContent: String = fileStream.readUTFBytes(fileStream.bytesAvailable);
+			// Splite content by lines
+			var contentLines: Array = fileContent.split("\n");
+			fileStream.close();
+
+			modData["File"] = modFile;
+			// Set mod data according to data in the mod INFO
+
+			for (var i: uint = 0; i < contentLines.length; i++) {
+				var stringPair: Array = contentLines[i].split("=");
+				// Invalid or EOF line
+				if (stringPair.length < 2)
+					continue;
+				// string pair must be size of 2 (2 elements)
+				if (stringPair.length > 2) {
+					_root.traceLog("Could not parse line " + i + ". Might be invalid");
+					continue;
+				}
+				if (stringPair[1] == "true")
+					modData[stringPair[0]] = true;
+				// First check if value is a true/false
+				if (stringPair[1] == "true")
+					modData[stringPair[0]] = true;
+				else if (stringPair[1] == "false")
+					modData[stringPair[0]] = false;
+				// Second check if it is a number
+				else if (stringPair[1].search(lettersPattern) == -1)
+					modData[stringPair[0]] = parseInt(stringPair[1], 10);
+				// If no condition was entered then the value is a String
+				else
+					modData[stringPair[0]] = stringPair[1];
+			}
+			trace("Done setting info for mod " + modData["Name"]);
+			if (openedStoredTxt) {
+				modData["TXT"] = infoFile;
+			} else {
+				// Create info for mod in application storage directory
+				modData["Enabled"] = true;
+				writeModInfo(modData, fileName);
+			}
+			// Add mod data to modDatas array
+			modDatas.push(modData);
+		}
+		// Could not get mod info. Add default info
+		catch (error: Error) {
+			_root.traceLog(error);
+			_root.traceLog("Pushing default data");
+			modData["File"] = modFile;
+			modData["TXT"] = null;
+			for (var i: uint = 0; i < keys.length; i++) {
+				modData[keys[i]] = defValues[i];
+			}
+
+			modDatas.push(modData);
+		}
+	}
+
+	// Write to mod info TXT file to %appdata% folder (Create one if doesn't exist)
+	function writeModInfo(modData: Dictionary, fileName) {
+		try {
+			// Get file from location (Create one if doesn't exist)
+			_root.traceLog("Writing INFO for " + modData["Name"]);
+			var infoFile: File = File.applicationStorageDirectory.resolvePath(fileName + "INFO.txt");
+			var fileStream: FileStream = new FileStream();
+			fileStream.openAsync(infoFile, FileMode.WRITE);
+
+			var writeString: String = new String();
+
+			for (var i: uint = 0; i < keys.length; i++) {
+				// Write default data if no info file was given or key doesn't exist in modData
+				if (infoFile == null || modData[keys[i]] == undefined) {
+					writeString = keys[i] + "=" + defValues[keys[i]];
+					modData[keys[i]] = defValues[keys[i]];
+				} else
+					writeString = keys[i] + "=" + modData[keys[i]];
+				// Write writeString as a line in the info file
+				fileStream.writeUTFBytes(writeString + "\n");
+			}
+
+			modData["TXT"] = infoFile;
+			fileStream.close();
+		} catch (error: Error) {
+			_root.traceLog("Could not create info file for " + modData["Name"]);
+			_root.traceLog(error);
+		}
+	}
+
+	// Saves info for mod INFO file using index
+	function saveModData(modIdx: int): void {
+		var modData: Dictionary = modDatas[modIdx];
+		try {
+			_root.traceLog("Saving data for " + modData["Name"]);
+
+			if (modData["TXT"] != null) {
+				var txtFile: File = new File();
+				var fileStream: FileStream = new FileStream();
+				fileStream.openAsync(modData["TXT"], FileMode.WRITE);
+
+				var writeString: String;
+				for (var i: uint = 0; i < keys.length; i++) {
+					// Create write string
+					writeString = keys[i] + "=" + modData[keys[i]];
+					// Write writeString as a line in the info file
+					fileStream.writeUTFBytes(writeString + "\n");
+				}
+
+				fileStream.close();
+			}
+		} catch (error: Error) {
+			_root.traceLog("Could not write to txt file for mod " + modData["Name"]);
+			_root.traceLog(error);
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Actions" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
               <Actionscript>
                 <script><![CDATA[/* BASE MOD FOR LOADING OTHER MODS WHILE IN THE GAME
  * Can work as template for other mods
@@ -19,18 +215,18 @@ CONFIG::AIR {
 	import flash.filesystem.FileStream;
 }
 
-// OBLIGATORY VARS:
-var game: MovieClip; // MUST BE IN MOD
-var modName: String = "Base Mod"; // MUST BE IN MOD
+// OBLIGATORY VARS (Must be in all mods):
+var game: MovieClip;
+var modName: String = "Base Mod";
 var modDescription: String = "Base mod for loading other mods";
 var _root: MovieClip = MovieClip(root);
 
-// NON OBLIGATORY:
+// NON OBLIGATORY (Specific to base mod):
 var modLoader: Loader;
 var modContents: Array = new Array();
 
-// Holds dictionaries with mod info (name, description, enabled)
-var modDatas: Array = new Array();
+// Get mod information
+getMods();
 
 // Recieves the game Main Timeline (MUST BE IN ANY MOD)
 function initMod(target: MovieClip): void {
@@ -39,106 +235,16 @@ function initMod(target: MovieClip): void {
 }
 
 CONFIG::AIR {
-	// TODO: FINISH READING MODS
-	// Get mod files (.SWF)
+	// Get mod files 
 	function getMods(): void {
-		_root.traceLog("Getting mods");
-		var modFolder: File = File.applicationDirectory.resolvePath("AWW_Mods");
-		var files: Array = modFolder.getDirectoryListing();
-		for (var i: uint = 0; i < files.length; i++) {
-			_root.traceLog("Checking " + files[i].name);
-			if (files[i].name.substring(files[i].name.length - 4, files[i].name.length) == ".swf") {
-				_root.traceLog("Detected mod: " + files[i].name);
-				this.setModInfo(modFolder, files[i].name.substring(0, files[i].name.length - 4), files[i])
-			} else {
-				try {
-					var nestedFolder: File = File.applicationDirectory.resolvePath("AWW_Mods/" + files[i].name);
-					var nestedFiles: Array = nestedFolder.getDirectoryListing();
-					for (var j: uint = 0; j < nestedFiles.length; j++) {
-						if (nestedFiles[j].name.substring(nestedFiles[j].name.length - 4, nestedFiles[j].name.length) == ".swf") {
-							_root.traceLog("Detected mod: " + nestedFiles[j].name);
-
-							// Read Info.txt for mod
-							this.setModInfo(nestedFolder, nestedFolder.name, nestedFiles[j]);
-						}
-					}
-				} catch (error: Error) {
-					_root.traceLog(error);
-					_root.traceLog("File/Folder in AWWMods could not be processed");
-				}
-			}
-		}
-		// Add mods to container after finishing getting them
+		readMods();
+		// Add mods to container after finishing reading and getting them
 		_root.addModsToContainer(modDatas, this);
 	}
-	getMods();
 }
 
+// Counter for number of mods loaded
 var modsLoadedCount = 0;
-
-// Reads mod information from txt file
-function setModInfo(folder: File, modName: String, modFile: File): void {
-	var modData: Dictionary = new Dictionary();
-	var openedStoredTxt = false;
-	try {
-		var infoFile: File = folder.resolvePath(modName + "INFO.txt");
-		var fileStream: FileStream = new FileStream();
-		try {
-			infoFile = File.applicationStorageDirectory.resolvePath(modName + "INFO.txt");
-			fileStream.open(infoFile, FileMode.READ);
-			openedStoredTxt = true;
-		} catch (error: Error) {
-			infoFile = folder.resolvePath(modName + "INFO.txt");
-			fileStream.open(infoFile, FileMode.READ);
-		}
-
-		var fileContent: String = fileStream.readUTFBytes(fileStream.bytesAvailable);
-		var modInfo: Array = fileContent.split("\n");
-		fileStream.close();
-
-		modData["File"] = modFile;
-		modData["Name"] = modInfo[0];
-		modData["Description"] = modInfo[1];
-
-		if (openedStoredTxt) {
-			modData["TXT"] = infoFile;
-			if (modInfo[2] == "true")
-				modData["Enabled"] = true;
-			else
-				modData["Enabled"] = false;
-		}
-		// Create info for mod in application storage directory
-		else {
-			modData["Enabled"] = true;
-			try {
-				infoFile = File.applicationStorageDirectory.resolvePath(modName + "INFO.txt");
-				fileStream.open(infoFile, FileMode.WRITE);
-				fileStream.writeUTFBytes(modData["Name"] + "\n");
-				fileStream.writeUTFBytes(modData["Description"] + "\n");
-				fileStream.writeUTFBytes("true");
-				modData["TXT"] = infoFile;
-				fileStream.close();
-			} catch (error: Error) {
-				_root.traceLog("Could not create info file for " + modData["Name"]);
-				_root.traceLog(error);
-			}
-		}
-		modDatas.push(modData);
-
-	}
-	// Could not get mod info. Add default info
-	catch (error: Error) {
-		_root.traceLog(error);
-		_root.traceLog("Pushing default data");
-		modData["File"] = modFile;
-		modData["TXT"] = null;
-		modData["Name"] = modName;
-		modData["Description"] = "No description found. Disabled on default";
-		modData["Enabled"] = false;
-
-		modDatas.push(modData);
-	}
-}
 
 // Loads mods (Calls itself until all mods are loaded)
 function loadMods(modIdx: uint = 0): void {
@@ -157,16 +263,14 @@ function loadMods(modIdx: uint = 0): void {
 	} else {
 		_root.traceLog("Skipping mod " + modDatas[modIdx]["Name"]);
 		modsLoadedCount++;
-		if (modsLoadedCount == modDatas.length) {
-			MovieClip(root).gotoAndPlay(2);
-			modsLoadedCount = 0;
-			return;
-		}
-		loadMods(modsLoadedCount);
+
+		// Check if all mods loaded otherwise load next mod
+		if (!isAllModsLoaded())
+			loadMods(modsLoadedCount);
 	}
 }
 
-// Called when a mod is done loading
+// Called when a mod is done loading, start loading next mod if available
 function modLoaded(evt: Event): void {
 	_root.traceLog(modDatas[modsLoadedCount]["Name"] + " has loaded");
 	var modTarget: MovieClip = modLoader.content as MovieClip;
@@ -174,49 +278,33 @@ function modLoaded(evt: Event): void {
 	modContents.push(modTarget);
 	modContents[modContents.length - 1].initMod(game);
 	this.addChild(modContents[modContents.length - 1]);
+
 	modsLoadedCount++;
+	// Check if all mods loaded otherwise load next mod
+	if (!isAllModsLoaded())
+		loadMods(modsLoadedCount);
+}
 
-	// Stop loading mods after loading last mod
+// Checks if all mods loaded
+function isAllModsLoaded(): Boolean {
 	if (modsLoadedCount == modDatas.length) {
-		MovieClip(root).gotoAndPlay(2);
+		_root.traceLog("Finished loading all mods");
+		_root.gotoAndPlay(2);
 		modsLoadedCount = 0;
-		return;
+		return true;
 	}
+	return false;
 }
 
-CONFIG::AIR {
-	// Saves info for mod enable (true/false)
-	function saveTxtSwitch(modIdx: int, enable: Boolean): void {
-		trace("Switching to" + enable);
-		var modDict = modDatas[modIdx];
-		try {
-			if (modDict["TXT"] != null) {
-				var txtFile: File = new File();
-				var fileStream: FileStream = new FileStream();
-				fileStream.open(modDict["TXT"], FileMode.WRITE);
-
-				fileStream.writeUTFBytes(modDict["Name"] + "\n");
-				fileStream.writeUTFBytes(modDict["Description"] + "\n");
-				if (enable)
-					fileStream.writeUTFBytes("true");
-				else
-					fileStream.writeUTFBytes("false");
-
-				fileStream.close();
-			}
-		} catch (error: Error) {
-			_root.traceLog("Could write to txt file to switch enable");
-			_root.traceLog(error);
-		}
-	}
-}
-
+// Calls the after init function in loaded mods
 function runAfterInitMods(): void {
 	_root.traceLog("Calling after init functions in mods");
 	for (var i: uint = 0; i < modContents.length; i++) {
 		modContents[i].afterInits();
 	}
-}]]></script>
+}
+
+this.stop(); // Avoid looping]]></script>
               </Actionscript>
               <elements/>
             </DOMFrame>
