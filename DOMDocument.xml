@@ -347,7 +347,7 @@
           <Include href="UI/Title.xml" itemIcon="1" loadImmediate="false" itemID="63a9d608-00001009" lastModified="1672167294"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1" currentFrame="19">
+          <DOMTimeline name="Scene 1">
                <layers>
                     <DOMLayer name="FileHandle" color="#00FFFF" autoNamed="false">
                          <frames>
@@ -574,6 +574,10 @@ var newScreen: NativeWindow;
 
 // Launch game
 function LaunchGame(): void {
+	// Hide glow lines (none selected)
+	butSettings.hideGlowLine();
+	butMods.hideGlowLine();
+	
 	traceLog("*** Launching game ***");
 	// Create a Window
 	newScreen = new NativeWindow(windowOptions);
@@ -1234,6 +1238,11 @@ function pressedVanilla(): void {
      </persistentData>
      <PrinterSettings/>
      <publishHistory>
+          <PublishItem publishSize="112208" publishTime="1672848423"/>
+          <PublishItem publishSize="112208" publishTime="1672848413"/>
+          <PublishItem publishSize="124366" publishTime="1672848387"/>
+          <PublishItem publishSize="124366" publishTime="1672848221"/>
+          <PublishItem publishSize="124344" publishTime="1672848166"/>
           <PublishItem publishSize="124344" publishTime="1672847884"/>
           <PublishItem publishSize="124352" publishTime="1672847820"/>
           <PublishItem publishSize="124324" publishTime="1672847774"/>
@@ -1249,11 +1258,6 @@ function pressedVanilla(): void {
           <PublishItem publishSize="124305" publishTime="1672847139"/>
           <PublishItem publishSize="124230" publishTime="1672846619"/>
           <PublishItem publishSize="124230" publishTime="1672846612"/>
-          <PublishItem publishSize="124230" publishTime="1672846605"/>
-          <PublishItem publishSize="124230" publishTime="1672846592"/>
-          <PublishItem publishSize="124230" publishTime="1672846557"/>
-          <PublishItem publishSize="124230" publishTime="1672846550"/>
-          <PublishItem publishSize="124230" publishTime="1672846540"/>
      </publishHistory>
      <swcCache>
           <Swc hashKey="lBSX9Y5jU7802yucctAf9/" href="lcqn9ng719.swc">
