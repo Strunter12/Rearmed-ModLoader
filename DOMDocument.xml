@@ -371,19 +371,22 @@ CONFIG::AIR {
 	// Can not extract keys from dictionary so must make arrays instead
 	var keys: Array = new Array("Vanilla");
 	var defValues: Array = new Array(false);
-	// Patern to detect letters in a string
+	// Pattern to detect letters in a string
 	var lettersPattern: RegExp = /[a-zA-Z]/g;
-
+	
+	// Get files from given location (Log and config files)
 	logFile = File.applicationStorageDirectory.resolvePath("Log.txt");
 	optionsFile = File.applicationStorageDirectory.resolvePath("config.txt");
 	trace("Log file at " + logFile.nativePath);
 
 	// Try opening file
 	try {
-		stream.open(logFile, FileMode.WRITE);
+		// Open in async (Keep on background)
+		stream.openAsync(logFile, FileMode.WRITE);
 		trace("Opened log file stream");
 		isLogFileOpen = true;
 	} catch (error: Error) {
+		// No logs would be able to be saved
 		trace("Could not open log file");
 	}
 	
