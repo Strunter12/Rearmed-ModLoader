@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Containers/Mod Container/ModTab" itemID="63b184d2-0000032a" linkageExportForAS="true" linkageClassName="ModTab" lastModified="1672838918" lastUniqueIdentifier="1">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Containers/Mod Container/ModTab" itemID="63b184d2-0000032a" linkageExportForAS="true" linkageClassName="ModTab" lastModified="1686981807" lastUniqueIdentifier="1">
   <timeline>
     <DOMTimeline name="ModTab">
       <layers>
@@ -87,7 +87,7 @@ function setModDescription(txt: String) {
                     </DOMTextRun>
                   </textRuns>
                 </DOMDynamicText>
-                <DOMDynamicText name="txtModDescription" top="-34.05" left="-19.6" width="311.4" height="101.6" isSelectable="false" lineType="multiline">
+                <DOMDynamicText name="txtModDescription" selected="true" top="-34.05" left="-19.6" width="311.4" height="101.6" isSelectable="false" lineType="multiline">
                   <matrix>
                     <Matrix tx="172.2" ty="36.05"/>
                   </matrix>
@@ -126,7 +126,7 @@ function setModDescription(txt: String) {
                     <DOMTextRun>
                       <characters>Enable</characters>
                       <textAttrs>
-                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.0901960784313725" indent="3" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.0862745098039216" indent="3" lineSpacing="0" lineHeight="29.9" size="28" bitmapSize="560" face="LogFontB*" fillColor="#FFFFFF"/>
                       </textAttrs>
                     </DOMTextRun>
                   </textRuns>

@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1672847881">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Base/BaseMod" itemID="63b075d3-00000173" lastModified="1687010455">
   <timeline>
-    <DOMTimeline name="BaseMod">
+    <DOMTimeline name="BaseMod" currentFrame="1">
       <layers>
         <DOMLayer name="ModFileHandler" color="#9933CC" autoNamed="false">
           <frames>
@@ -200,7 +200,10 @@ CONFIG::AIR {
         </DOMLayer>
         <DOMLayer name="Actions" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
           <frames>
-            <DOMFrame index="0" duration="2" keyMode="9728">
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
               <Actionscript>
                 <script><![CDATA[/* BASE MOD FOR LOADING OTHER MODS WHILE IN THE GAME
  * Can work as template for other mods
@@ -222,6 +225,7 @@ var modDescription: String = "Base mod for loading other mods";
 var _root: MovieClip = MovieClip(root);
 
 // NON OBLIGATORY (Specific to base mod):
+var modLoaders: Array;
 var modLoader: Loader;
 var modContents: Array = new Array();
 
@@ -232,6 +236,7 @@ getMods();
 function initMod(target: MovieClip): void {
 	_root.traceLog("Initializing " + modName);
 	game = target;
+	game.addEventListener(Event.EXIT_FRAME, CheckScene);
 }
 
 CONFIG::AIR {
@@ -258,7 +263,6 @@ function loadMods(modIdx: uint = 0): void {
 		modLoader = new Loader();
 		var swfRequest: URLRequest = new URLRequest(modDatas[modIdx]["File"].nativePath);
 		modLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, modLoaded, false, 0, true);
-
 		modLoader.load(swfRequest);
 	} else {
 		_root.traceLog("Skipping mod " + modDatas[modIdx]["Name"]);
@@ -273,12 +277,13 @@ function loadMods(modIdx: uint = 0): void {
 // Called when a mod is done loading, start loading next mod if available
 function modLoaded(evt: Event): void {
 	_root.traceLog(modDatas[modsLoadedCount]["Name"] + " has loaded");
+	
 	var modTarget: MovieClip = modLoader.content as MovieClip;
 
 	modContents.push(modTarget);
-	modContents[modContents.length - 1].initMod(game);
+	if ("initMod" in modContents[modContents.length - 1])
+		modContents[modContents.length - 1].initMod(game);
 	this.addChild(modContents[modContents.length - 1]);
-
 	modsLoadedCount++;
 	// Check if all mods loaded otherwise load next mod
 	if (!isAllModsLoaded())
@@ -299,8 +304,139 @@ function isAllModsLoaded(): Boolean {
 // Calls the after init function in loaded mods
 function runAfterInitMods(): void {
 	_root.traceLog("Calling after init functions in mods");
+	
+	trace("Saving back up");
+	
+	saveBackupData();
 	for (var i: uint = 0; i < modContents.length; i++) {
-		modContents[i].afterInits();
+		CONFIG::AIR {
+			if ("setDocPath" in modContents[i])
+				trace(File.documentsDirectory.nativePath);
+				modContents[i].setDocPath(File.documentsDirectory.nativePath);
+		}
+		if ("afterInits" in modContents[i])
+			modContents[i].afterInits();
+	}
+}
+
+// Clean up
+function unloadMods(): void {
+	_root.traceLog("Cleaning up mods");
+	for (var i: uint = 0; i < modContents.length; i++) {
+		//modLoaders[i].unloadAndStop();
+		trace("Removing " + modContents[i].name);
+		this.removeChild(modContents[i]);
+	}
+}
+
+// Saves the backup game data
+function saveBackupData(): void {
+	trace("Saving Data");
+
+	var saveData: Object = new Object();
+
+	saveData["isSoundMute"] = Boolean(game.isSoundMute);
+	saveData["isMusicMute"] = Boolean(game.isMusicMute);
+	saveData["firstRun"] = Boolean(game.firstRun);
+	//saveData["fullscreen"] = Boolean(target.fullscreen);
+	saveData["fullscreen"] = Boolean(game.fullscreen);
+	saveData["bestRun"] = game.bestRun;
+	saveData["storySessionData"] = game.storySessionData;
+	saveData["survivalScoreData"] = game.survivalScoreData;
+	saveData["keysUnlocked"] = game.keysUnlocked;
+	saveData["acheivementsUnlocked"] = game.acheivementsUnlocked;
+
+	saveData["VFXStyle"] = String(game.VFXStyle);
+
+	saveData["data_equiptedWeapon"] = int(game.data_equiptedWeapon);
+	saveData["data_equiptedGear0"] = int(game.data_equiptedGear0);
+	saveData["data_equiptedGear1"] = int(game.data_equiptedGear1);
+	saveData["data_equiptedGear2"] = int(game.data_equiptedGear2);
+	saveData["data_equiptedGear3"] = int(game.data_equiptedGear3);
+
+	saveData["data_equiptedWeapon_p2"] = int(game.data_equiptedWeapon_p2);
+	saveData["data_equiptedGear0_p2"] = int(game.data_equiptedGear0_p2);
+	saveData["data_equiptedGear1_p2"] = int(game.data_equiptedGear1_p2);
+	saveData["data_equiptedGear2_p2"] = int(game.data_equiptedGear2_p2);
+	saveData["data_equiptedGear3_p2"] = int(game.data_equiptedGear3_p2);
+
+	saveData["levelsUnlockedNum"] = int(game.levelsUnlockedNum);
+	saveData["weaponsUnlockedNum"] = int(game.weaponsUnlockedNum);
+	saveData["gearUnlockedNum"] = int(game.gearUnlockedNum);
+
+	saveData["weaponsListingNew"] = game.weaponsListingNew;
+	saveData["passiveListingNew"] = game.passiveListingNew;
+	saveData["abilityListingNew"] = game.abilityListingNew;
+
+	saveData["unlockScore"] = Number(game.unlockScore);
+	saveData["data_continueLevel"] = int(game.data_continueLevel);
+	saveData["data_continueDifficulty"] = String(game.data_continueDifficulty);
+	saveData["heroName"] = String(game.heroName);
+
+	saveData["juggleModeBest"] = Number(game.juggleModeBest);
+	saveData["data_orbsCollected"] = Number(game.data_orbsCollected);
+	saveData["data_keysCollected"] = Number(game.data_keysCollected);
+
+	saveData["char_loneWarrior_unlocked"] = Boolean(game.char_loneWarrior_unlocked);
+	saveData["char_vandheer_unlocked"] = Boolean(game.char_vandheer_unlocked);
+	saveData["char_SuperLoneWarrior_unlocked"] = Boolean(game.char_SuperLoneWarrior_unlocked);
+	saveData["char_eivana_unlocked"] = Boolean(game.char_eivana_unlocked);
+
+	saveData["startingWaveUnlockArr"] = game.startingWaveUnlockArr;
+	saveData["canStartFromUnlockedWave"] = game.canStartFromUnlockedWave;
+	saveData["volumeCtrl"] = Number(game.volumeCtrl + 1);
+	saveData["soundVolumeCtrl"] = Number(game.soundVolumeCtrl + 1);
+
+	saveData["VFXID"] = Number(game.VFXID);
+	saveData["data_scaleFactor"] = Number(game.data_scaleFactor);
+	saveData["data_gameQuality"] = String(game.data_gameQuality);
+	saveData["data_particlesEnabled"] = Boolean(game.data_particlesEnabled);
+	saveData["data_hideHud"] = Boolean(game.data_hideHud);
+
+	//save weapon booster sets
+	var arr: Array = new Array();
+	for (var i: int = 0; i < game.data_numofWeapons; i++) {
+		var s: String = "data_weap" + i + "_assignedBoosters";
+		//arr.push(this[s]);
+		arr.push([[0,0,0,0],[0,0,0,0]]);
+	}
+	saveData["weaponBoosterSets"] = arr as Array;
+
+	CONFIG::AIR {
+		var savename: String = "SaveData_Backup.sav";
+		var savefile: File;
+		savefile = File.documentsDirectory.resolvePath("My Games/Armed with Wings Rearmed/" + savename);
+		var filestream: FileStream = new FileStream();
+		filestream.open(savefile, FileMode.WRITE);
+		filestream.writeObject(saveData);
+		filestream.close();
+	}
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var curScene: String = "none"
+
+function CheckScene(evt: Event): void {
+	if (curScene != game.currentScene.name) {
+		
+		curScene = game.currentScene.name;
+		trace("Scene changed to " + curScene);
+		for (var i: uint = 0; i < modContents.length; i++) {
+			if ("onSceneChanged" in modContents[i])
+				modContents[i].onSceneChanged(curScene);
+		}
+	}
+}
+
+function KeyHandler(evt: KeyboardEvent) {
+	for (var i: uint = 0; i < modContents.length; i++) {
+		if ("onKeyPressed" in modContents[i])
+			modContents[i].onKeyPressed(evt.keyCode);
 	}
 }
 

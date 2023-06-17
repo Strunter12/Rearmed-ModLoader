@@ -119,7 +119,7 @@ function previousPage(): void {
 stop();]]></script>
               </Actionscript>
               <elements>
-                <DOMSymbolInstance libraryItemName="Containers/Mod Container/ModTab" name="tabTemplate">
+                <DOMSymbolInstance libraryItemName="Containers/Mod Container/ModTab" name="tabTemplate" selected="true">
                   <transformationPoint>
                     <Point x="366.95" y="52.8"/>
                   </transformationPoint>
